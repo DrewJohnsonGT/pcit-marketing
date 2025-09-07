@@ -21,27 +21,30 @@ const NewsTagColors = {
   [NewsTags.Education]: 'bg-purple-500/40 border-purple-500',
 };
 
-const NEWS = [
-  {
-    date: '2025-07-11',
-    description:
-      'A new study from researchers at the University of Miami highlights how time-limited PCIT improves not only child behavior but also caregiver mental health. Caregivers reported significant reductions in depression and anxiety symptoms, with improvements partially explained by increases in parenting skills. These findings support PCIT as an impactful intervention not only for children, but also for their caregivers.',
-    link: 'https://www.mdpi.com/2227-9067/12/7/922',
-    tags: [NewsTags.Research, NewsTags.Education],
-    title:
-      'Parenting Under Pressure: The Transformative Impact of PCIT on Caregiver Depression and Anxiety and Child Outcomes',
-  },
-  {
-    date: '2022-05-05',
-    description:
-      'A recent study from a Midwestern children’s hospital found that Parent–Child Interaction Therapy (PCIT) is effective for children with and without trauma histories—even when families do not complete the full course of treatment. Both groups showed significant reductions in behavior problems and increases in parenting confidence over time. These findings support the use of standard PCIT for children with trauma exposure.',
-    link: 'https://psycnet.apa.org/record/2022-57829-001?doi=1',
-    tags: [NewsTags.Research, NewsTags.Education],
-    title: 'Comparative effectiveness of parent–child interaction therapy based on trauma exposure and attrition.',
-  },
-];
+interface NewsItem {
+  date: string;
+  description: string;
+  link: string;
+  tags: NewsTags[];
+  title: string;
+}
 
-export const News = ({ className }: { className?: string }) => {
+async function getNewsData(): Promise<NewsItem[]> {
+  const newsResponse = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/public/news`, {
+    // This ensures the data is fetched at build time and cached
+    cache: 'force-cache',
+  });
+
+  if (!newsResponse.ok) {
+    throw new Error('Failed to fetch news data');
+  }
+
+  return newsResponse.json();
+}
+
+export const News = async ({ className }: { className?: string }) => {
+  const newsData = await getNewsData();
+
   return (
     <Card className={cn('max-w-xl', className)}>
       <CardHeader>
@@ -55,7 +58,7 @@ export const News = ({ className }: { className?: string }) => {
       <ScrollArea className="h-[550px]" type="always">
         <CardContent>
           <div className="flex flex-wrap gap-4">
-            {NEWS.map((item, index) => (
+            {newsData.map((item, index) => (
               <Card key={index} className="flex flex-col">
                 <CardHeader className="flex flex-col gap-2">
                   <CardTitle className="text-lg font-semibold">{item.title}</CardTitle>
