@@ -1,6 +1,6 @@
-import { Badge, BadgeProps } from '~/components/ui/Badge';
 import { PRICING_PLANS, PricingPlanInfo } from './constants';
 import { PricingPlan } from './types';
+import { Badge, BadgeProps } from '~/components/ui/Badge';
 
 const getPricingPlan = (plan?: PricingPlan): PricingPlanInfo => {
   switch (plan?.toUpperCase()) {

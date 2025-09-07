@@ -1,11 +1,11 @@
+import { PricingPlanBadge } from './PricingPlanBadge';
+import { PricingPlan } from './types';
 import { Button } from '~/components/ui/Button.jsx';
 import { Card, CardContent, CardFooter } from '~/components/ui/Card';
 import { Label } from '~/components/ui/Label.jsx';
 import { Skeleton } from '~/components/ui/Skeleton.jsx';
 import { P } from '~/components/ui/Typography';
 import { formatDate } from '~/utils/formatDate';
-import { PricingPlanBadge } from './PricingPlanBadge';
-import { PricingPlan } from './types';
 
 const SubscriptionCardSkeleton = () => {
   return (

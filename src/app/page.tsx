@@ -1,3 +1,4 @@
+import { ThemeToggle } from '../components/ThemeToggle';
 import Image from 'next/image';
 import Link from 'next/link';
 import { LuMenu } from 'react-icons/lu';
@@ -13,25 +14,19 @@ import { ProductCards } from '~/components/ProductCards';
 import { ReleaseNotes } from '~/components/ReleaseNotes';
 import { SocialShareButtons } from '~/components/SocialShareButtons';
 import { Button } from '~/components/ui/Button';
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuTrigger,
-} from '~/components/ui/DropdownMenu';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '~/components/ui/DropdownMenu';
 import { ScrollArea, ScrollBar } from '~/components/ui/ScrollArea';
 import { A, H2, H3 } from '~/components/ui/Typography';
 import { cn } from '~/utils/cn';
 import {
-    APP_NAME,
-    APP_SLOGAN,
-    PRIVACY_POLICY_URL,
-    RESPONSIBLE_USE_URL,
-    SUPPORT_EMAIL,
-    TERMS_OF_SERVICE_URL,
+  APP_NAME,
+  APP_SLOGAN,
+  PRIVACY_POLICY_URL,
+  RESPONSIBLE_USE_URL,
+  SUPPORT_EMAIL,
+  TERMS_OF_SERVICE_URL,
 } from '~/utils/constants';
 import { IMAGES } from '~/utils/images';
-import { ThemeToggle } from '../components/ThemeToggle';
 
 const HEADER_LINKS = [
   { href: '#features', label: 'Features' },

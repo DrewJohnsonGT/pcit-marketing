@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { cn } from '~/utils/cn';
 import { Skeleton } from './Skeleton';
+import { cn } from '~/utils/cn';
 
 export const sharedInputClasses = cn(
   'flex h-input w-full rounded-md bg-input-background px-2 py-2 leading-none',

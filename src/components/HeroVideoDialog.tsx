@@ -1,7 +1,7 @@
 'use client';
 
-import { AnimatePresence, motion } from 'motion/react';
 import { useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 import { LuPlay, LuX } from 'react-icons/lu';
 import { cn } from '~/utils/cn';
 

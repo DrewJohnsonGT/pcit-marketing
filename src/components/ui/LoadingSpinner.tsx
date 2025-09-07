@@ -1,6 +1,6 @@
+import * as React from 'react';
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
-import * as React from 'react';
 import { cn } from '~/utils/cn';
 
 const spinnerVariants = cva('size-12 shrink-0 origin-center stroke-[6px]', {

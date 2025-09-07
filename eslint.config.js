@@ -85,10 +85,11 @@ export default [
     name: 'Next Plugin',
     plugins: {
       '@next/next': nextPlugin,
-      rules: {
-        ...nextPlugin.configs.recommended.rules,
-        ...nextPlugin.configs['core-web-vitals'].rules,
-      },
+    },
+    rules: {
+      ...nextPlugin.configs.recommended.rules,
+      ...nextPlugin.configs['core-web-vitals'].rules,
+      '@next/next/no-img-element': 'off',
     },
   },
 ];

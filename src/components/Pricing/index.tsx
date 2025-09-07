@@ -1,6 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import { PRICING_PLANS, YEARLY_RATE_MULTIPLIER } from './constants';
+import { EnterpriseDialog } from './EnterpriseDialog';
+import { FeatureTable } from './FeatureTable';
+import { SubscriptionCard } from './SubscriptionCard';
+import { BillingCycle, PricingPlan } from './types';
 import { CountingNumber } from '~/components/CountingNumber';
 import { Badge } from '~/components/ui/Badge';
 import { Button } from '~/components/ui/Button';
@@ -8,11 +13,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Switch } from '~/components/ui/Switch';
 import { cn } from '~/utils/cn';
 import { ICONS } from '~/utils/icons';
-import { PRICING_PLANS, YEARLY_RATE_MULTIPLIER } from './constants';
-import { EnterpriseDialog } from './EnterpriseDialog';
-import { FeatureTable } from './FeatureTable';
-import { SubscriptionCard } from './SubscriptionCard';
-import { BillingCycle, PricingPlan } from './types';
 
 const getMonthlyRate = (price: number, billingCycle: BillingCycle) => {
   return billingCycle === 'annual' ? price * YEARLY_RATE_MULTIPLIER : price;

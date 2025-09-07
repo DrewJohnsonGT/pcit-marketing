@@ -1,7 +1,7 @@
 'use client';
 
-import { animate, domAnimation, LazyMotion, motion } from 'motion/react';
 import { useEffect, useState } from 'react';
+import { animate, domAnimation, LazyMotion, motion } from 'motion/react';
 import { cn } from '~/utils/cn';
 
 export const CountingNumber = ({

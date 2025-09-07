@@ -1,11 +1,11 @@
 'use client';
 
+import * as React from 'react';
+import { buttonVariants } from './Button';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
-import * as React from 'react';
 import { cn } from '~/utils/cn';
 import { ICONS } from '~/utils/icons';
-import { buttonVariants } from './Button';
 
 const Dialog = DialogPrimitive.Root;
 
@@ -145,15 +145,15 @@ const DialogDescription: React.FC<
 };
 
 export {
-    Dialog,
-    DialogBody,
-    DialogClose,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogOverlay,
-    DialogPortal,
-    DialogTitle,
-    DialogTrigger
+  Dialog,
+  DialogBody,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
 };
