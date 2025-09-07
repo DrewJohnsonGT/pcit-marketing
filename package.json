@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.15.1",
   "scripts": {
     "dev": "next dev --turbopack --port 4000",
     "start": "next start",
@@ -11,7 +12,7 @@
     "lint": "eslint --fix .",
     "format": "prettier --write .",
     "unused": "knip --fix --no-exit-code",
-    "check": "pnpm format && pnpm lint && pnpm typecheck && pnpm unused",
+    "check": "pnpm run unused && pnpm run format && pnpm run lint && pnpm run typecheck",
     "clean": "rm -rf .next && rm -rf node_modules"
   },
   "dependencies": {

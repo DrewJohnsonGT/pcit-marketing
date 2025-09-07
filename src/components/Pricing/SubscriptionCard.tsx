@@ -1,9 +1,9 @@
 import { PricingPlanBadge } from './PricingPlanBadge';
 import { PricingPlan } from './types';
-import { Button } from '~/components/ui/Button.jsx';
+import { Button } from '~/components/ui/Button';
 import { Card, CardContent, CardFooter } from '~/components/ui/Card';
-import { Label } from '~/components/ui/Label.jsx';
-import { Skeleton } from '~/components/ui/Skeleton.jsx';
+import { Label } from '~/components/ui/Label';
+import { Skeleton } from '~/components/ui/Skeleton';
 import { P } from '~/components/ui/Typography';
 import { formatDate } from '~/utils/formatDate';
 
