@@ -12,8 +12,6 @@ const sharedLanguageOptions = {
     ecmaFeatures: {
       jsx: true,
     },
-    project: true,
-    tsconfigRootDir: './',
   },
 };
 
