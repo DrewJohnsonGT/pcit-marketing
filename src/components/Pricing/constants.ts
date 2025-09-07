@@ -5,8 +5,6 @@ import { PiCircleDuotone, PiHexagonDuotone, PiTriangleDuotone } from 'react-icon
 import { ICONS, Icons } from '~/utils/icons';
 
 export const YEARLY_RATE_MULTIPLIER = 0.75;
-export const USER_LICENSE_BASE_PRICE = 24;
-export const ENTERPRISE_LICENSE_BASE_PRICE = 79;
 
 export type PricingPlanInfo = {
   color: string;

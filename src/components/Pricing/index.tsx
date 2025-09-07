@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { PRICING_PLANS, YEARLY_RATE_MULTIPLIER } from './constants';
-import { EnterpriseDialog } from './EnterpriseDialog';
 import { FeatureTable } from './FeatureTable';
 import { SubscriptionCard } from './SubscriptionCard';
 import { BillingCycle, PricingPlan } from './types';
@@ -198,18 +197,6 @@ export const PricingPlans = ({
         })}
       </div>
       <FeatureTable />
-      <EnterpriseDialog
-        open={isEnterpriseDialogOpen}
-        onOpenChange={setIsEnterpriseDialogOpen}
-        onSubscribe={async (seats, billingCycle) => {
-          await onPlanChange?.({
-            annual: billingCycle === 'annual',
-            currentSubscriptionId: currentPlan?.subscriptionId,
-            newPlan: PricingPlan.ENTERPRISE,
-            seats,
-          });
-        }}
-      />
     </div>
   );
 };

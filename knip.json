@@ -1,0 +1,5 @@
+{
+  "project": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.css"],
+  "ignore": ["src/components/ui/**"],
+  "ignoreDependencies": ["tw-animate-css", "eslint-config-next"]
+}

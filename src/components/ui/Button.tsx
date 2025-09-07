@@ -196,4 +196,4 @@ const Button: React.FC<React.ComponentProps<'button'> & ButtonProps> = ({
   );
 };
 
-export { Button, buttonVariants };
+export { Button };

@@ -1,3 +1,6 @@
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
 import nextPlugin from '@next/eslint-plugin-next';
 import eslintParserTypeScript from '@typescript-eslint/parser';
 import eslintPluginBetterTailwindcss from 'eslint-plugin-better-tailwindcss';
@@ -5,6 +8,13 @@ import react from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import sort from 'eslint-plugin-sort';
 import ts from 'typescript-eslint';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
+
 
 const sharedLanguageOptions = {
   parser: eslintParserTypeScript,
@@ -16,6 +26,10 @@ const sharedLanguageOptions = {
 };
 
 export default [
+  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  {
+    ignores: ['node_modules/**', '.next/**', 'out/**', 'build/**', 'next-env.d.ts'],
+  },
   ...ts.configs.recommended,
   {
     files: ['**/*.{ts,tsx,cts,mts}'],
