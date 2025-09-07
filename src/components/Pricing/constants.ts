@@ -1,8 +1,8 @@
-import { Feature, PricingPlan } from './types';
 import { IoMdApps } from 'react-icons/io';
 import { LuCode, LuHeadset } from 'react-icons/lu';
 import { PiCircleDuotone, PiHexagonDuotone, PiTriangleDuotone } from 'react-icons/pi';
-import { ICONS, Icons } from '@pcit/shared/utils/icons';
+import { ICONS, Icons } from '~/utils/icons';
+import { Feature, PricingPlan } from './types';
 
 export const YEARLY_RATE_MULTIPLIER = 0.75;
 export const USER_LICENSE_BASE_PRICE = 24;

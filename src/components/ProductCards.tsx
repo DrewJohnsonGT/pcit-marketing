@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@pcit/shared/components/ui/Card';
-import { ICONS, Icons } from '@pcit/shared/utils/icons';
-import { IMAGES } from '@pcit/shared/utils/images';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/Card';
+import { ICONS, Icons } from '~/utils/icons';
+import { IMAGES } from '~/utils/images';
 
 const FEATURES = [
   {

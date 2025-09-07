@@ -1,9 +1,9 @@
 'use client';
 
-import * as React from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
+import * as React from 'react';
 import { LuChevronDown } from 'react-icons/lu';
-import { cn } from '@pcit/shared/utils/cn';
+import { cn } from '~/utils/cn';
 
 const Accordion = AccordionPrimitive.Root;
 

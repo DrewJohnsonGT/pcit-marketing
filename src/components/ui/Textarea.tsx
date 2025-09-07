@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { cn } from '~/utils/cn';
 import { sharedInputClasses } from './Input';
-import { cn } from '@pcit/shared/utils/cn';
 
 const Textarea: React.FC<React.ComponentProps<'textarea'>> = ({
   className,

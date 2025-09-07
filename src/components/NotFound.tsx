@@ -1,7 +1,7 @@
-import { Button } from '@pcit/shared/components/ui/Button';
-import { ROOT_PATH } from '@pcit/shared/utils/constants';
-import { ICONS } from '@pcit/shared/utils/icons';
-import { IMAGES } from '@pcit/shared/utils/images';
+import { Button } from '~/components/ui/Button';
+import { ROOT_PATH } from '~/utils/constants';
+import { ICONS } from '~/utils/icons';
+import { IMAGES } from '~/utils/images';
 
 export const NotFound = ({ button }: { button?: React.ReactNode }) => {
   const HomeButton = button || (

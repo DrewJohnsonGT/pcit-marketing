@@ -1,12 +1,12 @@
 'use client';
 
-import * as React from 'react';
-import { Dialog, DialogContent } from './Dialog';
-import { sharedInputClasses } from './Input';
 import { type DialogProps } from '@radix-ui/react-dialog';
 import { Command as CommandPrimitive } from 'cmdk';
+import * as React from 'react';
 import { LuSearch } from 'react-icons/lu';
-import { cn } from '@pcit/shared/utils/cn';
+import { cn } from '~/utils/cn';
+import { Dialog, DialogContent } from './Dialog';
+import { sharedInputClasses } from './Input';
 
 const Command: React.FC<React.ComponentProps<typeof CommandPrimitive>> = ({ className, ...props }) => (
   <CommandPrimitive
@@ -109,13 +109,13 @@ const CommandShortcut: React.FC<React.HTMLAttributes<HTMLSpanElement>> = ({ clas
 CommandShortcut.displayName = 'CommandShortcut';
 
 export {
-  Command,
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-  CommandShortcut,
+    Command,
+    CommandDialog,
+    CommandEmpty,
+    CommandGroup,
+    CommandInput,
+    CommandItem,
+    CommandList,
+    CommandSeparator,
+    CommandShortcut
 };

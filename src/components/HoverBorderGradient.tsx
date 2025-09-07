@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
 import { domAnimation, LazyMotion } from 'motion/react';
 import * as m from 'motion/react-m';
-import { cn } from '@pcit/shared/utils/cn';
+import React, { useEffect, useState } from 'react';
+import { cn } from '~/utils/cn';
 
 type Direction = 'BOTTOM' | 'LEFT' | 'RIGHT' | 'TOP';
 

@@ -1,6 +1,6 @@
 import { IconType } from 'react-icons';
 import { TbChartBar, TbClock, TbCurrencyDollar, TbGift, TbHelp, TbLock, TbTerminal2, TbUsers } from 'react-icons/tb';
-import { cn } from '@pcit/shared/utils/cn';
+import { cn } from '~/utils/cn';
 
 export const FeatureCards = () => {
   const features = [

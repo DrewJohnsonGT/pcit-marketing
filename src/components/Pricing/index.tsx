@@ -1,18 +1,18 @@
 'use client';
 
 import { useState } from 'react';
+import { CountingNumber } from '~/components/CountingNumber';
+import { Badge } from '~/components/ui/Badge';
+import { Button } from '~/components/ui/Button';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '~/components/ui/Card';
+import { Switch } from '~/components/ui/Switch';
+import { cn } from '~/utils/cn';
+import { ICONS } from '~/utils/icons';
 import { PRICING_PLANS, YEARLY_RATE_MULTIPLIER } from './constants';
 import { EnterpriseDialog } from './EnterpriseDialog';
 import { FeatureTable } from './FeatureTable';
 import { SubscriptionCard } from './SubscriptionCard';
 import { BillingCycle, PricingPlan } from './types';
-import { CountingNumber } from '@pcit/shared/components/CountingNumber';
-import { Badge } from '@pcit/shared/components/ui/Badge';
-import { Button } from '@pcit/shared/components/ui/Button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@pcit/shared/components/ui/Card';
-import { Switch } from '@pcit/shared/components/ui/Switch';
-import { cn } from '@pcit/shared/utils/cn';
-import { ICONS } from '@pcit/shared/utils/icons';
 
 const getMonthlyRate = (price: number, billingCycle: BillingCycle) => {
   return billingCycle === 'annual' ? price * YEARLY_RATE_MULTIPLIER : price;

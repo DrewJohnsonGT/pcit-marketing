@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import { FaLinkedin } from 'react-icons/fa';
-import { Button } from '@pcit/shared/components/ui/Button';
-import { Card, CardContent, CardHeader, CardTitle } from '@pcit/shared/components/ui/Card';
-import { AppImage, IMAGES } from '@pcit/shared/utils/images';
+import { Button } from '~/components/ui/Button';
+import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/Card';
+import { AppImage, IMAGES } from '~/utils/images';
 
 const FOUNDERS: {
   altText: string;

@@ -1,8 +1,8 @@
 'use client';
 
-import * as React from 'react';
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
-import { cn } from '@pcit/shared/utils/cn';
+import * as React from 'react';
+import { cn } from '~/utils/cn';
 
 const Avatar: React.FC<React.ComponentProps<typeof AvatarPrimitive.Root>> = ({ className, ...props }) => (
   <AvatarPrimitive.Root

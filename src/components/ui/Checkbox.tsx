@@ -1,9 +1,9 @@
 'use client';
 
-import * as React from 'react';
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
-import { cn } from '@pcit/shared/utils/cn';
-import { ICONS } from '@pcit/shared/utils/icons';
+import * as React from 'react';
+import { cn } from '~/utils/cn';
+import { ICONS } from '~/utils/icons';
 
 type CheckboxProps = Omit<React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>, 'children'>;
 

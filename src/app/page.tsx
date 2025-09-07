@@ -1,19 +1,27 @@
-import { CostExplanation } from '@pcit/shared/components/CostExplanation';
-import { FAQs } from '@pcit/shared/components/FAQs';
-import { Founders } from '@pcit/shared/components/Founders';
-import { HeroVideoDialog } from '@pcit/shared/components/HeroVideoDialog';
-import { News } from '@pcit/shared/components/News';
-import { ReleaseNotes } from '@pcit/shared/components/ReleaseNotes';
-import { Button } from '@pcit/shared/components/ui/Button';
+import Image from 'next/image';
+import Link from 'next/link';
+import { LuMenu } from 'react-icons/lu';
+import { CostExplanation } from '~/components/CostExplanation';
+import { FAQs } from '~/components/FAQs';
+import { FeatureCards } from '~/components/FeatureCards';
+import { Founders } from '~/components/Founders';
+import { HeroVideoDialog } from '~/components/HeroVideoDialog';
+import { HoverBorderGradient } from '~/components/HoverBorderGradient';
+import { News } from '~/components/News';
+import { PricingPlans } from '~/components/Pricing';
+import { ProductCards } from '~/components/ProductCards';
+import { ReleaseNotes } from '~/components/ReleaseNotes';
+import { SocialShareButtons } from '~/components/SocialShareButtons';
+import { Button } from '~/components/ui/Button';
 import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
-} from '@pcit/shared/components/ui/DropdownMenu';
-import { ScrollArea, ScrollBar } from '@pcit/shared/components/ui/ScrollArea';
-import { A, H2, H3 } from '@pcit/shared/components/ui/Typography';
-import { cn } from '@pcit/shared/utils/cn';
+} from '~/components/ui/DropdownMenu';
+import { ScrollArea, ScrollBar } from '~/components/ui/ScrollArea';
+import { A, H2, H3 } from '~/components/ui/Typography';
+import { cn } from '~/utils/cn';
 import {
     APP_NAME,
     APP_SLOGAN,
@@ -21,16 +29,8 @@ import {
     RESPONSIBLE_USE_URL,
     SUPPORT_EMAIL,
     TERMS_OF_SERVICE_URL,
-} from '@pcit/shared/utils/constants';
-import { IMAGES } from '@pcit/shared/utils/images';
-import Image from 'next/image';
-import Link from 'next/link';
-import { LuMenu } from 'react-icons/lu';
-import { FeatureCards } from '~/components/FeatureCards';
-import { HoverBorderGradient } from '~/components/HoverBorderGradient';
-import { PricingPlans } from '~/components/Pricing';
-import { ProductCards } from '~/components/ProductCards';
-import { SocialShareButtons } from '~/components/SocialShareButtons';
+} from '~/utils/constants';
+import { IMAGES } from '~/utils/images';
 import { ThemeToggle } from '../components/ThemeToggle';
 
 const HEADER_LINKS = [

@@ -1,10 +1,10 @@
+import { LuBug, LuInfo, LuSparkles } from 'react-icons/lu';
+import { MdUpgrade } from 'react-icons/md';
+import { cn } from '~/utils/cn';
+import { formatDate } from '~/utils/formatDate';
 import { ICONS } from '../utils/icons';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/Card';
 import { ScrollArea } from './ui/ScrollArea';
-import { LuBug, LuInfo, LuSparkles } from 'react-icons/lu';
-import { MdUpgrade } from 'react-icons/md';
-import { cn } from '@pcit/shared/utils/cn';
-import { formatDate } from '@pcit/shared/utils/formatDate';
 
 enum UpdateType {
   BUGFIX = 'Bugfix',

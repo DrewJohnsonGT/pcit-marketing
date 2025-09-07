@@ -1,6 +1,6 @@
 'use client';
 
-import { Error } from '@pcit/shared/components/Error';
+import { Error } from '~/components/Error';
 
 export default function GlobalError({ error, reset }: { error: Error & { digest?: string }; reset?: () => void }) {
   return (

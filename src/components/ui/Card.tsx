@@ -1,6 +1,6 @@
 import * as React from 'react';
+import { cn } from '~/utils/cn';
 import { H3 } from './Typography';
-import { cn } from '@pcit/shared/utils/cn';
 
 function Card({ className, ...props }: React.ComponentProps<'div'>) {
   return (

@@ -1,8 +1,8 @@
 'use client';
 
-import * as React from 'react';
 import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
-import { cn } from '@pcit/shared/utils/cn';
+import * as React from 'react';
+import { cn } from '~/utils/cn';
 
 interface ScrollAreaProps extends React.ComponentProps<typeof ScrollAreaPrimitive.Root> {
   viewportClassName?: string;

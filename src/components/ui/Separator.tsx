@@ -1,8 +1,8 @@
 'use client';
 
-import * as React from 'react';
 import * as SeparatorPrimitive from '@radix-ui/react-separator';
-import { cn } from '@pcit/shared/utils/cn';
+import * as React from 'react';
+import { cn } from '~/utils/cn';
 
 const Separator: React.FC<React.ComponentProps<typeof SeparatorPrimitive.Root>> = ({
   className,

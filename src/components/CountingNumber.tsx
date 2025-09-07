@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { animate, domAnimation, LazyMotion, motion } from 'motion/react';
-import { cn } from '@pcit/shared/utils/cn';
+import { useEffect, useState } from 'react';
+import { cn } from '~/utils/cn';
 
 export const CountingNumber = ({
   className,

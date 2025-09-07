@@ -1,10 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
-import { Button } from '@pcit/shared/components/ui/Button';
-import { Skeleton } from '@pcit/shared/components/ui/Skeleton';
-import { ICONS } from '@pcit/shared/utils/icons';
+import { useEffect, useState } from 'react';
+import { Button } from '~/components/ui/Button';
+import { Skeleton } from '~/components/ui/Skeleton';
+import { ICONS } from '~/utils/icons';
 
 export const ThemeToggle = () => {
   const { setTheme, resolvedTheme } = useTheme();

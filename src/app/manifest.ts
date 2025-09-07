@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
-import { APP_DESCRIPTION, APP_NAME, APP_NAME_SHORT } from '@pcit/shared/utils/constants';
-import { IMAGES_DIR } from '@pcit/shared/utils/images';
+import { APP_DESCRIPTION, APP_NAME, APP_NAME_SHORT } from '~/utils/constants';
+import { IMAGES_DIR } from '~/utils/images';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {

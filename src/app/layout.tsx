@@ -3,10 +3,10 @@ import { type Metadata } from 'next';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { Lato } from 'next/font/google';
 import Head from 'next/head';
-import { TooltipProvider } from '@pcit/shared/components/ui/Tooltip';
-import { cn } from '@pcit/shared/utils/cn';
-import { APP_DESCRIPTION, APP_KEYWORDS, APP_NAME } from '@pcit/shared/utils/constants';
-import { IMAGES } from '@pcit/shared/utils/images';
+import { TooltipProvider } from '~/components/ui/Tooltip';
+import { cn } from '~/utils/cn';
+import { APP_DESCRIPTION, APP_KEYWORDS, APP_NAME } from '~/utils/constants';
+import { IMAGES } from '~/utils/images';
 
 import './globals.css';
 

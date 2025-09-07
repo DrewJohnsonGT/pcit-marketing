@@ -1,7 +1,7 @@
 import { FaXTwitter } from 'react-icons/fa6';
 import { IoLogoReddit } from 'react-icons/io5';
 import { LuFacebook, LuLinkedin } from 'react-icons/lu';
-import { Button } from '@pcit/shared/components/ui/Button';
+import { Button } from '~/components/ui/Button';
 
 const URL = process.env.NEXT_PUBLIC_APP_URL;
 const TITLE = 'Check out PCIT Tracker!';

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cn } from '@pcit/shared/utils/cn';
+import { cn } from '~/utils/cn';
 
 const Table: React.FC<React.ComponentProps<'table'>> = ({ className, ...props }) => (
   <table className={cn('w-full caption-bottom', className)} {...props} />

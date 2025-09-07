@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { Skeleton } from './Skeleton';
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
-import { Button } from '@pcit/shared/components/ui/Button';
-import { cn } from '@pcit/shared/utils/cn';
-import { ICONS } from '@pcit/shared/utils/icons';
+import * as React from 'react';
+import { Button } from '~/components/ui/Button';
+import { cn } from '~/utils/cn';
+import { ICONS } from '~/utils/icons';
+import { Skeleton } from './Skeleton';
 
 export const badgeVariants = cva(
   `

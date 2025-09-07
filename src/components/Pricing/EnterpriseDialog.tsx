@@ -1,5 +1,6 @@
-import { Badge } from '@pcit/shared/components/ui/Badge';
-import { Button } from '@pcit/shared/components/ui/Button';
+import { useState } from 'react';
+import { Badge } from '~/components/ui/Badge';
+import { Button } from '~/components/ui/Button';
 import {
     Dialog,
     DialogBody,
@@ -8,17 +9,16 @@ import {
     DialogFooter,
     DialogHeader,
     DialogTitle,
-} from '@pcit/shared/components/ui/Dialog';
-import { Input } from '@pcit/shared/components/ui/Input';
-import { Label } from '@pcit/shared/components/ui/Label';
-import { Separator } from '@pcit/shared/components/ui/Separator';
-import { Switch } from '@pcit/shared/components/ui/Switch';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@pcit/shared/components/ui/Table';
-import { A } from '@pcit/shared/components/ui/Typography.jsx';
-import { useFeatureFlags } from '@pcit/shared/hooks/useFeatureFlags';
-import { cn } from '@pcit/shared/utils/cn';
-import { SUPPORT_EMAIL } from '@pcit/shared/utils/constants';
-import { useState } from 'react';
+} from '~/components/ui/Dialog';
+import { Input } from '~/components/ui/Input';
+import { Label } from '~/components/ui/Label';
+import { Separator } from '~/components/ui/Separator';
+import { Switch } from '~/components/ui/Switch';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '~/components/ui/Table';
+import { A } from '~/components/ui/Typography.jsx';
+import { useFeatureFlags } from '~/hooks/useFeatureFlags';
+import { cn } from '~/utils/cn';
+import { SUPPORT_EMAIL } from '~/utils/constants';
 import { ENTERPRISE_LICENSE_BASE_PRICE, USER_LICENSE_BASE_PRICE, YEARLY_RATE_MULTIPLIER } from './constants';
 import { BillingCycle } from './types';
 

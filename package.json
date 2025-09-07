@@ -14,7 +14,6 @@
     "clean": "rm -rf .next && rm -rf node_modules"
   },
   "dependencies": {
-    "@pcit/shared": "workspace:*",
     "@vercel/analytics": "^1.5.0",
     "motion": "^12.23.12",
     "next": "15.5.2",

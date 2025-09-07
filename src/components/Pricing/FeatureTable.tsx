@@ -1,11 +1,11 @@
-import { FEATURES, PRICING_PLANS } from './constants';
-import { PricingPlan } from './types';
 import { FaCheckSquare } from 'react-icons/fa';
 import { GoDash } from 'react-icons/go';
 import { LuInfinity, LuInfo } from 'react-icons/lu';
-import { ScrollArea, ScrollBar } from '@pcit/shared/components/ui/ScrollArea';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@pcit/shared/components/ui/Table';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@pcit/shared/components/ui/Tooltip';
+import { ScrollArea, ScrollBar } from '~/components/ui/ScrollArea';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '~/components/ui/Table';
+import { Tooltip, TooltipContent, TooltipTrigger } from '~/components/ui/Tooltip';
+import { FEATURES, PRICING_PLANS } from './constants';
+import { PricingPlan } from './types';
 
 export const FeatureTable = () => {
   return (

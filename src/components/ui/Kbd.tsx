@@ -1,6 +1,6 @@
 import { IconType } from 'react-icons';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight, MdKeyboardCommandKey, MdKeyboardControlKey } from 'react-icons/md';
-import { cn } from '@pcit/shared/utils/cn';
+import { cn } from '~/utils/cn';
 
 interface KbdProps {
   className?: string;

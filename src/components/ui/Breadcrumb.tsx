@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
-import { cn } from '@pcit/shared/utils/cn';
-import { ICONS } from '@pcit/shared/utils/icons';
+import * as React from 'react';
+import { cn } from '~/utils/cn';
+import { ICONS } from '~/utils/icons';
 
 const textSize = 'text-2xl sm:text-3xl';
 const textColor = 'text-primary';
@@ -90,11 +90,11 @@ const BreadcrumbEllipsis: React.FC<React.ComponentProps<'span'>> = ({ className,
 BreadcrumbEllipsis.displayName = 'BreadcrumbElipssis';
 
 export {
-  Breadcrumb,
-  BreadcrumbEllipsis,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
+    Breadcrumb,
+    BreadcrumbEllipsis,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator
 };

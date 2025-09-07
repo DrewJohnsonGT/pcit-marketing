@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
+import { useState } from 'react';
 import { LuPlay, LuX } from 'react-icons/lu';
-import { cn } from '@pcit/shared/utils/cn';
+import { cn } from '~/utils/cn';
 
 type AnimationStyle =
   | 'fade'

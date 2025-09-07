@@ -1,11 +1,11 @@
 import { LuExternalLink } from 'react-icons/lu';
-import { Badge } from '@pcit/shared/components/ui/Badge';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@pcit/shared/components/ui/Card';
-import { ScrollArea } from '@pcit/shared/components/ui/ScrollArea';
-import { A } from '@pcit/shared/components/ui/Typography';
-import { cn } from '@pcit/shared/utils/cn';
-import { formatDate } from '@pcit/shared/utils/formatDate';
-import { ICONS } from '@pcit/shared/utils/icons';
+import { Badge } from '~/components/ui/Badge';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '~/components/ui/Card';
+import { ScrollArea } from '~/components/ui/ScrollArea';
+import { A } from '~/components/ui/Typography';
+import { cn } from '~/utils/cn';
+import { formatDate } from '~/utils/formatDate';
+import { ICONS } from '~/utils/icons';
 
 enum NewsTags {
   Conference = 'Conference',

@@ -1,7 +1,7 @@
-import * as React from 'react';
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
-import { cn } from '@pcit/shared/utils/cn';
+import * as React from 'react';
+import { cn } from '~/utils/cn';
 
 const alertVariants = cva(
   `

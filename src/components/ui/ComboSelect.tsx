@@ -1,12 +1,12 @@
 'use client';
 
 import * as React from 'react';
+import { cn } from '~/utils/cn';
+import { ICONS } from '~/utils/icons';
 import { Button } from './Button';
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from './Command';
 import { sharedInputClasses } from './Input';
 import { Popover, PopoverContent, PopoverTrigger } from './Popover';
-import { cn } from '@pcit/shared/utils/cn';
-import { ICONS } from '@pcit/shared/utils/icons';
 
 export interface ComboSelectProps extends React.ComponentPropsWithoutRef<typeof Popover> {
   dataCy?: string;

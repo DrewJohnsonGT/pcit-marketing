@@ -1,5 +1,5 @@
 import React from 'react';
-import { cn } from '@pcit/shared/utils/cn';
+import { cn } from '~/utils/cn';
 
 const createComponent = <T extends HTMLElement>(
   tag: keyof React.JSX.IntrinsicElements,
