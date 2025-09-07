@@ -1,4 +1,4 @@
-export const IMAGES_DIR = '/images';
+export const IMAGES_DIR = `${process.env.NEXT_PUBLIC_MARKETING_URL}/images`;
 
 export interface AppImage {
   height: number;
