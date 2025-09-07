@@ -48,14 +48,9 @@ export const PricingPlans = ({
   onReactivatePlan?: () => Promise<void>;
   showSubscriptionCard?: boolean;
 }) => {
-  const [isEnterpriseDialogOpen, setIsEnterpriseDialogOpen] = useState(false);
   const [billingCycle, setBillingCycle] = useState<'annual' | 'monthly'>('monthly');
 
   const handlePlanChange = (plan: PricingPlan, annual: boolean, seats?: number) => {
-    if (plan === PricingPlan.ENTERPRISE) {
-      setIsEnterpriseDialogOpen(true);
-      return;
-    }
     onPlanChange?.({
       annual,
       currentSubscriptionId: currentPlan?.subscriptionId,

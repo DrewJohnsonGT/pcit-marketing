@@ -15,7 +15,6 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-
 const sharedLanguageOptions = {
   parser: eslintParserTypeScript,
   parserOptions: {
@@ -25,7 +24,7 @@ const sharedLanguageOptions = {
   },
 };
 
-export default [
+const config = [
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
   {
     ignores: ['node_modules/**', '.next/**', 'out/**', 'build/**', 'next-env.d.ts'],
@@ -107,3 +106,5 @@ export default [
     },
   },
 ];
+
+export default config;
