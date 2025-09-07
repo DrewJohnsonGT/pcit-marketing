@@ -6,7 +6,7 @@ export interface AppImage {
   width: number;
 }
 
-export enum AppImageKey {
+enum AppImageKey {
   Data = 'data',
   DataDark = 'dataDark',
   Drew = 'drew',

@@ -102,7 +102,6 @@ export enum Icons {
   ChevronsUpDown = 'ChevronsUpDown',
   ChevronUp = 'ChevronUp',
   Code = 'Code',
-  Contact = 'Contact',
   CSV = 'CSV',
   CSVSimple = 'CSVSimple',
   Dark = 'Dark',
