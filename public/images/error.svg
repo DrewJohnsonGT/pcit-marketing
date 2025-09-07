@@ -1,0 +1,189 @@
+<svg
+  width="300"
+  height="300"
+  viewBox="0 0 300 300"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+  <!-- Title and description for accessibility -->
+  <title>Falling Blocks with a Sad Face</title>
+  <desc>
+    An icon showing a tower with a lower section still standing and the top few blocks beginning to
+    fall.
+    Some blocks have already fallen close to the ground, accompanied by a large sad face.
+  </desc>
+
+  <!-- Floor/ground line -->
+  <rect
+    x="0"
+    y="260"
+    width="300"
+    height="10"
+    fill="#4C9CD6"
+    rx="5"
+    ry="5"
+  />
+
+  <!-- Standing Tower Group: the intact bottom part of the tower -->
+  <g id="standing-tower">
+    <!-- Bottom block (touching the ground) -->
+    <rect
+      x="220"
+      y="220"
+      width="40"
+      height="40"
+      fill="#4C9CD6"
+      stroke="#3C84B4"
+      stroke-width="4"
+      rx="5"
+      ry="5"
+    />
+    <!-- Middle block -->
+    <rect
+      x="220"
+      y="180"
+      width="40"
+      height="40"
+      fill="#9C83C4"
+      stroke="#7C6CA2"
+      stroke-width="4"
+      rx="5"
+      ry="5"
+    />
+    <!-- Top block of the intact tower -->
+    <rect
+      x="220"
+      y="140"
+      width="40"
+      height="40"
+      fill="#4C9CD6"
+      stroke="#3C84B4"
+      stroke-width="4"
+      rx="5"
+      ry="5"
+    />
+  </g>
+
+  <!-- Falling Blocks Group: blocks just breaking off from the top of the tower -->
+  <g id="falling-blocks">
+    <!-- First falling block – beginning to tip over -->
+    <rect
+      x="210"
+      y="95"
+      width="40"
+      height="40"
+      fill="#9C83C4"
+      stroke="#7C6CA2"
+      stroke-width="4"
+      rx="5"
+      ry="5"
+      transform="rotate(-10,230,130)"
+    />
+    <!-- Second falling block – further off from the tower -->
+    <rect
+      x="190"
+      y="55"
+      width="40"
+      height="40"
+      fill="#4C9CD6"
+      stroke="#3C84B4"
+      stroke-width="4"
+      rx="5"
+      ry="5"
+      transform="rotate(-20,210,110)"
+    />
+  </g>
+
+  <!-- Fallen Blocks Group: blocks that have already landed near the ground -->
+  <g id="fallen-blocks">
+    <!-- First fallen block lying close to or on the ground -->
+    <rect
+      x="130"
+      y="50"
+      width="40"
+      height="40"
+      fill="#9C83C4"
+      stroke="#7C6CA2"
+      stroke-width="4"
+      rx="5"
+      ry="5"
+      transform="rotate(-45,130,50)"
+    />
+    <!-- Second fallen block -->
+    <rect
+      x="50"
+      y="240"
+      width="40"
+      height="40"
+      fill="#4C9CD6"
+      stroke="#3C84B4"
+      stroke-width="4"
+      rx="5"
+      ry="5"
+      transform="rotate(-60,50,240)"
+    />
+    <!-- Third fallen block -->
+    <rect
+      x="50"
+      y="100"
+      width="40"
+      height="40"
+      fill="#4C9CD6"
+      stroke="#3C84B4"
+      stroke-width="4"
+      rx="5"
+      ry="5"
+      transform="rotate(-60,50,100)"
+    />
+
+    <!-- Fourth fallen block -->
+    <rect
+      x="40"
+      y="180"
+      width="40"
+      height="40"
+      fill="#9C83C4"
+      stroke="#7C6CA2"
+      stroke-width="4"
+      rx="5"
+      ry="5"
+      transform="rotate(-75,40,180)"
+    />
+  </g>
+
+  <!-- Sad Face Group -->
+  <g id="sad-face" transform="translate(10,100)">
+    <!-- Face background circle -->
+    <circle
+      cx="140"
+      cy="60"
+      r="40"
+      fill="#7FB8E6"
+      stroke="#3C84B4"
+      stroke-width="4"
+    />
+    <!-- Left eye -->
+    <circle
+      cx="125"
+      cy="50"
+      r="5"
+      fill="#3C84B4"
+    />
+    <!-- Right eye -->
+    <circle
+      cx="155"
+      cy="50"
+      r="5"
+      fill="#3C84B4"
+    />
+    <!-- Sad mouth (arc) -->
+    <path
+      d="M 125 75 Q 140 60 155 75"
+      fill="none"
+      stroke="#3C84B4"
+      stroke-width="4"
+      stroke-linecap="round"
+    />
+  </g>
+</svg>
