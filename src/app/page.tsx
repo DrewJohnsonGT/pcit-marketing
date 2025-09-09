@@ -1,7 +1,6 @@
 import { ThemeToggle } from '../components/ThemeToggle';
 import Image from 'next/image';
 import Link from 'next/link';
-import { LuMenu } from 'react-icons/lu';
 import { ContactForm } from '~/components/ContactForm';
 import { CostExplanation } from '~/components/CostExplanation';
 import { FAQs } from '~/components/FAQs';
@@ -27,6 +26,7 @@ import {
   SUPPORT_EMAIL,
   TERMS_OF_SERVICE_URL,
 } from '~/utils/constants';
+import { ICONS } from '~/utils/icons';
 import { IMAGES } from '~/utils/images';
 
 const HEADER_LINKS = [
@@ -95,23 +95,22 @@ export default function MarketingPage() {
           </Link>
           <nav
             className={`
-              mx-auto hidden flex-1 items-center justify-center gap-4
-              sm:gap-6
+              mx-auto hidden flex-1 items-center justify-center gap-2
               md:flex
             `}
           >
             {HEADER_LINKS.map((link, index) => (
-              <Link
-                key={index}
-                href={link.href}
-                className={`
-                  text-sm font-medium underline-offset-4
-                  hover:text-secondary hover:underline
-                `}
-                aria-label={`Scroll to ${link.label}`}
-                prefetch={false}
-              >
-                {link.label}
+              <Link key={index} href={link.href} aria-label={`Scroll to ${link.label}`} prefetch={false}>
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  className={`
+                    text-sm font-medium underline-offset-4 transition-all duration-300
+                    hover:text-secondary
+                  `}
+                >
+                  {link.label}
+                </Button>
               </Link>
             ))}
           </nav>
@@ -124,20 +123,13 @@ export default function MarketingPage() {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="outline" size="icon" aria-label="Menu">
-                    <LuMenu className="size-5" />
+                    <ICONS.Menu className="size-5" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                   {HEADER_LINKS.map((link, index) => (
                     <DropdownMenuItem key={index}>
-                      <Link
-                        href={link.href}
-                        className={`
-                          text-sm font-medium underline-offset-4
-                          hover:underline
-                        `}
-                        prefetch={false}
-                      >
+                      <Link href={link.href} className={`text-sm font-medium underline-offset-4`} prefetch={false}>
                         {link.label}
                       </Link>
                     </DropdownMenuItem>
