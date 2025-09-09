@@ -2,7 +2,8 @@ export const APP_NAME = 'PCIT Tracker';
 export const APP_NAME_SHORT = 'PCIT';
 export const APP_DESCRIPTION =
   'Automate session tracking for Parent-Child Interaction Therapy with PCIT Tracker. Save time, reduce errors, and get instant data insights. Therapists spend less time tracking sessions and more time working with their clients.';
-export const APP_SLOGAN = 'Your tool for delivering efficient and exceptional PCIT';
+export const APP_SLOGAN =
+  'Save hours of paperwork. Get instant data insights. Maximize the effectiveness of your PCIT sessions.';
 
 export const SUPPORT_EMAIL = 'admin@pcit-tracker.com';
 export const APP_KEYWORDS = [

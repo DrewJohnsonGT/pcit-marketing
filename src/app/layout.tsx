@@ -23,6 +23,14 @@ export const metadata: Metadata = {
       name: 'Cubic Insights LLC',
       url: 'https://cubic-insights.com',
     },
+    {
+      name: 'Drew Johnson',
+      url: 'https://www.linkedin.com/in/drewjohnsongt/',
+    },
+    {
+      name: 'Madeline DeShazer',
+      url: 'https://www.linkedin.com/in/madeline-deshazer-228a2015b/',
+    },
   ],
   creator: 'Cubic Insights LLC',
   description: APP_DESCRIPTION,

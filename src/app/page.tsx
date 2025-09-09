@@ -81,10 +81,10 @@ const Section = ({
 export default function MarketingPage() {
   return (
     <div className="bg-background">
-      <header className={`fixed inset-x-0 top-0 z-50 h-14 items-center bg-transparent p-2`}>
+      <header className={`fixed inset-x-0 w-full flex-1 top-0 z-50 h-14 items-center bg-transparent p-2`}>
         <div
           className={`
-            mx-auto flex w-full max-w-3xl items-center justify-between gap-2 rounded-lg border border-border
+            mx-auto flex w-full items-center justify-between gap-2 rounded-lg border border-border
             bg-background/20 px-1 py-1 pl-4 backdrop-blur-md
           `}
         >
