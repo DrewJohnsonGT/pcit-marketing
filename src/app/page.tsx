@@ -238,6 +238,9 @@ export default function MarketingPage() {
           <Section id="news">
             <News />
           </Section>
+          <Section id="contact" header="Contact Us">
+            <ContactForm />
+          </Section>
           <Section>
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-4">
@@ -283,9 +286,6 @@ export default function MarketingPage() {
                 {SUPPORT_EMAIL}
               </A>
             </p>
-          </Section>
-          <Section id="contact" header="Contact Us">
-            <ContactForm />
           </Section>
           <footer
             className={`
