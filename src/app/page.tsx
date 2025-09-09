@@ -2,6 +2,7 @@ import { ThemeToggle } from '../components/ThemeToggle';
 import Image from 'next/image';
 import Link from 'next/link';
 import { LuMenu } from 'react-icons/lu';
+import { ContactForm } from '~/components/ContactForm';
 import { CostExplanation } from '~/components/CostExplanation';
 import { FAQs } from '~/components/FAQs';
 import { FeatureCards } from '~/components/FeatureCards';
@@ -34,6 +35,7 @@ const HEADER_LINKS = [
   { href: '#about', label: 'About' },
   { href: '#faqs', label: 'FAQs' },
   { href: '#release-notes', label: 'Changelog' },
+  { href: '#contact', label: 'Contact' },
 ];
 
 const FOOTER_LINKS = [
@@ -81,11 +83,11 @@ const Section = ({
 export default function MarketingPage() {
   return (
     <div className="bg-background">
-      <header className={`fixed inset-x-0 w-full flex-1 top-0 z-50 h-14 items-center bg-transparent p-2`}>
+      <header className={`fixed inset-x-0 top-0 z-50 h-14 w-full flex-1 items-center bg-transparent p-2`}>
         <div
           className={`
-            mx-auto flex w-full items-center justify-between gap-2 rounded-lg border border-border
-            bg-background/20 px-1 py-1 pl-4 backdrop-blur-md
+            mx-auto flex w-full items-center justify-between gap-2 rounded-lg border border-border bg-background/20 px-1
+            py-1 pl-4 backdrop-blur-md
           `}
         >
           <Link href="#" aria-label="Home" prefetch={false}>
@@ -289,6 +291,9 @@ export default function MarketingPage() {
                 {SUPPORT_EMAIL}
               </A>
             </p>
+          </Section>
+          <Section id="contact" header="Contact Us">
+            <ContactForm />
           </Section>
           <footer
             className={`

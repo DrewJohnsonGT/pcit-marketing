@@ -10,7 +10,7 @@ import { Input } from '~/components/ui/Input';
 import { Textarea } from '~/components/ui/Textarea';
 
 const contactFormSchema = z.object({
-  email: z.string().email({
+  email: z.email({
     message: 'Please enter a valid email address.',
   }),
   message: z.string().min(10, {
@@ -53,7 +53,8 @@ export const ContactForm = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to submit the form. Please try again.');
+        const errorData: { error?: string } = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Failed to submit the form. Please try again.');
       }
 
       form.reset();
@@ -69,76 +70,73 @@ export const ContactForm = () => {
     }
   }
 
+  if (submitSuccess) {
+    return (
+      <div className="text-center font-medium text-success">
+        Thank you for your message! We&apos;ll get back to you soon.
+      </div>
+    );
+  }
+  if (submitError) {
+    return <div className="text-sm font-medium text-destructive">{submitError}</div>;
+  }
+
   return (
-    <div className="mx-auto">
-      {!submitSuccess && (
-        <>
-          <h3 className="my-8 text-xl">Or send me a message here</h3>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Your name" {...field} required />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex w-lg max-w-full flex-col gap-2">
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Name</FormLabel>
+              <FormControl>
+                <Input placeholder="Your name" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input type="email" placeholder="your.email@example.com" required {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl>
+                <Input type="email" placeholder="your.email@example.com" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Message</FormLabel>
-                    <FormDescription>Please provide details about your inquiry.</FormDescription>
-                    <FormControl>
-                      <Textarea placeholder="Your message" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+        <FormField
+          control={form.control}
+          name="message"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Message</FormLabel>
+              <FormDescription>Please provide details about your inquiry.</FormDescription>
+              <FormControl>
+                <Textarea placeholder="Your message" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full"
-                loading={isSubmitting}
-                loadingText="Sending..."
-              >
-                Send Message
-              </Button>
-            </form>
-          </Form>
-        </>
-      )}
-      {submitError && <div className="text-sm font-medium text-destructive">{submitError}</div>}
-
-      {submitSuccess && (
-        <div className="text-center font-medium text-success">
-          Thank you for your message! I&apos;ll get back to you soon.
-        </div>
-      )}
-    </div>
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full"
+          loading={isSubmitting}
+          loadingText="Sending..."
+        >
+          Send Message
+        </Button>
+      </form>
+    </Form>
   );
 };

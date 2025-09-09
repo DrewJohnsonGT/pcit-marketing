@@ -94,11 +94,11 @@ export const HeroVideoDialog = ({
             group-hover:scale-100
           `}
         >
-          <div className="flex size-28 items-center justify-center rounded-full bg-primary/10 backdrop-blur-md">
+          <div className="flex size-28 items-center justify-center rounded-full bg-secondary/10 backdrop-blur-md">
             <div
               className={`
                 relative flex size-20 scale-100 items-center justify-center rounded-full bg-gradient-to-b
-                from-primary/30 to-primary shadow-md transition-all duration-200 ease-out
+                from-secondary/30 to-secondary shadow-md transition-all duration-200 ease-out
                 group-hover:scale-[1.2]
               `}
             >

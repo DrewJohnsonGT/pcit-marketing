@@ -1,10 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-
-interface ContactFormData {
-  email: string;
-  message: string;
-  name: string;
-}
+import { z } from 'zod';
 
 interface Embed {
   color?: number;
@@ -21,6 +16,22 @@ interface Embed {
   };
   title: string;
 }
+
+const contactFormSchema = z.object({
+  email: z
+    .email({ message: 'Please provide a valid email address' })
+    .max(254, { message: 'Email must be at most 254 characters long' }),
+  message: z
+    .string()
+    .min(10, { message: 'Message must be at least 10 characters long' })
+    .max(2000, { message: 'Message must be at most 2000 characters long' }),
+  name: z
+    .string()
+    .min(2, { message: 'Name must be at least 2 characters long' })
+    .max(100, { message: 'Name must be at most 100 characters long' }),
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
 
 const getCurrentEasternTime = (): string => {
   const now = new Date();
@@ -39,9 +50,11 @@ const getCurrentEasternTime = (): string => {
 const sendDiscordNotification = async (embed: Embed): Promise<void> => {
   try {
     if (!process.env.DISCORD_WEBHOOK_URL) {
+      console.warn('DISCORD_WEBHOOK_URL environment variable is not set');
       return;
     }
-    await fetch(process.env.DISCORD_WEBHOOK_URL, {
+
+    const response = await fetch(process.env.DISCORD_WEBHOOK_URL, {
       body: JSON.stringify({
         embeds: [embed],
       }),
@@ -50,15 +63,19 @@ const sendDiscordNotification = async (embed: Embed): Promise<void> => {
       },
       method: 'POST',
     });
+
+    if (!response.ok) {
+      throw new Error(`Discord webhook failed with status: ${response.status}`);
+    }
   } catch (err: unknown) {
-    const errorMessage = err as Error;
-    console.log('Error sending discord notification');
-    console.log(errorMessage.message);
+    const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+    console.error('Error sending discord notification:', errorMessage);
+    throw err; // Re-throw to handle in the main function
   }
 };
 
 const createContactFormEmbed = (data: ContactFormData): Embed => ({
-  color: 0xff9933,
+  color: 0x003366,
   description: data.message,
   fields: [
     {
@@ -80,18 +97,36 @@ const createContactFormEmbed = (data: ContactFormData): Embed => ({
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
-    const data = (await request.json()) as ContactFormData;
+    const body = await request.json();
+    const parsed = contactFormSchema.safeParse(body);
 
-    if (!data.name || !data.email || !data.message) {
-      return NextResponse.json({ error: 'Name, email, and message are required' }, { status: 400 });
+    if (!parsed.success) {
+      // Return all validation errors in a structured way
+      return NextResponse.json({ errors: parsed.error.format() }, { status: 400 });
     }
 
-    const embed = createContactFormEmbed(data);
+    const sanitizedData: ContactFormData = {
+      email: parsed.data.email.trim().toLowerCase(),
+      message: parsed.data.message.trim(),
+      name: parsed.data.name.trim(),
+    };
+
+    const embed = createContactFormEmbed(sanitizedData);
     await sendDiscordNotification(embed);
 
     return NextResponse.json({ message: 'Contact form submitted successfully', success: true }, { status: 200 });
   } catch (error) {
     console.error('Error processing contact form:', error);
+
+    if (error instanceof Error && error.message.includes('Discord webhook')) {
+      return NextResponse.json(
+        {
+          error: 'Message received but notification failed. We will still get back to you.',
+        },
+        { status: 200 },
+      );
+    }
+
     return NextResponse.json({ error: 'Failed to process contact form submission' }, { status: 500 });
   }
 }
