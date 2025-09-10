@@ -18,6 +18,7 @@ import {
   LuNewspaper,
   LuRefreshCcw,
   LuShield,
+  LuStar,
   LuSun,
   LuTrendingUp,
   LuUsers,
@@ -48,6 +49,7 @@ export enum Icons {
   Report = 'Report',
   Session = 'Session',
   Shield = 'Shield',
+  Star = 'Star',
   TrendingUp = 'TrendingUp',
   X = 'X',
 }
@@ -75,6 +77,7 @@ export const ICONS = {
   [Icons.Report]: HiOutlineDocumentReport,
   [Icons.Session]: LuCalendarCheck,
   [Icons.Shield]: LuShield,
+  [Icons.Star]: LuStar,
   [Icons.TrendingUp]: LuTrendingUp,
   [Icons.X]: LuX,
 };

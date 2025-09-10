@@ -37,6 +37,8 @@
 - Page-specific components: co-located with pages
 - Utilities: `~/utils/`
 - API routes: `~/app/api/`
+- Images: `~/utils/images.ts`
+- Icons: `~/utils/icons.ts`
 
 ## Project-Specific Context
 
@@ -82,10 +84,12 @@ The marketing site likely includes:
 
 ## Development Workflow
 
-- **During development**: Use `pnpm run lint` and `pnpm run format` regularly
+- **During development**: Use `pnpm run lint` and `pnpm run format` regularly instead of manually fixing
+  linting/formatting errors
 - **Before committing**: Ensure all checks pass with `pnpm run check`
 - **Component creation**: Start with Shadcn/ui base components, extend as needed
 - **Styling**: Use Tailwind classes and theme tokens from globals.css
+- **icons**: Use React Icons for icons mapped in `~/utils/icons.ts` - avoid creating cusstom SVGs
 - **Performance**: Always consider Lighthouse metrics impact
 
 ## Best Practices

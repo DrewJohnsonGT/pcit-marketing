@@ -13,6 +13,7 @@ import { PricingPlans } from '~/components/Pricing';
 import { ProductCards } from '~/components/ProductCards';
 import { ReleaseNotes } from '~/components/ReleaseNotes';
 import { SocialShareButtons } from '~/components/SocialShareButtons';
+import { Testimonials } from '~/components/Testimonials';
 import { Button } from '~/components/ui/Button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '~/components/ui/DropdownMenu';
 import { ScrollArea, ScrollBar } from '~/components/ui/ScrollArea';
@@ -182,6 +183,13 @@ export default function MarketingPage() {
               thumbnailAlt="PCIT Tracker Introduction"
               className="mt-8 max-w-3xl"
             />
+          </Section>
+          <Section
+            id="testimonials"
+            header="What Our Users Say"
+            subheader="Discover how PCIT Tracker is making a difference in therapy practices and families' lives."
+          >
+            <Testimonials />
           </Section>
           <Section id="features" header="Features">
             <ProductCards />
