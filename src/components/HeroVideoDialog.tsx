@@ -76,14 +76,19 @@ export const HeroVideoDialog = ({
 
   return (
     <div className={cn('relative', className)}>
-      <div className="group relative cursor-pointer" onClick={() => setIsVideoOpen(true)}>
+      <div
+        className="group relative cursor-pointer overflow-hidden rounded-md border-4 shadow-lg"
+        onClick={() => setIsVideoOpen(true)}
+      >
         <img
           src={thumbnailSrc}
           alt={thumbnailAlt}
           width={1920}
           height={1080}
           className={`
-            w-full rounded-md border shadow-lg transition-all duration-200 ease-out
+            h-full w-full
+            [transform:scale(1.02)]
+            object-cover
             group-hover:brightness-[0.8]
           `}
         />
