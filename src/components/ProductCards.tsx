@@ -11,7 +11,7 @@ const FEATURES = [
     gradientTop: '#279AF133',
     icon: ICONS[Icons.Home],
     iconColor: '#279AF1',
-    imageLight: IMAGES.home,
+    image: IMAGES.home,
     preloadImage: true,
     title: 'Your PCIT Platform',
   },
@@ -21,7 +21,7 @@ const FEATURES = [
     gradientTop: 'hsl(var(--family-foreground) / 0.2)',
     icon: ICONS[Icons.Family],
     iconColor: 'hsl(var(--family-foreground))',
-    imageLight: IMAGES.families,
+    image: IMAGES.families,
     preloadImage: false,
     title: 'See all your families and sessions in one place',
   },
@@ -31,7 +31,7 @@ const FEATURES = [
     gradientTop: 'hsl(var(--session-foreground) / 0.2)',
     icon: ICONS[Icons.Session],
     iconColor: 'hsl(var(--session-foreground))',
-    imageLight: IMAGES.session,
+    image: IMAGES.session,
     preloadImage: true,
     title: 'Intuitive Session Tracker',
   },
@@ -42,7 +42,7 @@ const FEATURES = [
     gradientTop: 'hsl(var(--data-foreground) / 0.2)',
     icon: ICONS[Icons.Data],
     iconColor: 'hsl(var(--data-foreground))',
-    imageLight: IMAGES.data,
+    image: IMAGES.data,
     preloadImage: true,
     title: 'Data Visualization',
   },
@@ -53,7 +53,7 @@ const FEATURES = [
     gradientTop: '#A2D2FF44',
     icon: ICONS[Icons.Caregiver],
     iconColor: '#61b0fa',
-    imageLight: IMAGES.pdi,
+    image: IMAGES.pdi,
     preloadImage: false,
     title: 'PDI Tracking',
   },
@@ -63,7 +63,7 @@ const FEATURES = [
     gradientTop: 'hsl(var(--pdf-foreground) / 0.2)',
     icon: ICONS[Icons.Report],
     iconColor: 'hsl(var(--pdf-foreground))',
-    imageLight: IMAGES.report,
+    image: IMAGES.report,
     preloadImage: false,
     title: 'Automated Reports',
   },
@@ -103,12 +103,15 @@ export const ProductCards = () => {
                 </CardHeader>
                 <div className="relative w-full flex-1">
                   <Image
-                    src={feature.imageLight}
+                    src={feature.image}
                     alt={feature.title}
-                    width={feature.imageLight.width}
-                    height={feature.imageLight.height}
+                    width={feature.image.width}
+                    height={feature.image.height}
                     sizes="(max-width: 1279px) min(100vw, 850px), min(50vw, 850px)"
-                    className={`absolute right-0 ml-auto size-auto rounded-t-lg object-contain`}
+                    className={`
+                      right-0 ml-auto size-auto object-contain opacity-0
+                      dark:opacity-100
+                    `}
                     loading={feature.preloadImage ? 'eager' : 'lazy'}
                     priority={feature.preloadImage}
                   />

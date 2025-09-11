@@ -67,11 +67,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className="scroll-smooth">
       <Head>
-        <meta name="apple-mobile-web-app-title" content="PCIT" />
+        <meta name="apple-mobile-web-app-title" content="PCIT Tracker" />
       </Head>
       <body
         className={cn(
-          'h-dvh antialiased',
+          'min-h-screen overflow-x-hidden antialiased',
           `
             ${dmSansFont.className}
           `,

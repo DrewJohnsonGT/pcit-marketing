@@ -118,7 +118,7 @@ export const ContactForm = () => {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Message</FormLabel>
-              <FormDescription>Please provide details about your inquiry.</FormDescription>
+              <FormDescription className="text-inherit">Please provide details about your inquiry.</FormDescription>
               <FormControl>
                 <Textarea placeholder="Your message" {...field} />
               </FormControl>
@@ -129,6 +129,7 @@ export const ContactForm = () => {
 
         <Button
           type="submit"
+          variant="secondary"
           disabled={isSubmitting}
           className="w-full"
           loading={isSubmitting}

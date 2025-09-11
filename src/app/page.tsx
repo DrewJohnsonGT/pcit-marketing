@@ -19,7 +19,6 @@ import { A, H2, H3 } from '~/components/ui/Typography';
 import { cn } from '~/utils/cn';
 import {
   APP_NAME,
-  APP_SLOGAN,
   PRIVACY_POLICY_URL,
   RESPONSIBLE_USE_URL,
   SUPPORT_EMAIL,
@@ -30,10 +29,8 @@ import { IMAGES } from '~/utils/images';
 
 const HEADER_LINKS = [
   { href: '#features', label: 'Features' },
-  { href: '#pricing', label: 'Pricing' },
   { href: '#about', label: 'About' },
   { href: '#faqs', label: 'FAQs' },
-  { href: '#release-notes', label: 'Changelog' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -84,8 +81,6 @@ const getSectionStyle = (variant: 'accent' | 'default' | 'hero' | 'muted' | 'pri
       return 'bg-secondary text-secondary-foreground';
     case 'accent':
       return 'bg-accent-background text-accent-foreground';
-    case 'muted':
-      return 'bg-muted text-muted-foreground';
     default:
       return 'bg-background text-foreground';
   }
@@ -131,22 +126,26 @@ const Section = ({
 
 export default function MarketingPage() {
   return (
-    <div className="h-dvh bg-background">
-      <header className={`sticky top-0 z-50 flex h-20 w-full flex-1 items-center bg-background p-2`}>
+    <div className="min-h-screen bg-background">
+      <header
+        className={`
+          sticky top-0 z-50 flex h-20 w-full items-center justify-between border-b border-border/50 bg-background/95 p-2
+          backdrop-blur-sm
+        `}
+      >
         <nav
           className={`
-            hidden flex-1 items-center justify-center gap-2
+            hidden flex-1 items-center gap-2
             md:flex
           `}
         >
           {HEADER_LINKS.map((link, index) => (
             <Link key={index} href={link.href} aria-label={`Scroll to ${link.label}`} prefetch={false}>
               <Button
-                size="sm"
                 variant="ghost"
                 className={`
-                  text-sm font-medium underline-offset-4 transition-all duration-300
-                  hover:text-secondary
+                  font-bold decoration-border decoration-3 underline-offset-12 transition-all duration-300
+                  hover:bg-background hover:text-secondary hover:underline
                 `}
               >
                 {link.label}
@@ -154,10 +153,21 @@ export default function MarketingPage() {
             </Link>
           ))}
         </nav>
-        <Link href="#" aria-label="Home" prefetch={false}>
-          <span className="text-2xl leading-none font-bold text-primary">{APP_NAME}</span>
+        <Link href="/" aria-label="Home" prefetch={false} className="flex flex-1 items-center justify-center gap-4">
+          <Image src={IMAGES.logoNoText.src} alt={APP_NAME} width={64} height={64} />
+          <span className="text-3xl font-semibold tracking-wider text-primary-dark uppercase">{APP_NAME}</span>
         </Link>
-        <div className="ml-auto flex items-center gap-1">
+        <div className="flex flex-1 items-center justify-end gap-6 px-2">
+          <Link
+            href="/login"
+            aria-label="Login"
+            className={`
+              text-lg underline decoration-border decoration-3 underline-offset-6
+              hover:text-secondary hover:decoration-secondary
+            `}
+          >
+            Log in
+          </Link>
           <Link href="/signup" aria-label="Sign Up">
             <Button aria-label="Sign Up" className="rounded-full p-6">
               Get Started
@@ -183,17 +193,8 @@ export default function MarketingPage() {
           </div>
         </div>
       </header>
-      <main className="flex-1 overflow-y-auto">
-        <Section className="mt-6" variant="primary">
-          <Image
-            src={IMAGES.logoNoText.src}
-            alt={APP_NAME}
-            className={`shrink-0 drop-shadow-[0px_0px_4epx_hsl(var(--primary))]`}
-            width={250}
-            height={250}
-            loading="eager"
-            priority
-          />
+      <main>
+        <Section variant="primary">
           <div
             className={`
               text-center text-5xl font-bold tracking-tight select-none
@@ -205,7 +206,20 @@ export default function MarketingPage() {
             Minimize paperwork. <br />
             <b className="!font-extrabold">Maximize productivity.</b>
           </div>
-          <span className={`z-10 max-w-lg p-4 text-center text-xl font-medium text-foreground`}>{APP_SLOGAN}</span>
+          <ul className={`z-10 mt-2 flex max-w-lg flex-col gap-3 p-4 text-xl font-medium text-inherit`}>
+            <li className="flex items-center gap-2">
+              <ICONS.History className="size-6" aria-hidden="true" />
+              <span>Save hours every week</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <ICONS.Data className="size-6" aria-hidden="true" />
+              <span>Get instant data insights</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <ICONS.Star className="size-6" aria-hidden="true" />
+              <span>Maximize the effectiveness of your PCIT</span>
+            </li>
+          </ul>
           <Link href="/signup" className="z-10 mt-4" aria-label={`Sign up for ${APP_NAME}`}>
             <HoverBorderGradient
               as="button"
@@ -219,12 +233,14 @@ export default function MarketingPage() {
           </Link>
           <div className="mt-8" />
         </Section>
-        <HeroVideoDialog
-          videoSrc="https://www.youtube.com/embed/Nk6xOFjQFf0?si=9mNsawdpcBIRkR9w"
-          thumbnailSrc="https://img.youtube.com/vi/Nk6xOFjQFf0/maxresdefault.jpg"
-          thumbnailAlt="PCIT Tracker Introduction"
-          className="mt-8 max-w-3xl"
-        />
+        <Section>
+          <HeroVideoDialog
+            videoSrc="https://www.youtube.com/embed/Nk6xOFjQFf0?si=9mNsawdpcBIRkR9w"
+            thumbnailSrc="https://img.youtube.com/vi/Nk6xOFjQFf0/maxresdefault.jpg"
+            thumbnailAlt="PCIT Tracker Introduction"
+            className="mt-8 max-w-3xl"
+          />
+        </Section>
         <Section
           id="testimonials"
           header="What Our Users Say"
@@ -252,7 +268,6 @@ export default function MarketingPage() {
               Choose the plan that best fits your needs. <br /> Cancel anytime, no questions asked.
             </>
           }
-          variant="secondary"
         >
           <PricingPlans />
         </Section>
@@ -284,7 +299,6 @@ export default function MarketingPage() {
               We are always working to improve PCIT Tracker. <br /> Here are the latest updates.
             </>
           }
-          variant="muted"
         >
           <ReleaseNotes hideHeader />
         </Section>
