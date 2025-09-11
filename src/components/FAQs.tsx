@@ -3,7 +3,7 @@ import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-export enum FaqSection {
+enum FaqSection {
   GeneralQuestions = 'General Questions',
   GettingStarted = 'Getting Started',
   SecurityAndPrivacy = 'Security and Privacy',
