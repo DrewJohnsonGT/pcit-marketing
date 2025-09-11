@@ -43,7 +43,7 @@ interface Update {
   version: string;
 }
 
-async function getReleaseNotesData(): Promise<Update[]> {
+async function getReleaseNotes(): Promise<Update[]> {
   const releaseNotesResponse = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/public/release-notes`, {
     // This ensures the data is fetched at build time and cached
     cache: 'force-cache',
@@ -112,7 +112,7 @@ const TimelineItem = ({ update }: { update: Update }) => {
 };
 
 export const ReleaseNotes = async ({ className, hideHeader = false }: { className?: string; hideHeader?: boolean }) => {
-  const updatesData = await getReleaseNotesData();
+  const updatesData = await getReleaseNotes();
 
   return (
     <Card className={cn('max-w-lg', className)}>

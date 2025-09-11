@@ -29,7 +29,7 @@ interface NewsItem {
   title: string;
 }
 
-async function getNewsData(): Promise<NewsItem[]> {
+async function getNews(): Promise<NewsItem[]> {
   const newsResponse = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/public/news`, {
     // This ensures the data is fetched at build time and cached
     cache: 'force-cache',
@@ -43,7 +43,7 @@ async function getNewsData(): Promise<NewsItem[]> {
 }
 
 export const News = async ({ className }: { className?: string }) => {
-  const newsData = await getNewsData();
+  const newsData = await getNews();
 
   return (
     <Card className={cn('max-w-xl', className)}>

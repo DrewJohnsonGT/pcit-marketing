@@ -25,7 +25,7 @@ export const FeatureTable = () => {
                       >
                         <PlanIcon className="inline size-8 stroke-2" />
                       </div>
-                      {name}
+                      <span className="text-sm text-foreground">{name}</span>
                     </div>
                   </TableHead>
                 );

@@ -17,7 +17,7 @@ const mockTestimonials: Testimonial[] = [
       'I love the ease that PCIT-Tracker gives to keeping up with all the data I take. Not only is the process of the session simplifed with taking observation data on the tracker, but having the ECBI scores and a 5 minute timer all on the same screen saves me a lot of time. The charts that are made from the data are very beneficial to both the clinician and the family.',
     rating: 5,
     userName: 'Ashley Carter',
-    userTitle: 'MA, PCIT Certified/ Outpatient Therapist',
+    userTitle: 'MA, PCIT Certified Therapist',
   },
   {
     content:
@@ -36,7 +36,7 @@ const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
       {Array.from({ length: 5 }, (_, i) => (
         <StarIcon
           key={i}
-          className={cn('size-5', i < rating ? 'fill-current text-warning' : 'text-muted-foreground')}
+          className={cn('size-6', i < rating ? 'fill-current text-warning' : 'text-muted-foreground')}
         />
       ))}
     </div>

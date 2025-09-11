@@ -45,41 +45,91 @@ const FOOTER_LINKS = [
   { href: RESPONSIBLE_USE_URL, label: 'Responsible Use Policy' },
 ];
 
-const Heading = ({ children, className }: { children: React.ReactNode; className?: string }) => (
-  <h2 className={cn(`mb-8 text-center text-5xl font-bold tracking-tight text-secondary select-none`, className)}>
-    {children}
-  </h2>
-);
+const Heading = ({
+  children,
+  className,
+  variant = 'default',
+}: {
+  children: React.ReactNode;
+  className?: string;
+  variant?: 'accent' | 'default' | 'hero' | 'muted' | 'primary' | 'secondary';
+}) => {
+  const getTextColor = () => {
+    switch (variant) {
+      case 'primary':
+        return 'text-primary-foreground';
+      case 'secondary':
+        return 'text-secondary-foreground';
+      case 'accent':
+        return 'text-accent-foreground';
+      case 'muted':
+        return 'text-muted-foreground';
+      default:
+        return 'text-secondary';
+    }
+  };
 
+  return (
+    <h2 className={cn(`mb-8 text-center text-5xl font-bold tracking-tight select-none`, getTextColor(), className)}>
+      {children}
+    </h2>
+  );
+};
+
+const getSectionStyle = (variant: 'accent' | 'default' | 'hero' | 'muted' | 'primary' | 'secondary') => {
+  switch (variant) {
+    case 'hero':
+      return 'bg-gradient-to-b from-background via-background to-primary/10';
+    case 'primary':
+      return 'bg-primary text-primary-foreground';
+    case 'secondary':
+      return 'bg-secondary text-secondary-foreground';
+    case 'accent':
+      return 'bg-accent-background text-accent-foreground';
+    case 'muted':
+      return 'bg-muted text-muted-foreground';
+    default:
+      return 'bg-background text-foreground';
+  }
+};
 const Section = ({
   children,
   className,
   id,
   subheader,
   header,
+  variant = 'default',
 }: {
   children: React.ReactNode;
   className?: string;
   header?: string;
   id?: string;
   subheader?: React.ReactNode;
-}) => (
-  <section
-    id={id}
-    className={cn(
-      `
-        flex w-full flex-col items-center px-4 py-6
-        md:px-6 md:py-12
-        lg:py-20
-      `,
-      className,
-    )}
-  >
-    {header && <Heading className={cn(subheader && 'mb-4')}>{header}</Heading>}
-    {subheader && <p className="mb-8 text-center text-lg text-muted-foreground">{subheader}</p>}
-    {children}
-  </section>
-);
+  variant?: 'accent' | 'default' | 'hero' | 'muted' | 'primary' | 'secondary';
+}) => {
+  return (
+    <section
+      id={id}
+      className={cn(
+        `
+          relative flex w-full flex-col items-center px-4 py-6 transition-colors duration-500
+          md:px-6 md:py-12
+          lg:py-20
+        `,
+        getSectionStyle(variant),
+        className,
+      )}
+    >
+      {header && (
+        <Heading variant={variant} className={cn(subheader && 'mb-4')}>
+          {header}
+        </Heading>
+      )}
+      {subheader && <p className={cn('mb-8 text-center text-lg', getSectionStyle(variant))}>{subheader}</p>}
+      {children}
+    </section>
+  );
+};
 
 export default function MarketingPage() {
   return (
@@ -143,7 +193,7 @@ export default function MarketingPage() {
       </header>
       <ScrollArea className="h-dvh">
         <main className="flex-1">
-          <Section className="mt-6">
+          <Section className="mt-6" variant="hero">
             <Image
               src={IMAGES.logoNoText.src}
               alt="PCIT Tracker"
@@ -188,10 +238,11 @@ export default function MarketingPage() {
             id="testimonials"
             header="What Our Users Say"
             subheader="Discover how PCIT Tracker is making a difference in therapy practices and families' lives."
+            variant="primary"
           >
             <Testimonials />
           </Section>
-          <Section id="features" header="Features">
+          <Section id="features" header="Features" variant="default">
             <ProductCards />
             <H2 className="mt-8">Overview of Pages</H2>
             <HeroVideoDialog
@@ -210,14 +261,15 @@ export default function MarketingPage() {
                 Choose the plan that best fits your needs. <br /> Cancel anytime, no questions asked.
               </>
             }
+            variant="secondary"
           >
             <PricingPlans />
           </Section>
-          <Section id="cost-explanation" className="mx-auto max-w-3xl">
+          <Section id="cost-explanation" className="mx-auto max-w-3xl" variant="default">
             <H3 className="mb-4 text-2xl">Why we charge for PCIT Tracker</H3>
             <CostExplanation />
           </Section>
-          <Section id="about" header="Our Founders">
+          <Section id="about" header="Our Founders" variant="accent">
             <Founders />
           </Section>
           <Section
@@ -229,6 +281,7 @@ export default function MarketingPage() {
                 please reach out to us.
               </>
             }
+            variant="default"
           >
             <FAQs defaultHeadersOpen={['General Questions']} />
           </Section>
@@ -240,16 +293,17 @@ export default function MarketingPage() {
                 We are always working to improve PCIT Tracker. <br /> Here are the latest updates.
               </>
             }
+            variant="muted"
           >
             <ReleaseNotes hideHeader />
           </Section>
-          <Section id="news">
+          <Section id="news" variant="default">
             <News />
           </Section>
-          <Section id="contact" header="Contact Us">
+          <Section id="contact" header="Contact Us" variant="primary">
             <ContactForm />
           </Section>
-          <Section>
+          <Section variant="hero">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-4">
                 <Image src={IMAGES.logo.src} alt="PCIT Tracker" className="mx-auto shrink-0" width={100} height={100} />

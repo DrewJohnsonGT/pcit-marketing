@@ -88,16 +88,16 @@ export const ProductCards = () => {
         return (
           <div key={feature.title} className="mb-8 break-inside-avoid">
             <Card
-              className="relative w-full max-w-full overflow-hidden border-none shadow-lg"
+              className="relative w-full max-w-full overflow-hidden border border-border shadow-lg"
               style={{
                 background: `linear-gradient(to bottom right, ${feature.gradientTop}, ${feature.gradientBottom})`,
               }}
             >
               <CardContent className="p-0">
                 <CardHeader className="mb-4 p-4">
-                  <CardTitle className="flex items-end gap-2">
+                  <CardTitle className="flex items-start gap-2">
                     <Icon
-                      className="size-12 text-primary"
+                      className="size-10! text-primary"
                       style={{
                         color: feature.iconColor,
                       }}
