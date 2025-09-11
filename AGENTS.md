@@ -59,7 +59,6 @@ This is the marketing site for **www.pcit-tracker.com** - a professional tool fo
 The project includes a comprehensive design system with:
 
 - Semantic color tokens for different content types (family, session, data, etc.)
-- Dark/light theme support
 - Custom animations and transitions
 - Responsive design patterns
 

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
-enum FaqSection {
+export enum FaqSection {
   GeneralQuestions = 'General Questions',
   GettingStarted = 'Getting Started',
   SecurityAndPrivacy = 'Security and Privacy',
@@ -71,7 +71,7 @@ const MarkdownAnswer = ({ content }: { content: string }) => {
 };
 
 export const FAQs = async ({
-  defaultHeadersOpen,
+  defaultHeadersOpen = [FaqSection.GeneralQuestions],
   defaultOpenQuestion,
 }: {
   defaultHeadersOpen?: FaqSection[];

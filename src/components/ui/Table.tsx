@@ -25,7 +25,6 @@ const TableBody: React.FC<React.ComponentProps<'tbody'>> = ({ className, ...prop
     className={cn(
       `
         bg-input-background text-foreground
-        dark:bg-popover
         [&_tr:last-child]:border-0
       `,
       className,

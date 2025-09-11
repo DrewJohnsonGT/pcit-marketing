@@ -135,7 +135,6 @@ export const HeroVideoDialog = ({
               <motion.button
                 className={`
                   absolute -top-16 right-0 rounded-full bg-neutral-900/50 p-2 text-xl text-white ring-1 backdrop-blur-md
-                  dark:bg-neutral-100/50 dark:text-black
                 `}
               >
                 <LuX className="size-5" />

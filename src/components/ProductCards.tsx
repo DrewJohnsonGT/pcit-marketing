@@ -11,7 +11,6 @@ const FEATURES = [
     gradientTop: '#279AF133',
     icon: ICONS[Icons.Home],
     iconColor: '#279AF1',
-    imageDark: IMAGES.homeDark,
     imageLight: IMAGES.home,
     preloadImage: true,
     title: 'Your PCIT Platform',
@@ -22,7 +21,6 @@ const FEATURES = [
     gradientTop: 'hsl(var(--family-foreground) / 0.2)',
     icon: ICONS[Icons.Family],
     iconColor: 'hsl(var(--family-foreground))',
-    imageDark: IMAGES.familiesDark,
     imageLight: IMAGES.families,
     preloadImage: false,
     title: 'See all your families and sessions in one place',
@@ -33,7 +31,6 @@ const FEATURES = [
     gradientTop: 'hsl(var(--session-foreground) / 0.2)',
     icon: ICONS[Icons.Session],
     iconColor: 'hsl(var(--session-foreground))',
-    imageDark: IMAGES.sessionDark,
     imageLight: IMAGES.session,
     preloadImage: true,
     title: 'Intuitive Session Tracker',
@@ -45,7 +42,6 @@ const FEATURES = [
     gradientTop: 'hsl(var(--data-foreground) / 0.2)',
     icon: ICONS[Icons.Data],
     iconColor: 'hsl(var(--data-foreground))',
-    imageDark: IMAGES.dataDark,
     imageLight: IMAGES.data,
     preloadImage: true,
     title: 'Data Visualization',
@@ -57,7 +53,6 @@ const FEATURES = [
     gradientTop: '#A2D2FF44',
     icon: ICONS[Icons.Caregiver],
     iconColor: '#61b0fa',
-    imageDark: IMAGES.pdiDark,
     imageLight: IMAGES.pdi,
     preloadImage: false,
     title: 'PDI Tracking',
@@ -68,7 +63,6 @@ const FEATURES = [
     gradientTop: 'hsl(var(--pdf-foreground) / 0.2)',
     icon: ICONS[Icons.Report],
     iconColor: 'hsl(var(--pdf-foreground))',
-    imageDark: IMAGES.reportDark,
     imageLight: IMAGES.report,
     preloadImage: false,
     title: 'Automated Reports',
@@ -108,33 +102,15 @@ export const ProductCards = () => {
                   <CardDescription className="text-xl text-foreground">{feature.description}</CardDescription>
                 </CardHeader>
                 <div className="relative w-full flex-1">
-                  {/* Light Image */}
                   <Image
                     src={feature.imageLight}
-                    alt={`${feature.title} (light)`}
+                    alt={feature.title}
                     width={feature.imageLight.width}
                     height={feature.imageLight.height}
                     sizes="(max-width: 1279px) min(100vw, 850px), min(50vw, 850px)"
-                    className={`
-                      absolute right-0 ml-auto size-auto rounded-t-lg object-contain
-                      dark:opacity-0
-                    `}
+                    className={`absolute right-0 ml-auto size-auto rounded-t-lg object-contain`}
                     loading={feature.preloadImage ? 'eager' : 'lazy'}
                     priority={feature.preloadImage}
-                  />
-                  {/* Dark Image */}
-                  <Image
-                    src={feature.imageDark}
-                    alt={`${feature.title} (dark)`}
-                    width={feature.imageDark.width}
-                    height={feature.imageDark.height}
-                    sizes="(max-width: 1279px) min(100vw, 850px), min(50vw, 850px)"
-                    className={`
-                      right-0 ml-auto size-auto object-contain opacity-0
-                      dark:opacity-100
-                    `}
-                    priority={feature.preloadImage}
-                    loading={feature.preloadImage ? 'eager' : 'lazy'}
                   />
                 </div>
               </CardContent>

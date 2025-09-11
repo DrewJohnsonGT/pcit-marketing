@@ -1,7 +1,6 @@
 import { Analytics } from '@vercel/analytics/next';
 import { type Metadata } from 'next';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import { Lato } from 'next/font/google';
+import { DM_Sans } from 'next/font/google';
 import Head from 'next/head';
 import { TooltipProvider } from '~/components/ui/Tooltip';
 import { cn } from '~/utils/cn';
@@ -58,15 +57,15 @@ export const metadata: Metadata = {
   },
 };
 
-const font = Lato({
+const dmSansFont = DM_Sans({
   subsets: ['latin'],
-  variable: '--font-lato',
-  weight: ['400', '700'],
+  variable: '--font-dm-sans',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 });
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="en" className="scroll-smooth">
       <Head>
         <meta name="apple-mobile-web-app-title" content="PCIT" />
       </Head>
@@ -74,13 +73,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         className={cn(
           'h-dvh antialiased',
           `
-            ${font.className}
+            ${dmSansFont.className}
           `,
         )}
       >
-        <NextThemesProvider attribute="class">
-          <TooltipProvider>{children}</TooltipProvider>
-        </NextThemesProvider>
+        <TooltipProvider>{children}</TooltipProvider>
         <Analytics />
       </body>
     </html>
