@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { LuPlay, LuX } from 'react-icons/lu';
 import { cn } from '~/utils/cn';
+import { ICONS } from '~/utils/icons';
 
 type AnimationStyle =
   | 'fade'
@@ -107,7 +107,7 @@ export const HeroVideoDialog = ({
                 group-hover:scale-[1.2]
               `}
             >
-              <LuPlay
+              <ICONS.Play
                 className={`
                   size-8 scale-100 fill-white text-white transition-transform duration-200 ease-out
                   group-hover:scale-105
@@ -142,7 +142,7 @@ export const HeroVideoDialog = ({
                   absolute -top-16 right-0 rounded-full bg-neutral-900/50 p-2 text-xl text-white ring-1 backdrop-blur-md
                 `}
               >
-                <LuX className="size-5" />
+                <ICONS.X className="size-5" />
               </motion.button>
               <div className="relative isolate z-[1] size-full overflow-hidden rounded-2xl border-2 border-white">
                 <iframe

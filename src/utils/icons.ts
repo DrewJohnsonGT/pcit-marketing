@@ -15,6 +15,7 @@ import {
   LuInfo,
   LuMenu,
   LuNewspaper,
+  LuPlay,
   LuRefreshCcw,
   LuShield,
   LuStar,
@@ -41,6 +42,7 @@ export enum Icons {
   News = 'News',
   Organization = 'Organization',
   PDFSimple = 'PDFSimple',
+  Play = 'Play',
   Refresh = 'Refresh',
   Report = 'Report',
   Session = 'Session',
@@ -73,5 +75,6 @@ export const ICONS = {
   [Icons.Shield]: LuShield,
   [Icons.Star]: LuStar,
   [Icons.TrendingUp]: LuTrendingUp,
+  [Icons.Play]: LuPlay,
   [Icons.X]: LuX,
 };
