@@ -60,8 +60,8 @@ export const PricingPlans = () => {
                   <Badge
                     variant="outline"
                     className={`
-                      bg-background/20 px-2 py-1 font-semibold shadow-[0_0_0_2px_hsl(var(--secondary)/70%)] ring
-                      ring-secondary/50 backdrop-blur-sm
+                      bg-background/20 px-2 py-1 font-semibold shadow-[0_0_0_2px_hsl(var(--secondary)/70%)] ring-4
+                      ring-secondary/50 backdrop-blur-xs
                     `}
                   >
                     Most Popular
@@ -71,7 +71,8 @@ export const PricingPlans = () => {
               <CardHeader className="flex flex-col items-center justify-center gap-2">
                 <CardTitle
                   className={`
-                    flex flex-col items-center justify-center gap-2 text-center text-2xl text-foreground uppercase
+                    flex flex-col items-center justify-center gap-2 text-center text-2xl tracking-wide text-foreground
+                    uppercase
                   `}
                 >
                   <Icon
@@ -82,7 +83,9 @@ export const PricingPlans = () => {
                   />
                   {name}
                 </CardTitle>
-                <CardDescription className={`h-20 p-2 text-center text-foreground`}>{description}</CardDescription>
+                <CardDescription className={`h-20 p-2 text-center text-lg text-foreground`}>
+                  {description}
+                </CardDescription>
               </CardHeader>
               <CardContent className={`flex w-full flex-col items-center p-0`}>
                 <div className="flex h-24 flex-col items-center justify-center">
@@ -94,16 +97,16 @@ export const PricingPlans = () => {
                         start={getMonthlyRate(price as number, billingCycle === 'monthly' ? 'annual' : 'monthly')}
                         end={getMonthlyRate(price as number, billingCycle)}
                       />
-                      <span className={`text-sm font-medium text-muted-foreground`}>/ month</span>
+                      <span className={`font-medium text-muted-foreground`}>/ month</span>
                     </div>
                   )}
                   {typeof price === 'string' && <p className="text-3xl font-bold text-secondary">{price}</p>}
                 </div>
-                <ul className="list-none pt-4">
+                <ul className="list-none py-4">
                   {features.map((feature) => (
                     <li key={feature} className="flex items-center">
-                      <ICONS.Check className="mr-2 text-success" />
-                      {feature}
+                      <ICONS.Check className="mr-2 size-6 text-success" />
+                      <span className="font-medium text-foreground">{feature}</span>
                     </li>
                   ))}
                 </ul>

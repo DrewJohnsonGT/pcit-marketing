@@ -10,7 +10,10 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '~/components/ui/Tooltip
 export const FeatureTable = () => {
   return (
     <div className="mx-auto flex min-h-0 w-full max-w-full flex-1 flex-col">
-      <ScrollArea className="min-h-0 rounded-md border bg-background" type="auto">
+      <ScrollArea
+        className="min-h-0 overflow-hidden rounded-md border border-border bg-background shadow-sm"
+        type="auto"
+      >
         <Table className="w-full whitespace-nowrap">
           <TableHeader>
             <TableRow className="text-xl">
@@ -20,12 +23,14 @@ export const FeatureTable = () => {
                   <TableHead key={plan} className="pt-2 text-lg capitalize">
                     <div className="flex flex-col items-center">
                       <div
-                        className={`flex items-center justify-center rounded-full border bg-background p-1`}
-                        style={{ color }}
+                        className={`
+                          flex items-center justify-center rounded-full border-2 border-border bg-background p-1
+                        `}
+                        style={{ borderColor: color, color }}
                       >
                         <PlanIcon className="inline size-8 stroke-2" />
                       </div>
-                      <span className="text-sm text-foreground">{name}</span>
+                      <span className="text-foreground">{name}</span>
                     </div>
                   </TableHead>
                 );

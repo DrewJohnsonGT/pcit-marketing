@@ -266,6 +266,7 @@ export default function MarketingPage() {
           header="Pricing Plans"
           subheader={
             <>
+              Free to try as long as you want! <br />
               Choose the plan that best fits your needs. <br /> Cancel anytime, no questions asked.
             </>
           }

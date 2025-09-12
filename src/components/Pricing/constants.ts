@@ -37,7 +37,7 @@ export const PRICING_PLANS: Partial<Record<PricingPlan, PricingPlanInfo>> = {
     description: 'Tailored solutions for PCIT organizations',
     features: [
       'Everything in Pro Plus',
-      'Create and manage your organization',
+      'Manage your organization',
       'Cheaper per user licenses',
       'Custom Integrations',
       'API Access',
