@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { Skeleton } from './Skeleton';
 import { cn } from '~/utils/cn';
 
 export const sharedInputClasses = cn(
@@ -17,6 +16,5 @@ const Input: React.FC<React.ComponentProps<'input'>> = ({ className, type, ...pr
 );
 Input.displayName = 'Input';
 
-export const InputSkeleton = () => <Skeleton className="h-input w-full" />;
 
 export { Input };

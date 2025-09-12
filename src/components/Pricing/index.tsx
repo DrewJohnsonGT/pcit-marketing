@@ -95,7 +95,7 @@ export const PricingPlans = () => {
                   />
                   {name}
                 </CardTitle>
-                <CardDescription className={`h-20 p-2 text-center text-lg text-foreground`}>
+                <CardDescription className={`flex h-20 items-center px-4 text-center text-lg text-foreground`}>
                   {description}
                 </CardDescription>
               </CardHeader>
@@ -112,9 +112,9 @@ export const PricingPlans = () => {
                       <span className={`font-medium text-muted-foreground`}>/ month</span>
                     </div>
                   )}
-                  {typeof price === 'string' && <p className="text-3xl font-bold text-secondary">{price}</p>}
+                  {typeof price === 'string' && <p className="text-4xl font-bold text-secondary">{price}</p>}
                 </div>
-                <ul className="flex list-none flex-col gap-4 py-4">
+                <ul className="flex list-none flex-col gap-2 py-4">
                   {features.map((feature) => (
                     <li key={feature} className="flex items-center gap-2">
                       <ICONS.CheckCircle className="size-6 text-success" />
