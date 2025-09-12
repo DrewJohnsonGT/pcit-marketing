@@ -64,7 +64,7 @@ export const Testimonials = () => {
   return (
     <div
       className={`
-        mx-auto grid max-w-4xl grid-cols-1 gap-8
+        mx-auto grid max-w-5xl grid-cols-1 gap-8
         md:grid-cols-2
       `}
     >

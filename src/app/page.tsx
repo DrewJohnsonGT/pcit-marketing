@@ -130,7 +130,7 @@ export default function MarketingPage() {
       <header
         className={`
           sticky top-0 z-50 flex h-20 w-full items-center justify-between border-b border-border/50 bg-background/95 p-2
-          backdrop-blur-sm
+          px-4 backdrop-blur-sm
         `}
       >
         <nav
@@ -157,7 +157,7 @@ export default function MarketingPage() {
           <Image src={IMAGES.logoNoText.src} alt={APP_NAME} width={64} height={64} />
           <span className="text-3xl font-semibold tracking-wider text-primary-dark uppercase">{APP_NAME}</span>
         </Link>
-        <div className="flex flex-1 items-center justify-end gap-6 px-2">
+        <div className="flex flex-1 items-center justify-end gap-6">
           <Link
             href="/login"
             aria-label="Login"
