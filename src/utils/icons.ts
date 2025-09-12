@@ -6,6 +6,7 @@ import {
   LuChartColumn,
   LuChartLine,
   LuCheck,
+  LuCircleCheck,
   LuCode,
   LuDollarSign,
   LuDownload,
@@ -29,6 +30,7 @@ export enum Icons {
   ArrowLeft = 'ArrowLeft',
   Caregiver = 'Caregiver',
   Check = 'Check',
+  CheckCircle = 'CheckCircle',
   Code = 'Code',
   CSVSimple = 'CSVSimple',
   Data = 'Data',
@@ -76,5 +78,6 @@ export const ICONS = {
   [Icons.Star]: LuStar,
   [Icons.TrendingUp]: LuTrendingUp,
   [Icons.Play]: LuPlay,
+  [Icons.CheckCircle]: LuCircleCheck,
   [Icons.X]: LuX,
 };

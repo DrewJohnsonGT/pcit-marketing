@@ -88,16 +88,21 @@ export const ProductCards = () => {
               }}
             >
               <CardContent className="p-0">
-                <CardHeader className="mb-4 flex flex-col gap-4 p-4">
-                  <CardTitle className="flex items-start gap-2">
+                <CardHeader className="flex flex-col gap-4 p-4">
+                  <CardTitle
+                    className={`
+                      flex w-full flex-col items-center gap-2
+                      sm:flex-row sm:items-start
+                    `}
+                  >
                     <Icon
-                      className="size-10! text-primary"
+                      className="size-10! shrink-0 text-primary"
                       style={{
                         color: feature.iconColor,
                       }}
                       aria-hidden="true"
                     />
-                    <span className="text-3xl font-bold">{feature.title}</span>
+                    <span className="text-center text-3xl font-bold">{feature.title}</span>
                   </CardTitle>
                   <CardDescription className="text-xl text-foreground">{feature.description}</CardDescription>
                 </CardHeader>
@@ -107,11 +112,8 @@ export const ProductCards = () => {
                     alt={feature.title}
                     width={feature.image.width}
                     height={feature.image.height}
-                    sizes="(max-width: 1279px) min(100vw, 850px), min(50vw, 850px)"
-                    className={`
-                      right-0 ml-auto size-auto object-contain opacity-0
-                      dark:opacity-100
-                    `}
+                    sizes="(max-width: 1023px) 100vw, 50vw"
+                    className={`right-0 ml-auto h-auto w-full object-contain`}
                     loading={feature.preloadImage ? 'eager' : 'lazy'}
                     priority={feature.preloadImage}
                   />

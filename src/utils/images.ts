@@ -13,8 +13,6 @@ enum AppImageKey {
   Families = 'families',
   Home = 'home',
   Logo = 'logo',
-  LogoNoText = 'logoNoText',
-  LogoText = 'logoText',
   Madeline = 'madeline',
   NotFound = 'notFound',
   Pdi = 'pdi',
@@ -73,16 +71,6 @@ export const IMAGES: Record<AppImageKey, AppImage> = {
   [AppImageKey.Logo]: {
     height: 200,
     src: `${IMAGES_DIR}/logo.png`,
-    width: 200,
-  },
-  [AppImageKey.LogoNoText]: {
-    height: 200,
-    src: `${IMAGES_DIR}/logo-no-text.png`,
-    width: 200,
-  },
-  [AppImageKey.LogoText]: {
-    height: 200,
-    src: `${IMAGES_DIR}/logo-text.svg`,
     width: 200,
   },
   [AppImageKey.Madeline]: {

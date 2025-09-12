@@ -75,4 +75,8 @@ export const A = createComponent<HTMLAnchorElement>(
   'A',
 );
 
-export const Underline = createComponent<HTMLAnchorElement>('u', cn(`underline decoration-secondary`), 'Underline');
+export const Underline = createComponent<HTMLAnchorElement>(
+  'u',
+  cn(`underline decoration-secondary-light decoration-3`),
+  'Underline',
+);

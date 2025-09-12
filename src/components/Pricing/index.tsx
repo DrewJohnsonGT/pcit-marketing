@@ -29,15 +29,18 @@ export const PricingPlans = () => {
           />
           <span className="flex items-center gap-2">
             Annually
-            <Badge variant="success">Save {100 - YEARLY_RATE_MULTIPLIER * 100}%</Badge>
+            <Badge variant="success" size="sm">
+              Save {100 - YEARLY_RATE_MULTIPLIER * 100}%
+            </Badge>
           </span>
         </div>
       </Card>
 
       <div
         className={`
-          flex w-full flex-col items-stretch justify-center gap-2
-          xl:flex-row
+          flex w-full flex-col items-center justify-center gap-8
+          sm:gap-14
+          xl:flex-row xl:gap-2
         `}
       >
         {Object.entries(PRICING_PLANS).map(([plan, { color, description, features, icon: Icon, name, price }]) => {
@@ -47,30 +50,39 @@ export const PricingPlans = () => {
               key={plan}
               className={cn(
                 `
-                  h-full max-w-md flex-1 px-0 shadow-md transition-all duration-200
+                  h-full w-full max-w-md flex-1 px-0 shadow-md transition-all duration-200
                   xl:min-w-sm
                 `,
                 isMostPopularPlan &&
-                  `relative z-10 scale-110 shadow-[0_0_0_2px_hsl(var(--secondary)/70%)] ring-[6px] ring-secondary/50`,
+                  `
+                    relative z-10 shadow-[0_0_0_2px_hsl(var(--secondary)/70%)] ring-[6px] ring-secondary/50
+                    sm:scale-110
+                  `,
               )}
             >
               {isMostPopularPlan && (
-                <div className="absolute -top-2 -right-2 z-10 rotate-12">
+                <div
+                  className={`
+                    absolute right-1/2 z-10 translate-x-1/2 -translate-y-1/2
+                    sm:-top-2 sm:-right-2 sm:rotate-12
+                  `}
+                >
                   <Badge
                     variant="outline"
                     className={`
-                      bg-background/20 px-2 py-1 font-semibold shadow-[0_0_0_2px_hsl(var(--secondary)/70%)] ring-4
-                      ring-secondary/50 backdrop-blur-xs
+                      bg-background px-2 py-1 font-semibold shadow-[0_0_0_2px_hsl(var(--secondary)/70%)] ring-4
+                      ring-secondary/50
+                      sm:bg-background/20 sm:backdrop-blur-xs
                     `}
                   >
                     Most Popular
                   </Badge>
                 </div>
               )}
-              <CardHeader className="flex flex-col items-center justify-center gap-2">
+              <CardHeader className="flex flex-col items-center justify-center pt-6">
                 <CardTitle
                   className={`
-                    flex flex-col items-center justify-center gap-2 text-center text-2xl tracking-wide text-foreground
+                    flex flex-col items-center justify-center gap-0 text-center text-2xl tracking-wide text-foreground
                     uppercase
                   `}
                 >
@@ -86,8 +98,8 @@ export const PricingPlans = () => {
                   {description}
                 </CardDescription>
               </CardHeader>
-              <CardContent className={`flex w-full flex-col items-center pb-4`}>
-                <div className="flex h-20 flex-col items-center justify-center">
+              <CardContent className={`flex w-full flex-col items-center py-4`}>
+                <div className="flex flex-col items-center justify-center">
                   {typeof price === 'number' && (
                     <div className="flex items-center gap-1">
                       <span className="text-xl font-bold">$</span>
@@ -101,10 +113,10 @@ export const PricingPlans = () => {
                   )}
                   {typeof price === 'string' && <p className="text-3xl font-bold text-secondary">{price}</p>}
                 </div>
-                <ul className="list-none py-4">
+                <ul className="flex list-none flex-col gap-4 py-4">
                   {features.map((feature) => (
-                    <li key={feature} className="flex items-center">
-                      <ICONS.Check className="mr-2 size-6 text-success" />
+                    <li key={feature} className="flex items-center gap-2">
+                      <ICONS.CheckCircle className="size-6 text-success" />
                       <span className="font-medium text-foreground">{feature}</span>
                     </li>
                   ))}

@@ -207,11 +207,12 @@ export default function MarketingPage() {
           aria-label="Home"
           prefetch={false}
           className={`
-            flex flex-1 items-center gap-4
+            flex items-center gap-4
+            sm:flex-1
             md:justify-center
           `}
         >
-          <Image src={IMAGES.logoNoText.src} alt={APP_NAME} width={64} height={64} />
+          <Image src={IMAGES.logo.src} alt={APP_NAME} width={64} height={64} />
           <span
             className={`
               hidden text-3xl font-semibold tracking-wider text-primary-dark uppercase
@@ -223,13 +224,13 @@ export default function MarketingPage() {
         </Link>
         <div
           className={`
-            flex flex-1 items-center justify-end gap-4
+            flex flex-1 items-center justify-end gap-2
             sm:gap-6
           `}
         >
           <Link
-            href="/login"
-            aria-label="Login"
+            href="/signin"
+            aria-label="Sign in"
             className={`
               text-lg underline decoration-border decoration-3 underline-offset-6
               hover:text-secondary hover:decoration-secondary
@@ -351,7 +352,7 @@ export default function MarketingPage() {
           header="Pricing Plans"
           subheading={
             <>
-              <Underline>Free to try</Underline> as long as you want!
+              <Underline>Free to try as long as you want!</Underline>
               <br />
               Choose the plan that best fits your needs. <br /> <Underline>Cancel anytime</Underline>, no questions
               asked.
@@ -404,13 +405,7 @@ export default function MarketingPage() {
         <Section>
           <div className="flex flex-col items-center gap-4 text-center">
             <div className="flex flex-col items-center gap-2">
-              <Image
-                src={IMAGES.logoNoText.src}
-                alt="PCIT Tracker"
-                className="mx-auto shrink-0"
-                width={150}
-                height={150}
-              />
+              <Image src={IMAGES.logo.src} alt="PCIT Tracker" className="mx-auto shrink-0" width={150} height={150} />
               <Heading>Ready to Get Started?</Heading>
               <Subheading>Take your PCIT therapy to the next level.</Subheading>
             </div>
@@ -446,7 +441,8 @@ export default function MarketingPage() {
         </Section>
         <footer
           className={`
-            grid items-center gap-4 border-t bg-primary-dark p-4 py-8 text-primary-foreground
+            grid items-center gap-4 border-t bg-primary-dark p-2 text-primary-foreground
+            sm:p-4 sm:py-8
             xl:grid-cols-3
           `}
         >
@@ -464,7 +460,8 @@ export default function MarketingPage() {
           </div>
           <nav
             className={`
-              flex justify-center gap-4
+              flex justify-center gap-2
+              sm:gap-4
               xl:justify-end xl:gap-6
             `}
           >
@@ -476,8 +473,9 @@ export default function MarketingPage() {
                 target="_blank"
                 rel="noreferrer"
                 className={`
-                  text-sm text-primary-foreground
+                  text-center text-xs text-primary-foreground
                   hover:text-secondary-light
+                  sm:text-sm
                 `}
               >
                 {link.label}
