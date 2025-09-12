@@ -65,7 +65,7 @@ export const PricingPlans = () => {
                 <div
                   className={`
                     absolute right-1/2 z-10 translate-x-1/2 -translate-y-1/2
-                    sm:-top-2 sm:-right-2 sm:rotate-12
+                    sm:-top-2 sm:-right-2 sm:translate-x-0 sm:translate-y-0 sm:rotate-12
                   `}
                 >
                   <Badge
