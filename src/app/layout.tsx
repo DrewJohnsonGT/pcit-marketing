@@ -71,7 +71,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </Head>
       <body
         className={cn(
-          'min-h-screen overflow-x-hidden antialiased',
+          'min-h-screen w-full overflow-x-hidden antialiased',
           `
             ${dmSansFont.className}
           `,

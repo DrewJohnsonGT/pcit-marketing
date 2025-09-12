@@ -18,7 +18,7 @@ export const PricingPlans = () => {
   const [billingCycle, setBillingCycle] = useState<'annual' | 'monthly'>('monthly');
 
   return (
-    <div className="flex max-w-full flex-1 flex-col items-center gap-14">
+    <div className="flex w-full max-w-full flex-1 flex-col items-center gap-14">
       <Card className="p-4">
         <div className="flex items-center gap-2">
           <span>Monthly</span>
@@ -29,9 +29,7 @@ export const PricingPlans = () => {
           />
           <span className="flex items-center gap-2">
             Annually
-            <Badge variant="success" size="sm">
-              Save {100 - YEARLY_RATE_MULTIPLIER * 100}%
-            </Badge>
+            <Badge variant="success">Save {100 - YEARLY_RATE_MULTIPLIER * 100}%</Badge>
           </span>
         </div>
       </Card>
@@ -53,7 +51,7 @@ export const PricingPlans = () => {
                   xl:min-w-sm
                 `,
                 isMostPopularPlan &&
-                  `relative z-10 scale-110 shadow-[0_0_0_2px_hsl(var(--primary)/70%)] ring-[6px] ring-primary/50`,
+                  `relative z-10 scale-110 shadow-[0_0_0_2px_hsl(var(--secondary)/70%)] ring-[6px] ring-secondary/50`,
               )}
             >
               {isMostPopularPlan && (

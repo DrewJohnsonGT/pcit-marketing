@@ -1,5 +1,4 @@
-import { ICONS } from '../utils/icons';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/Card';
+import { Card, CardContent, CardHeader } from './ui/Card';
 import { ScrollArea } from './ui/ScrollArea';
 import { LuBug, LuInfo, LuSparkles } from 'react-icons/lu';
 import { MdUpgrade } from 'react-icons/md';
@@ -111,19 +110,13 @@ const TimelineItem = ({ update }: { update: Update }) => {
   );
 };
 
-export const ReleaseNotes = async ({ className, hideHeader = false }: { className?: string; hideHeader?: boolean }) => {
+export const ReleaseNotes = async ({ className }: { className?: string }) => {
   const updatesData = await getReleaseNotes();
 
   return (
     <Card className={cn('max-w-lg', className)}>
-      <CardHeader className="flex flex-col gap-1">
-        {!hideHeader && (
-          <CardTitle>
-            <ICONS.History /> Release Notes
-          </CardTitle>
-        )}
-        {!hideHeader && <CardDescription>Keep up with the latest updates and improvements to the app.</CardDescription>}
-        <legend className={cn('flex w-full justify-around gap-2', !hideHeader && 'mt-4')}>
+      <CardHeader>
+        <legend className="flex w-full flex-wrap justify-around gap-4">
           {Object.values(UpdateType).map((updateType) => {
             const Icon = icons[updateType];
             return (

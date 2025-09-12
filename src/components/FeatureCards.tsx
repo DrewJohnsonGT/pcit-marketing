@@ -49,7 +49,7 @@ export const FeatureCards = () => {
   return (
     <div
       className={`
-        relative z-10 mx-auto mt-16 grid max-w-7xl grid-cols-1 py-10
+        relative z-10 mx-auto mt-16 grid w-full max-w-7xl grid-cols-1 py-10
         md:grid-cols-2
         lg:grid-cols-4
       `}

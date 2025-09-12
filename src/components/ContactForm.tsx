@@ -96,7 +96,7 @@ export const ContactForm = () => {
     <Card>
       <CardContent className="p-6">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="flex w-lg max-w-full flex-col gap-2">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="flex w-full max-w-lg flex-col gap-2">
             <FormField
               control={form.control}
               name="name"

@@ -73,7 +73,7 @@ export const ProductCards = () => {
   return (
     <div
       className={`
-        mt-8 w-full columns-1 gap-10
+        mt-8 w-full max-w-full columns-1 gap-10
         lg:columns-2
       `}
     >

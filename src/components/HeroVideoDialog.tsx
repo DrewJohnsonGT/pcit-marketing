@@ -83,8 +83,6 @@ export const HeroVideoDialog = ({
         <img
           src={thumbnailSrc}
           alt={thumbnailAlt}
-          width={1920}
-          height={1080}
           className={`
             h-full w-full
             [transform:scale(1.02)]

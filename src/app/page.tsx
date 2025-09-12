@@ -129,7 +129,7 @@ const Section = ({
       id={id}
       className={cn(
         `
-          relative flex w-full scroll-m-20 flex-col items-center px-4 py-6 transition-colors duration-500
+          relative flex w-full max-w-full scroll-m-20 flex-col items-center px-4 py-6 transition-colors duration-500
           md:px-6 md:py-12
           lg:py-20
         `,
@@ -150,8 +150,12 @@ const Section = ({
 
 export default function MarketingPage() {
   return (
-    <div className="min-h-screen bg-background">
-      <div className="flex h-auto items-center justify-center gap-1 bg-primary-light py-0.5 text-center text-foreground">
+    <>
+      <div
+        className={`
+          flex h-auto max-w-full items-center justify-center gap-1 bg-primary-light p-0.5 text-center text-foreground
+        `}
+      >
         <ICONS.Info
           className={`
             hidden size-4
@@ -159,7 +163,7 @@ export default function MarketingPage() {
           `}
           aria-hidden="true"
         />{' '}
-        <span>
+        <span className="break-words">
           Interested in research, partnerships, or a premium trial?{' '}
           <A
             href="/#contact"
@@ -172,7 +176,12 @@ export default function MarketingPage() {
           </A>
         </span>
       </div>
-      <header className={`sticky top-0 z-50 flex h-20 w-full items-center justify-between bg-background p-2 px-4`}>
+      <header
+        className={`
+          sticky top-0 z-50 flex h-20 w-full items-center justify-between bg-background p-1
+          sm:p-2 sm:px-4
+        `}
+      >
         <nav
           className={`
             hidden flex-1 items-center gap-2
@@ -242,11 +251,14 @@ export default function MarketingPage() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 {HEADER_LINKS.map((link) => (
-                  <DropdownMenuItem key={link.href}>
-                    <Link href={`#${link.href}`} className={`text-sm font-medium underline-offset-4`} prefetch={false}>
-                      {link.label}
-                    </Link>
-                  </DropdownMenuItem>
+                  <Link
+                    key={link.href}
+                    href={`#${link.href}`}
+                    className={`text-sm font-medium underline-offset-4`}
+                    prefetch={false}
+                  >
+                    <DropdownMenuItem>{link.label}</DropdownMenuItem>
+                  </Link>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
@@ -263,9 +275,9 @@ export default function MarketingPage() {
               lg:text-6xl/none
             `}
           >
-            Track Smarter.
+            Track Smarter
             <br />
-            Treat Smarter.
+            Treat Smarter
           </div>
           <ul className={`z-10 mt-2 flex max-w-lg flex-col gap-3 p-4 text-xl font-medium text-inherit`}>
             <li className="flex items-center gap-2">
@@ -376,7 +388,7 @@ export default function MarketingPage() {
             </>
           }
         >
-          <ReleaseNotes hideHeader />
+          <ReleaseNotes />
         </Section>
         <Section id={SectionIds.News} variant="default">
           <News />
@@ -474,6 +486,6 @@ export default function MarketingPage() {
           </nav>
         </footer>
       </main>
-    </div>
+    </>
   );
 }
