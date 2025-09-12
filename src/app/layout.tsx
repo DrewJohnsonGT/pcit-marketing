@@ -3,7 +3,6 @@ import { type Metadata } from 'next';
 import { DM_Sans } from 'next/font/google';
 import Head from 'next/head';
 import { TooltipProvider } from '~/components/ui/Tooltip';
-import { cn } from '~/utils/cn';
 import { APP_DESCRIPTION, APP_KEYWORDS, APP_NAME } from '~/utils/constants';
 import { IMAGES } from '~/utils/images';
 
@@ -65,18 +64,11 @@ const dmSansFont = DM_Sans({
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <Head>
         <meta name="apple-mobile-web-app-title" content="PCIT Tracker" />
       </Head>
-      <body
-        className={cn(
-          'min-h-screen w-full overflow-x-hidden antialiased',
-          `
-            ${dmSansFont.className}
-          `,
-        )}
-      >
+      <body className={dmSansFont.className}>
         <TooltipProvider>{children}</TooltipProvider>
         <Analytics />
       </body>

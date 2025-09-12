@@ -73,16 +73,16 @@ export const ProductCards = () => {
   return (
     <div
       className={`
-        mt-8 w-full max-w-full columns-1 gap-10
-        lg:columns-2
+        mt-8 grid w-full max-w-full grid-cols-1 gap-6
+        lg:grid-cols-2
       `}
     >
       {FEATURES.map((feature) => {
         const Icon = feature.icon;
         return (
-          <div key={feature.title} className="mb-8 break-inside-avoid">
+          <div key={feature.title} className="w-full">
             <Card
-              className="relative w-full max-w-full overflow-hidden border border-border shadow-lg"
+              className="relative w-full overflow-hidden border border-border shadow-lg"
               style={{
                 background: `linear-gradient(to bottom right, ${feature.gradientTop}, ${feature.gradientBottom})`,
               }}

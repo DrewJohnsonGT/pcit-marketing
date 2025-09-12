@@ -92,7 +92,12 @@ const Feature = ({
       {index >= 4 && (
         <div className={cn('pointer-events-none absolute inset-0 size-full bg-gradient-to-b', hoverColors)} />
       )}
-      <div className="relative z-10 mb-4 px-10 text-foreground">
+      <div
+        className={`
+          relative z-10 mb-4 px-4 text-foreground
+          sm:px-10
+        `}
+      >
         <Icon
           className={`
             size-10
@@ -100,7 +105,12 @@ const Feature = ({
           `}
         />
       </div>
-      <div className="relative z-10 mb-2 px-10 text-lg font-bold">
+      <div
+        className={`
+          relative z-10 mb-2 px-4 text-lg font-bold
+          sm:px-10
+        `}
+      >
         <div
           className={`
             absolute inset-y-0 left-0 h-8 w-1 origin-center rounded-r-full bg-border transition-all duration-200
@@ -116,7 +126,14 @@ const Feature = ({
           {title}
         </span>
       </div>
-      <p className="relative z-10 max-w-xs px-10 text-sm text-foreground">{description}</p>
+      <p
+        className={`
+          relative z-10 max-w-xs px-4 text-sm text-foreground
+          sm:px-10
+        `}
+      >
+        {description}
+      </p>
     </div>
   );
 };

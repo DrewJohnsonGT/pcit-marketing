@@ -178,8 +178,8 @@ export default function MarketingPage() {
       </div>
       <header
         className={`
-          sticky top-0 z-50 flex h-20 w-full items-center justify-between bg-background p-1
-          sm:p-2 sm:px-4
+          sticky top-0 z-50 flex h-16 w-full items-center justify-between bg-background p-1
+          sm:h-20 sm:p-2 sm:px-4
         `}
       >
         <nav
@@ -239,14 +239,20 @@ export default function MarketingPage() {
             Log in
           </Link>
           <Link href="/signup" aria-label="Sign Up">
-            <Button aria-label="Sign Up" className="rounded-full p-6">
+            <Button
+              aria-label="Sign Up"
+              className={`
+                rounded-full p-4
+                sm:p-6
+              `}
+            >
               Get Started
             </Button>
           </Link>
           <div className="md:hidden">
-            <DropdownMenu>
+            <DropdownMenu modal={false}>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Menu">
+                <Button variant="outline" size="icon" aria-label="Menu">
                   <ICONS.Menu className="size-5" />
                 </Button>
               </DropdownMenuTrigger>

@@ -50,7 +50,8 @@ export const PricingPlans = () => {
               key={plan}
               className={cn(
                 `
-                  h-full w-full max-w-md flex-1 px-0 shadow-md transition-all duration-200
+                  h-full w-full max-w-sm flex-1 px-0 shadow-md transition-all duration-200
+                  sm:max-w-md
                   xl:min-w-sm
                 `,
                 isMostPopularPlan &&

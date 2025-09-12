@@ -357,9 +357,12 @@
   * {
     @apply border-border;
   }
-  html,
+  html {
+    @apply bg-accent-background w-[100dvw] antialiased text-foreground scroll-smooth min-h-[100dvh];
+  }
+
   body {
-    @apply bg-accent-background h-[100dvh] w-[100dvw] antialiased text-foreground;
+    @apply bg-accent-background w-[100dvw] antialiased text-foreground overflow-x-hidden min-h-[100dvh];
   }
 
   #main {
