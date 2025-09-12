@@ -197,14 +197,15 @@ export default function MarketingPage() {
         <Section variant="primary">
           <div
             className={`
-              text-center text-5xl font-bold tracking-tight select-none
+              text-5xl select-none
               sm:text-4xl
               md:text-5xl
               lg:text-6xl/none
             `}
           >
-            Minimize paperwork. <br />
-            <b className="!font-extrabold">Maximize productivity.</b>
+            Track Smarter.
+            <br />
+            Treat Smarter.
           </div>
           <ul className={`z-10 mt-2 flex max-w-lg flex-col gap-3 p-4 text-xl font-medium text-inherit`}>
             <li className="flex items-center gap-2">

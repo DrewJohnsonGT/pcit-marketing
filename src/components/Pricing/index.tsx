@@ -3,12 +3,10 @@
 import { useState } from 'react';
 import { PRICING_PLANS, YEARLY_RATE_MULTIPLIER } from './constants';
 import { FeatureTable } from './FeatureTable';
-import { SubscriptionCard } from './SubscriptionCard';
 import { BillingCycle, PricingPlan } from './types';
 import { CountingNumber } from '~/components/CountingNumber';
 import { Badge } from '~/components/ui/Badge';
-import { Button } from '~/components/ui/Button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '~/components/ui/Card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '~/components/ui/Card';
 import { Switch } from '~/components/ui/Switch';
 import { cn } from '~/utils/cn';
 import { ICONS } from '~/utils/icons';
@@ -17,57 +15,11 @@ const getMonthlyRate = (price: number, billingCycle: BillingCycle) => {
   return billingCycle === 'annual' ? price * YEARLY_RATE_MULTIPLIER : price;
 };
 
-export const PricingPlans = ({
-  currentPlan,
-  onPlanChange,
-  onCancelPlan,
-  onReactivatePlan,
-  isLoading,
-  showSubscriptionCard = false,
-}: {
-  currentPlan?: {
-    cancelAtPeriodEnd: boolean;
-    endDate?: Date;
-    plan: PricingPlan;
-    startDate?: Date;
-    subscriptionId?: string;
-  };
-  isLoading?: boolean;
-  onCancelPlan?: () => void;
-  onPlanChange?: ({
-    newPlan,
-    annual,
-    seats,
-    currentSubscriptionId,
-  }: {
-    annual: boolean;
-    currentSubscriptionId?: string;
-    newPlan: PricingPlan;
-    seats?: number;
-  }) => Promise<void>;
-  onReactivatePlan?: () => Promise<void>;
-  showSubscriptionCard?: boolean;
-}) => {
+export const PricingPlans = () => {
   const [billingCycle, setBillingCycle] = useState<'annual' | 'monthly'>('monthly');
 
-  const handlePlanChange = (plan: PricingPlan, annual: boolean, seats?: number) => {
-    onPlanChange?.({
-      annual,
-      currentSubscriptionId: currentPlan?.subscriptionId,
-      newPlan: plan,
-      seats,
-    });
-  };
   return (
     <div className="flex max-w-full flex-1 flex-col items-center gap-10">
-      {showSubscriptionCard && (
-        <SubscriptionCard
-          currentPlan={currentPlan}
-          isLoading={isLoading}
-          onCancelPlan={onCancelPlan}
-          onReactivatePlan={onReactivatePlan}
-        />
-      )}
       <div className="flex items-center gap-2">
         <span>Monthly</span>
         <Switch
@@ -90,7 +42,6 @@ export const PricingPlans = ({
         `}
       >
         {Object.entries(PRICING_PLANS).map(([plan, { color, description, features, icon: Icon, name, price }]) => {
-          const isCurrentPricingPlan = plan === currentPlan?.plan;
           const isMostPopularPlan = plan === PricingPlan.PRO;
           return (
             <Card
@@ -102,7 +53,6 @@ export const PricingPlans = ({
                 `,
                 isMostPopularPlan &&
                   `relative z-10 scale-105 shadow-[0_0_0_2px_hsl(var(--primary)/70%)] ring-[6px] ring-primary/50`,
-                isCurrentPricingPlan && `shadow-[0_0_0_2px_hsl(var(--success)/70%)] ring-[6px] ring-success/50`,
               )}
             >
               {isMostPopularPlan && (
@@ -158,35 +108,6 @@ export const PricingPlans = ({
                   ))}
                 </ul>
               </CardContent>
-              <CardFooter className={`mt-4 flex flex-col items-center justify-center gap-2 border-t-0`}>
-                {isCurrentPricingPlan && (
-                  <div className="flex flex-col items-center gap-2">
-                    <Badge variant="success" size="sm">
-                      Current Plan
-                    </Badge>
-                    {plan !== PricingPlan.FREE && !currentPlan?.cancelAtPeriodEnd && (
-                      <Button variant="outline" size="sm" color="destructive" onClick={onCancelPlan}>
-                        Cancel
-                      </Button>
-                    )}
-                    {plan !== PricingPlan.FREE && currentPlan?.cancelAtPeriodEnd && (
-                      <Button variant="primaryOutline" size="sm" onClick={onReactivatePlan}>
-                        Reactivate Plan
-                      </Button>
-                    )}
-                  </div>
-                )}
-                {onPlanChange && !isCurrentPricingPlan && plan === PricingPlan.PRO && (
-                  <Button onClick={() => handlePlanChange(plan as PricingPlan, billingCycle === 'annual')}>
-                    Choose {name}
-                  </Button>
-                )}
-                {onPlanChange && !isCurrentPricingPlan && plan === PricingPlan.ENTERPRISE && (
-                  <Button onClick={() => handlePlanChange(plan as PricingPlan, billingCycle === 'annual')}>
-                    Learn more
-                  </Button>
-                )}
-              </CardFooter>
             </Card>
           );
         })}
