@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { PRICING_PLANS, YEARLY_RATE_MULTIPLIER } from './constants';
-import { FeatureTable } from './FeatureTable';
 import { BillingCycle, PricingPlan } from './types';
 import { CountingNumber } from '~/components/CountingNumber';
 import { Badge } from '~/components/ui/Badge';
@@ -115,7 +114,6 @@ export const PricingPlans = () => {
           );
         })}
       </div>
-      <FeatureTable />
     </div>
   );
 };

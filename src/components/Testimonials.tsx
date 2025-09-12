@@ -53,7 +53,7 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
 
         <div>
           <H3 className="mb-1 text-primary-darker">{testimonial.userName}</H3>
-          <Small className="text-muted-foreground">{testimonial.userTitle}</Small>
+          <Small>{testimonial.userTitle}</Small>
         </div>
       </CardContent>
     </Card>

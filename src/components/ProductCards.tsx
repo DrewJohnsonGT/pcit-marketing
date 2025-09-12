@@ -23,7 +23,7 @@ const FEATURES = [
     iconColor: 'hsl(var(--family-foreground))',
     image: IMAGES.families,
     preloadImage: false,
-    title: 'See all your families and sessions in one place',
+    title: 'All your families and sessions in one place',
   },
   {
     description: 'Track sessions seamlessly with our easy to use interface.',
@@ -88,7 +88,7 @@ export const ProductCards = () => {
               }}
             >
               <CardContent className="p-0">
-                <CardHeader className="mb-4 p-4">
+                <CardHeader className="mb-4 flex flex-col gap-4 p-4">
                   <CardTitle className="flex items-start gap-2">
                     <Icon
                       className="size-10! text-primary"

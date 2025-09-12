@@ -58,8 +58,6 @@ export const H4 = createComponent<HTMLHeadingElement>(
   'H4',
 );
 
-export const Lead = createComponent<HTMLParagraphElement>('p', cn('text-xl text-muted-foreground'), 'Lead');
-
 export const P = createComponent<HTMLParagraphElement>('p', cn('leading-7'), 'P');
 
 export const Large = createComponent<HTMLDivElement>('div', cn('text-lg font-semibold'), 'Large');
@@ -67,42 +65,6 @@ export const Large = createComponent<HTMLDivElement>('div', cn('text-lg font-sem
 export const Small = createComponent<HTMLParagraphElement>('p', cn('text-sm leading-none'), 'Small');
 
 export const Muted = createComponent<HTMLSpanElement>('span', cn('text-sm text-muted-foreground'), 'Muted');
-
-export const InlineCode = createComponent<HTMLSpanElement>(
-  'code',
-  cn(`relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold`),
-  'InlineCode',
-);
-
-export const MultilineCode = createComponent<HTMLPreElement>(
-  'pre',
-  cn(`relative overflow-x-auto rounded bg-muted p-4 font-mono text-sm font-semibold`),
-  'MultilineCode',
-);
-
-export const List = createComponent<HTMLUListElement>(
-  'ul',
-  cn(`
-    my-2 list-disc
-    [&>li]:mt-2
-  `),
-  'List',
-);
-
-export const ListItem = createComponent<HTMLLIElement>(
-  'li',
-  cn(`
-    my-2 list-disc
-    [&>li]:mt-2
-  `),
-  'ListItem',
-);
-
-export const Quote = createComponent<HTMLQuoteElement>(
-  'blockquote',
-  cn('mt-6 border-l-2 pl-6 text-muted-foreground italic'),
-  'Quote',
-);
 
 export const A = createComponent<HTMLAnchorElement>(
   'a',
@@ -112,3 +74,5 @@ export const A = createComponent<HTMLAnchorElement>(
   `),
   'A',
 );
+
+export const Underline = createComponent<HTMLAnchorElement>('u', cn(`underline decoration-primary`), 'Underline');

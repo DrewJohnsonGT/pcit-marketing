@@ -1,6 +1,6 @@
 import { ICONS } from '../utils/icons';
 import { Card, CardContent } from './ui/Card';
-import { H4 } from './ui/Typography';
+import { H4, Underline } from './ui/Typography';
 
 interface FeatureCardProps {
   body: string;
@@ -75,8 +75,8 @@ export const CostExplanation = () => {
           We completely understand wanting all the great features of PCIT Tracker without paying—and we wish we could
           offer everything at no cost! However, our premium model exists so we can deliver the{' '}
           <strong>
-            <u className={`underline decoration-primary`}>highest-quality</u>, most reliable tool for Parent-Child
-            Interaction Therapy <u className={`underline decoration-primary`}>without compromise</u>
+            <Underline>highest-quality</Underline>, most reliable tool for Parent-Child Interaction Therapy{' '}
+            <Underline>without compromise</Underline>
           </strong>
           .
         </p>

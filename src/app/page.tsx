@@ -6,7 +6,6 @@ import { FAQs } from '~/components/FAQs';
 import { FeatureCards } from '~/components/FeatureCards';
 import { Founders } from '~/components/Founders';
 import { HeroVideoDialog } from '~/components/HeroVideoDialog';
-import { HoverBorderGradient } from '~/components/HoverBorderGradient';
 import { News } from '~/components/News';
 import { PricingPlans } from '~/components/Pricing';
 import { ProductCards } from '~/components/ProductCards';
@@ -15,7 +14,7 @@ import { SocialShareButtons } from '~/components/SocialShareButtons';
 import { Testimonials } from '~/components/Testimonials';
 import { Button } from '~/components/ui/Button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '~/components/ui/DropdownMenu';
-import { A, H2, H3 } from '~/components/ui/Typography';
+import { A, H2, H3, Underline } from '~/components/ui/Typography';
 import { cn } from '~/utils/cn';
 import {
   APP_NAME,
@@ -146,12 +145,19 @@ const Section = ({
 export default function MarketingPage() {
   return (
     <div className="min-h-screen bg-background">
-      <header
-        className={`
-          sticky top-0 z-50 flex h-20 w-full items-center justify-between border-b border-border/50 bg-background/95 p-2
-          px-4 backdrop-blur-sm
-        `}
-      >
+      <div className="flex h-8 items-center justify-center gap-1 bg-primary-light text-foreground">
+        <ICONS.Info className="size-4" aria-hidden="true" /> Interested in research, partnerships, or a premium trial?{' '}
+        <A
+          href="/#contact"
+          className={`
+            text-link underline
+            hover:text-secondary
+          `}
+        >
+          Contact us!
+        </A>
+      </div>
+      <header className={`sticky top-0 z-50 flex h-20 w-full items-center justify-between bg-background p-2 px-4`}>
         <nav
           className={`
             hidden flex-1 items-center gap-2
@@ -213,12 +219,6 @@ export default function MarketingPage() {
         </div>
       </header>
       <main>
-        <div className="flex h-8 items-center justify-center gap-1 bg-primary-light text-foreground">
-          <ICONS.Info className="size-4" aria-hidden="true" /> Interested in research, partnerships, or a premium trial?{' '}
-          <A href="/#contact" className={`underline`}>
-            Contact us!
-          </A>
-        </div>
         <Section variant="primary">
           <div
             className={`
@@ -247,15 +247,15 @@ export default function MarketingPage() {
             </li>
           </ul>
           <Link href="/signup" className="z-10 mt-4" aria-label={`Sign up for ${APP_NAME}`}>
-            <HoverBorderGradient
-              as="button"
+            <Button
+              size="lg"
               className={`
                 w-[250px] bg-secondary/80 text-secondary-foreground
                 hover:text-secondary-foreground
               `}
             >
-              <span>Get Started</span>
-            </HoverBorderGradient>
+              Get Started
+            </Button>
           </Link>
           <div className="mt-8" />
         </Section>
@@ -291,8 +291,10 @@ export default function MarketingPage() {
           header="Pricing Plans"
           subheading={
             <>
-              Free to try as long as you want! <br />
-              Choose the plan that best fits your needs. <br /> Cancel anytime, no questions asked.
+              <Underline>Free to try</Underline> as long as you want!
+              <br />
+              Choose the plan that best fits your needs. <br /> <Underline>Cancel anytime</Underline>, no questions
+              asked.
             </>
           }
         >
@@ -354,15 +356,15 @@ export default function MarketingPage() {
             <div className="w-full max-w-sm space-y-2">
               <div className="flex justify-center">
                 <a href="/signup" aria-label="Sign up for PCIT Tracker">
-                  <HoverBorderGradient
-                    as="button"
+                  <Button
+                    size="lg"
                     className={`
                       w-[250px] bg-primary/80 text-primary-foreground
                       hover:text-primary-foreground
                     `}
                   >
-                    <span>Get Started</span>
-                  </HoverBorderGradient>
+                    Get Started
+                  </Button>
                 </a>
               </div>
               <p className="text-xs text-muted-foreground">
