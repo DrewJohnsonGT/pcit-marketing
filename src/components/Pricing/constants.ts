@@ -6,7 +6,7 @@ import { ICONS, Icons } from '~/utils/icons';
 
 export const YEARLY_RATE_MULTIPLIER = 0.75;
 
-export type PricingPlanInfo = {
+type PricingPlanInfo = {
   color: string;
   description: string;
   features: string[];
