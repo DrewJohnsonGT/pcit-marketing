@@ -276,42 +276,75 @@ export default function MarketingPage() {
         <Section variant="primary">
           <div
             className={`
-              text-5xl select-none
-              sm:text-4xl
-              md:text-5xl
-              lg:text-6xl/none
+              relative flex w-full flex-col items-center
+              lg:min-h-[500px]
             `}
           >
-            Track Smarter
-            <br />
-            Treat Smarter
-          </div>
-          <ul className={`z-10 mt-2 flex max-w-lg flex-col gap-3 p-4 text-xl font-medium text-inherit`}>
-            <li className="flex items-center gap-2">
-              <ICONS.History className="size-6" aria-hidden="true" />
-              <span>Save hours every week</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <ICONS.Data className="size-6" aria-hidden="true" />
-              <span>Get instant data insights</span>
-            </li>
-            <li className="flex items-center gap-2">
-              <ICONS.Star className="size-6" aria-hidden="true" />
-              <span>Maximize the effectiveness of your PCIT</span>
-            </li>
-          </ul>
-          <Link href="/signup" className="z-10 mt-4" aria-label={`Sign up for ${APP_NAME}`}>
-            <Button
-              size="lg"
+            <div className="z-10 flex flex-col items-center text-center">
+              <div
+                className={`
+                  text-5xl select-none
+                  sm:text-4xl
+                  md:text-5xl
+                  lg:text-6xl/none
+                `}
+              >
+                <span className="text-primary-light">Minimize</span> Paperwork
+                <br />
+                <span className="text-primary-light">Maximize</span> Productivity
+              </div>
+              <ul className={`z-10 mt-2 flex max-w-lg flex-col gap-3 p-4 text-xl font-medium text-inherit`}>
+                <li className="flex items-center gap-2">
+                  <ICONS.Star className="size-6" aria-hidden="true" />
+                  <span>All in one PCIT Platform</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <ICONS.History className="size-6" aria-hidden="true" />
+                  <span>Save hours every week</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <ICONS.Data className="size-6" aria-hidden="true" />
+                  <span>Get instant data insights</span>
+                </li>
+              </ul>
+              <Link href="/signup" className="z-10 mt-4" aria-label={`Sign up for ${APP_NAME}`}>
+                <Button
+                  size="lg"
+                  className={`
+                    w-[250px] bg-secondary/80 p-8 text-2xl font-medium text-secondary-foreground
+                    hover:text-secondary-foreground
+                  `}
+                >
+                  Get Started
+                </Button>
+              </Link>
+            </div>
+
+            <div
               className={`
-                w-[250px] bg-secondary/80 text-secondary-foreground
-                hover:text-secondary-foreground
+                absolute inset-0 hidden items-center justify-center
+                lg:flex
               `}
+              aria-hidden="true"
             >
-              Get Started
-            </Button>
-          </Link>
-          <div className="mt-8" />
+              <div className="relative h-full w-full">
+                <img
+                  src="/svgs/family.svg"
+                  alt="Family illustration"
+                  width={300}
+                  height={300}
+                  className="absolute right-1/8 bottom-0"
+                />
+                <img
+                  src="/svgs/remote-worker.svg"
+                  alt="Remote worker illustration"
+                  width={300}
+                  height={300}
+                  className="absolute bottom-0 left-1/8"
+                />
+              </div>
+            </div>
+          </div>
         </Section>
         <Section>
           <HeroVideoDialog
