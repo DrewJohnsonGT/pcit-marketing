@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Button } from '~/components/ui/Button';
+import { Card, CardContent } from '~/components/ui/Card';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '~/components/ui/Form';
 import { Input } from '~/components/ui/Input';
 import { Textarea } from '~/components/ui/Textarea';
@@ -72,72 +73,86 @@ export const ContactForm = () => {
 
   if (submitSuccess) {
     return (
-      <div className="text-center font-medium text-success">
-        Thank you for your message! We&apos;ll get back to you soon.
-      </div>
+      <Card>
+        <CardContent className="p-6">
+          <div className="text-center font-medium text-success">
+            Thank you for your message! We&apos;ll get back to you soon.
+          </div>
+        </CardContent>
+      </Card>
     );
   }
   if (submitError) {
-    return <div className="text-sm font-medium text-destructive">{submitError}</div>;
+    return (
+      <Card>
+        <CardContent className="p-6">
+          <div className="text-sm font-medium text-destructive">{submitError}</div>
+        </CardContent>
+      </Card>
+    );
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="flex w-lg max-w-full flex-col gap-2">
-        <FormField
-          control={form.control}
-          name="name"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Name</FormLabel>
-              <FormControl>
-                <Input placeholder="Your name" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+    <Card>
+      <CardContent className="p-6">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="flex w-lg max-w-full flex-col gap-2">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Your name" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input type="email" placeholder="your.email@example.com" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input type="email" placeholder="your.email@example.com" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-        <FormField
-          control={form.control}
-          name="message"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Message</FormLabel>
-              <FormDescription className="text-inherit">Please provide details about your inquiry.</FormDescription>
-              <FormControl>
-                <Textarea placeholder="Your message" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Message</FormLabel>
+                  <FormDescription className="text-inherit">Please provide details about your inquiry.</FormDescription>
+                  <FormControl>
+                    <Textarea placeholder="Your message" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
-        <Button
-          type="submit"
-          variant="secondary"
-          disabled={isSubmitting}
-          className="w-full"
-          loading={isSubmitting}
-          loadingText="Sending..."
-        >
-          Send Message
-        </Button>
-      </form>
-    </Form>
+            <Button
+              type="submit"
+              variant="secondary"
+              disabled={isSubmitting}
+              className="w-full"
+              loading={isSubmitting}
+              loadingText="Sending..."
+            >
+              Send Message
+            </Button>
+          </form>
+        </Form>
+      </CardContent>
+    </Card>
   );
 };

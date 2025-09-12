@@ -40,35 +40,19 @@ const FOOTER_LINKS = [
   { href: RESPONSIBLE_USE_URL, label: 'Responsible Use Policy' },
 ];
 
-const Heading = ({
-  children,
-  className,
-  variant = 'default',
-}: {
-  children: React.ReactNode;
-  className?: string;
-  variant?: 'accent' | 'default' | 'hero' | 'muted' | 'primary' | 'secondary';
-}) => {
-  const getTextColor = () => {
-    switch (variant) {
-      case 'primary':
-        return 'text-primary-foreground';
-      case 'secondary':
-        return 'text-secondary-foreground';
-      case 'accent':
-        return 'text-accent-foreground';
-      case 'muted':
-        return 'text-muted-foreground';
-      default:
-        return 'text-secondary';
-    }
-  };
-
-  return (
-    <h2 className={cn(`mb-8 text-center text-5xl font-bold tracking-tight select-none`, getTextColor(), className)}>
-      {children}
-    </h2>
-  );
+const getTextColor = (variant: 'accent' | 'default' | 'hero' | 'muted' | 'primary' | 'secondary') => {
+  switch (variant) {
+    case 'primary':
+      return 'text-primary-foreground';
+    case 'secondary':
+      return 'text-secondary-foreground';
+    case 'accent':
+      return 'text-accent-foreground';
+    case 'muted':
+      return 'text-muted-foreground';
+    default:
+      return 'text-secondary';
+  }
 };
 
 const getSectionStyle = (variant: 'accent' | 'default' | 'hero' | 'muted' | 'primary' | 'secondary') => {
@@ -85,11 +69,46 @@ const getSectionStyle = (variant: 'accent' | 'default' | 'hero' | 'muted' | 'pri
       return 'bg-background text-foreground';
   }
 };
+
+const Heading = ({
+  children,
+  className,
+  variant = 'default',
+}: {
+  children: React.ReactNode;
+  className?: string;
+  variant?: 'accent' | 'default' | 'hero' | 'muted' | 'primary' | 'secondary';
+}) => {
+  return (
+    <h2
+      className={cn(
+        `mb-8 text-center text-5xl font-medium tracking-normal select-none`,
+        getTextColor(variant),
+        className,
+      )}
+    >
+      {children}
+    </h2>
+  );
+};
+
+const Subheading = ({
+  children,
+  className,
+  variant = 'default',
+}: {
+  children: React.ReactNode;
+  className?: string;
+  variant?: 'accent' | 'default' | 'hero' | 'muted' | 'primary' | 'secondary';
+}) => {
+  return <p className={cn('mb-8 text-center text-xl', getSectionStyle(variant), className)}>{children}</p>;
+};
+
 const Section = ({
   children,
   className,
   id,
-  subheader,
+  subheading,
   header,
   variant = 'default',
 }: {
@@ -97,7 +116,7 @@ const Section = ({
   className?: string;
   header?: string;
   id?: string;
-  subheader?: React.ReactNode;
+  subheading?: React.ReactNode;
   variant?: 'accent' | 'default' | 'hero' | 'muted' | 'primary' | 'secondary';
 }) => {
   return (
@@ -105,7 +124,7 @@ const Section = ({
       id={id}
       className={cn(
         `
-          relative flex w-full flex-col items-center px-4 py-6 transition-colors duration-500
+          relative flex w-full scroll-m-20 flex-col items-center px-4 py-6 transition-colors duration-500
           md:px-6 md:py-12
           lg:py-20
         `,
@@ -114,11 +133,11 @@ const Section = ({
       )}
     >
       {header && (
-        <Heading variant={variant} className={cn(subheader && 'mb-4')}>
+        <Heading variant={variant} className={cn(subheading && 'mb-4')}>
           {header}
         </Heading>
       )}
-      {subheader && <p className={cn('mb-8 text-center text-lg', getSectionStyle(variant))}>{subheader}</p>}
+      {subheading && <Subheading variant={variant}>{subheading}</Subheading>}
       {children}
     </section>
   );
@@ -194,6 +213,12 @@ export default function MarketingPage() {
         </div>
       </header>
       <main>
+        <div className="flex h-8 items-center justify-center gap-1 bg-primary-light text-foreground">
+          <ICONS.Info className="size-4" aria-hidden="true" /> Interested in research, partnerships, or a premium trial?{' '}
+          <A href="/#contact" className={`underline`}>
+            Contact us!
+          </A>
+        </div>
         <Section variant="primary">
           <div
             className={`
@@ -225,8 +250,8 @@ export default function MarketingPage() {
             <HoverBorderGradient
               as="button"
               className={`
-                w-[250px] bg-primary/80 text-primary-foreground
-                hover:text-primary-foreground
+                w-[250px] bg-secondary/80 text-secondary-foreground
+                hover:text-secondary-foreground
               `}
             >
               <span>Get Started</span>
@@ -239,13 +264,13 @@ export default function MarketingPage() {
             videoSrc="https://www.youtube.com/embed/Nk6xOFjQFf0?si=9mNsawdpcBIRkR9w"
             thumbnailSrc="https://img.youtube.com/vi/Nk6xOFjQFf0/maxresdefault.jpg"
             thumbnailAlt="PCIT Tracker Introduction"
-            className="mt-8 max-w-3xl"
+            className="max-w-3xl"
           />
         </Section>
         <Section
           id="testimonials"
           header="What Our Users Say"
-          subheader="Discover how PCIT Tracker is making a difference in therapy practices and families' lives."
+          subheading="Discover how PCIT Tracker is making a difference in therapy practices and families' lives."
           variant="primary"
         >
           <Testimonials />
@@ -264,7 +289,7 @@ export default function MarketingPage() {
         <Section
           id="pricing"
           header="Pricing Plans"
-          subheader={
+          subheading={
             <>
               Free to try as long as you want! <br />
               Choose the plan that best fits your needs. <br /> Cancel anytime, no questions asked.
@@ -273,8 +298,8 @@ export default function MarketingPage() {
         >
           <PricingPlans />
         </Section>
-        <Section id="cost-explanation" className="mx-auto max-w-3xl" variant="default">
-          <H3 className="mb-4 text-2xl">Why we charge for PCIT Tracker</H3>
+        <Section id="cost-explanation" className="mx-auto max-w-6xl gap-4" variant="default">
+          <H3 className="text-3xl!">Why we charge for PCIT Tracker</H3>
           <CostExplanation />
         </Section>
         <Section id="about" header="Our Founders" variant="accent">
@@ -283,7 +308,7 @@ export default function MarketingPage() {
         <Section
           id="faqs"
           header="FAQs"
-          subheader={
+          subheading={
             <>
               Got questions? We&apos;ve got answers. <br /> If you don&apos;t find what you&apos;re looking for, please
               reach out to us.
@@ -296,7 +321,7 @@ export default function MarketingPage() {
         <Section
           id="release-notes"
           header="Release Notes"
-          subheader={
+          subheading={
             <>
               We are always working to improve PCIT Tracker. <br /> Here are the latest updates.
             </>
@@ -307,7 +332,7 @@ export default function MarketingPage() {
         <Section id="news" variant="default">
           <News />
         </Section>
-        <Section id="contact" header="Contact Us" variant="primary">
+        <Section id="contact" header="Contact Us" variant="primary" subheading="Anything else you'd like to know?">
           <ContactForm />
         </Section>
         <Section variant="hero">

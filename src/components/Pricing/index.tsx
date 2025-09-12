@@ -19,7 +19,7 @@ export const PricingPlans = () => {
   const [billingCycle, setBillingCycle] = useState<'annual' | 'monthly'>('monthly');
 
   return (
-    <div className="flex max-w-full flex-1 flex-col items-center gap-10">
+    <div className="flex max-w-full flex-1 flex-col items-center gap-14">
       <div className="flex items-center gap-2">
         <span>Monthly</span>
         <Switch
@@ -37,8 +37,8 @@ export const PricingPlans = () => {
 
       <div
         className={`
-          relative grid grid-cols-1 items-stretch gap-2
-          xl:grid-cols-3 xl:items-center
+          flex w-full flex-col items-stretch justify-center gap-2
+          xl:flex-row
         `}
       >
         {Object.entries(PRICING_PLANS).map(([plan, { color, description, features, icon: Icon, name, price }]) => {
@@ -48,11 +48,11 @@ export const PricingPlans = () => {
               key={plan}
               className={cn(
                 `
-                  h-full min-w-sm px-0 shadow-md transition-all duration-200
-                  xl:min-w-xs
+                  h-full max-w-md flex-1 px-0 shadow-md transition-all duration-200
+                  xl:min-w-sm
                 `,
                 isMostPopularPlan &&
-                  `relative z-10 scale-105 shadow-[0_0_0_2px_hsl(var(--primary)/70%)] ring-[6px] ring-primary/50`,
+                  `relative z-10 scale-110 shadow-[0_0_0_2px_hsl(var(--primary)/70%)] ring-[6px] ring-primary/50`,
               )}
             >
               {isMostPopularPlan && (
@@ -87,8 +87,8 @@ export const PricingPlans = () => {
                   {description}
                 </CardDescription>
               </CardHeader>
-              <CardContent className={`flex w-full flex-col items-center p-0`}>
-                <div className="flex h-24 flex-col items-center justify-center">
+              <CardContent className={`flex w-full flex-col items-center pb-4`}>
+                <div className="flex h-20 flex-col items-center justify-center">
                   {typeof price === 'number' && (
                     <div className="flex items-center gap-1">
                       <span className="text-xl font-bold">$</span>

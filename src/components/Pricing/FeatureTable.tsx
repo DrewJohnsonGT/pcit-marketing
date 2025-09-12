@@ -24,7 +24,7 @@ export const FeatureTable = () => {
                     <div className="flex flex-col items-center">
                       <div
                         className={`
-                          flex items-center justify-center rounded-full border-2 border-border bg-background p-1
+                          flex items-center justify-center rounded-full border-2 border-border bg-background p-2
                         `}
                         style={{ borderColor: color, color }}
                       >

@@ -1,5 +1,6 @@
 import { ICONS } from '../utils/icons';
-import { A, H4 } from './ui/Typography';
+import { Card, CardContent } from './ui/Card';
+import { H4 } from './ui/Typography';
 
 interface FeatureCardProps {
   body: string;
@@ -8,30 +9,6 @@ interface FeatureCardProps {
   iconText: string;
   title: string;
 }
-
-const FeatureCard = ({ icon: Icon, iconBackground, iconText, title, body }: FeatureCardProps) => {
-  return (
-    <div className="flex flex-col gap-4 rounded-lg border p-4">
-      <div className="flex items-center gap-3">
-        <div
-          className={`
-            flex size-12 shrink-0 items-center justify-center rounded-full
-            ${iconBackground}
-          `}
-        >
-          <Icon
-            className={`
-              size-6
-              ${iconText}
-            `}
-          />
-        </div>
-        <H4>{title}</H4>
-      </div>
-      <p className="text-sm">{body}</p>
-    </div>
-  );
-};
 
 const featureCards: FeatureCardProps[] = [
   {
@@ -64,6 +41,32 @@ const featureCards: FeatureCardProps[] = [
   },
 ];
 
+const FeatureCard = ({ icon: Icon, iconBackground, iconText, title, body }: FeatureCardProps) => {
+  return (
+    <Card>
+      <CardContent className="flex flex-1 flex-col gap-4 p-4">
+        <div className="flex items-center gap-3">
+          <div
+            className={`
+              flex size-12 shrink-0 items-center justify-center rounded-full
+              ${iconBackground}
+            `}
+          >
+            <Icon
+              className={`
+                size-6
+                ${iconText}
+              `}
+            />
+          </div>
+          <H4>{title}</H4>
+        </div>
+        {body}
+      </CardContent>
+    </Card>
+  );
+};
+
 export const CostExplanation = () => {
   return (
     <div className="flex flex-col gap-6">
@@ -72,7 +75,8 @@ export const CostExplanation = () => {
           We completely understand wanting all the great features of PCIT Tracker without paying—and we wish we could
           offer everything at no cost! However, our premium model exists so we can deliver the{' '}
           <strong>
-            highest-quality, most reliable tool for Parent-Child Interaction Therapy <u>without compromise</u>
+            <u className={`underline decoration-primary`}>highest-quality</u>, most reliable tool for Parent-Child
+            Interaction Therapy <u className={`underline decoration-primary`}>without compromise</u>
           </strong>
           .
         </p>
@@ -91,14 +95,11 @@ export const CostExplanation = () => {
 
       <div className="rounded-lg bg-muted/50 p-4 text-center">
         <p className="text-sm">
-          If you&apos;d like to compare plans or give PCIT Tracker a try with a limited free tier, head over to our{' '}
-          <A href={`${process.env.NEXT_PUBLIC_APP_URL}/settings/billing`} target="_blank" rel="noopener noreferrer">
-            Billing page
-          </A>
-          {'. '}
-          We&apos;re confident that once you experience the streamlined, ad-free workflow of PCIT Tracker, you&apos;ll
-          see why investing in the premium version pays off in saved time, reduced paperwork, and better client
-          outcomes.
+          Try PCIT Tracker free as long as you want! <br /> If you&apos;d like to try the premium features, let us know
+          and we&apos;ll get you set up with a free trial. <br />
+          <br /> We&apos;re confident that once you experience the streamlined, ad-free workflow of PCIT Tracker,
+          you&apos;ll see why investing in the premium version pays off in saved time, reduced paperwork, and better
+          client outcomes.
         </p>
       </div>
     </div>

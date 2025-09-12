@@ -62,7 +62,7 @@ export const HoverBorderGradient = ({
       className={cn(
         `
           relative flex cursor-pointer flex-col flex-nowrap place-content-center items-center overflow-visible
-          rounded-full bg-foreground/10 box-decoration-clone p-[3px] transition duration-500
+          rounded-full bg-foreground/10 box-decoration-clone p-[3px] transition duration-200
         `,
         containerClassName,
       )}
@@ -71,7 +71,7 @@ export const HoverBorderGradient = ({
       <div
         className={cn(
           `
-            z-10 rounded-full bg-background p-2 text-foreground transition-colors duration-500
+            z-10 rounded-full bg-background p-2 text-foreground transition-colors duration-200
             hover:text-primary
           `,
           className,
@@ -92,7 +92,7 @@ export const HoverBorderGradient = ({
           animate={{
             background: hovered ? [movingMap[direction], highlight] : movingMap[direction],
           }}
-          transition={{ duration: duration ?? 1, ease: 'linear' }}
+          transition={{ duration: duration ?? 0.5, ease: 'linear' }}
         />
       </LazyMotion>
       <div className="absolute inset-[3px] flex-none rounded-full bg-background" />
