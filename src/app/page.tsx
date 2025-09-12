@@ -14,7 +14,7 @@ import { SocialShareButtons } from '~/components/SocialShareButtons';
 import { Testimonials } from '~/components/Testimonials';
 import { Button } from '~/components/ui/Button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '~/components/ui/DropdownMenu';
-import { A, H2, H3, Underline } from '~/components/ui/Typography';
+import { A, H2, Underline } from '~/components/ui/Typography';
 import { cn } from '~/utils/cn';
 import {
   APP_NAME,
@@ -26,11 +26,23 @@ import {
 import { ICONS } from '~/utils/icons';
 import { IMAGES } from '~/utils/images';
 
+enum SectionIds {
+  About = 'about',
+  Contact = 'contact',
+  CostExplanation = 'cost-explanation',
+  FAQs = 'faqs',
+  Features = 'features',
+  News = 'news',
+  Pricing = 'pricing',
+  ReleaseNotes = 'release-notes',
+  Testimonials = 'testimonials',
+}
+
 const HEADER_LINKS = [
-  { href: '#features', label: 'Features' },
-  { href: '#about', label: 'About' },
-  { href: '#faqs', label: 'FAQs' },
-  { href: '#contact', label: 'Contact' },
+  { href: SectionIds.Features, label: 'Features' },
+  { href: SectionIds.FAQs, label: 'FAQs' },
+  { href: SectionIds.About, label: 'About Us' },
+  { href: SectionIds.Contact, label: 'Contact' },
 ];
 
 const FOOTER_LINKS = [
@@ -39,31 +51,25 @@ const FOOTER_LINKS = [
   { href: RESPONSIBLE_USE_URL, label: 'Responsible Use Policy' },
 ];
 
-const getTextColor = (variant: 'accent' | 'default' | 'hero' | 'muted' | 'primary' | 'secondary') => {
+type SectionVariant = 'default' | 'primary' | 'secondary';
+
+const getTextColor = (variant: SectionVariant) => {
   switch (variant) {
     case 'primary':
       return 'text-primary-foreground';
     case 'secondary':
       return 'text-secondary-foreground';
-    case 'accent':
-      return 'text-accent-foreground';
-    case 'muted':
-      return 'text-muted-foreground';
     default:
       return 'text-secondary';
   }
 };
 
-const getSectionStyle = (variant: 'accent' | 'default' | 'hero' | 'muted' | 'primary' | 'secondary') => {
+const getSectionStyle = (variant: SectionVariant) => {
   switch (variant) {
-    case 'hero':
-      return 'bg-gradient-to-b from-background via-background to-primary/10';
     case 'primary':
-      return 'bg-primary text-primary-foreground';
+      return 'bg-primary-dark text-primary-foreground';
     case 'secondary':
       return 'bg-secondary text-secondary-foreground';
-    case 'accent':
-      return 'bg-accent-background text-accent-foreground';
     default:
       return 'bg-background text-foreground';
   }
@@ -76,7 +82,7 @@ const Heading = ({
 }: {
   children: React.ReactNode;
   className?: string;
-  variant?: 'accent' | 'default' | 'hero' | 'muted' | 'primary' | 'secondary';
+  variant?: SectionVariant;
 }) => {
   return (
     <h2
@@ -98,7 +104,7 @@ const Subheading = ({
 }: {
   children: React.ReactNode;
   className?: string;
-  variant?: 'accent' | 'default' | 'hero' | 'muted' | 'primary' | 'secondary';
+  variant?: SectionVariant;
 }) => {
   return <p className={cn('mb-8 text-center text-xl', getSectionStyle(variant), className)}>{children}</p>;
 };
@@ -116,7 +122,7 @@ const Section = ({
   header?: string;
   id?: string;
   subheading?: React.ReactNode;
-  variant?: 'accent' | 'default' | 'hero' | 'muted' | 'primary' | 'secondary';
+  variant?: SectionVariant;
 }) => {
   return (
     <section
@@ -145,17 +151,26 @@ const Section = ({
 export default function MarketingPage() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="flex h-8 items-center justify-center gap-1 bg-primary-light text-foreground">
-        <ICONS.Info className="size-4" aria-hidden="true" /> Interested in research, partnerships, or a premium trial?{' '}
-        <A
-          href="/#contact"
+      <div className="flex h-auto items-center justify-center gap-1 bg-primary-light py-0.5 text-center text-foreground">
+        <ICONS.Info
           className={`
-            text-link underline
-            hover:text-secondary
+            hidden size-4
+            sm:block
           `}
-        >
-          Contact us!
-        </A>
+          aria-hidden="true"
+        />{' '}
+        <span>
+          Interested in research, partnerships, or a premium trial?{' '}
+          <A
+            href="/#contact"
+            className={`
+              inline text-link underline
+              hover:text-secondary
+            `}
+          >
+            Contact us!
+          </A>
+        </span>
       </div>
       <header className={`sticky top-0 z-50 flex h-20 w-full items-center justify-between bg-background p-2 px-4`}>
         <nav
@@ -164,8 +179,8 @@ export default function MarketingPage() {
             md:flex
           `}
         >
-          {HEADER_LINKS.map((link, index) => (
-            <Link key={index} href={link.href} aria-label={`Scroll to ${link.label}`} prefetch={false}>
+          {HEADER_LINKS.map((link) => (
+            <Link key={link.href} href={`#${link.href}`} aria-label={`Scroll to ${link.label}`} prefetch={false}>
               <Button
                 variant="ghost"
                 className={`
@@ -178,11 +193,31 @@ export default function MarketingPage() {
             </Link>
           ))}
         </nav>
-        <Link href="/" aria-label="Home" prefetch={false} className="flex flex-1 items-center justify-center gap-4">
+        <Link
+          href="/"
+          aria-label="Home"
+          prefetch={false}
+          className={`
+            flex flex-1 items-center gap-4
+            md:justify-center
+          `}
+        >
           <Image src={IMAGES.logoNoText.src} alt={APP_NAME} width={64} height={64} />
-          <span className="text-3xl font-semibold tracking-wider text-primary-dark uppercase">{APP_NAME}</span>
+          <span
+            className={`
+              hidden text-3xl font-semibold tracking-wider text-primary-dark uppercase
+              lg:block
+            `}
+          >
+            {APP_NAME}
+          </span>
         </Link>
-        <div className="flex flex-1 items-center justify-end gap-6">
+        <div
+          className={`
+            flex flex-1 items-center justify-end gap-4
+            sm:gap-6
+          `}
+        >
           <Link
             href="/login"
             aria-label="Login"
@@ -201,14 +236,14 @@ export default function MarketingPage() {
           <div className="md:hidden">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="icon" aria-label="Menu">
+                <Button variant="ghost" size="icon" aria-label="Menu">
                   <ICONS.Menu className="size-5" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                {HEADER_LINKS.map((link, index) => (
-                  <DropdownMenuItem key={index}>
-                    <Link href={link.href} className={`text-sm font-medium underline-offset-4`} prefetch={false}>
+                {HEADER_LINKS.map((link) => (
+                  <DropdownMenuItem key={link.href}>
+                    <Link href={`#${link.href}`} className={`text-sm font-medium underline-offset-4`} prefetch={false}>
                       {link.label}
                     </Link>
                   </DropdownMenuItem>
@@ -268,14 +303,26 @@ export default function MarketingPage() {
           />
         </Section>
         <Section
-          id="testimonials"
+          id={SectionIds.Testimonials}
           header="What Our Users Say"
           subheading="Discover how PCIT Tracker is making a difference in therapy practices and families' lives."
           variant="primary"
         >
           <Testimonials />
         </Section>
-        <Section id="features" header="Features" variant="default">
+        <Section
+          id={SectionIds.Features}
+          header="Features"
+          subheading={
+            <>
+              For nearly 40 years, PCIT data tracking has been manual. <br />
+              <Underline>PCIT Tracker brings it into the digital age</Underline>
+              <br />
+              One platform for families, sessions, and progress, with automatic charts and reports.
+            </>
+          }
+          variant="default"
+        >
           <ProductCards />
           <H2 className="mt-8">Overview of Pages</H2>
           <HeroVideoDialog
@@ -287,7 +334,8 @@ export default function MarketingPage() {
           <FeatureCards />
         </Section>
         <Section
-          id="pricing"
+          id={SectionIds.Pricing}
+          variant="primary"
           header="Pricing Plans"
           subheading={
             <>
@@ -300,15 +348,14 @@ export default function MarketingPage() {
         >
           <PricingPlans />
         </Section>
-        <Section id="cost-explanation" className="mx-auto max-w-6xl gap-4" variant="default">
-          <H3 className="text-3xl!">Why we charge for PCIT Tracker</H3>
+        <Section variant="default" id={SectionIds.CostExplanation}>
           <CostExplanation />
         </Section>
-        <Section id="about" header="Our Founders" variant="accent">
+        <Section id={SectionIds.About} header="Our Founders">
           <Founders />
         </Section>
         <Section
-          id="faqs"
+          id={SectionIds.FAQs}
           header="FAQs"
           subheading={
             <>
@@ -321,7 +368,7 @@ export default function MarketingPage() {
           <FAQs />
         </Section>
         <Section
-          id="release-notes"
+          id={SectionIds.ReleaseNotes}
           header="Release Notes"
           subheading={
             <>
@@ -331,29 +378,31 @@ export default function MarketingPage() {
         >
           <ReleaseNotes hideHeader />
         </Section>
-        <Section id="news" variant="default">
+        <Section id={SectionIds.News} variant="default">
           <News />
         </Section>
-        <Section id="contact" header="Contact Us" variant="primary" subheading="Anything else you'd like to know?">
+        <Section
+          id={SectionIds.Contact}
+          header="Contact Us"
+          variant="primary"
+          subheading="Anything else you'd like to know?"
+        >
           <ContactForm />
         </Section>
-        <Section variant="hero">
-          <div className="flex flex-col items-center space-y-4 text-center">
-            <div className="space-y-4">
-              <Image src={IMAGES.logo.src} alt="PCIT Tracker" className="mx-auto shrink-0" width={100} height={100} />
+        <Section>
+          <div className="flex flex-col items-center gap-4 text-center">
+            <div className="flex flex-col items-center gap-2">
+              <Image
+                src={IMAGES.logoNoText.src}
+                alt="PCIT Tracker"
+                className="mx-auto shrink-0"
+                width={150}
+                height={150}
+              />
               <Heading>Ready to Get Started?</Heading>
-              <p
-                className={`
-                  max-w-[600px] text-muted-foreground
-                  md:text-xl/relaxed
-                  lg:text-base/relaxed
-                  xl:text-xl/relaxed
-                `}
-              >
-                Take your PCIT therapy to the next level.
-              </p>
+              <Subheading>Take your PCIT therapy to the next level.</Subheading>
             </div>
-            <div className="w-full max-w-sm space-y-2">
+            <div className="flex w-full max-w-sm flex-col items-center gap-4">
               <div className="flex justify-center">
                 <a href="/signup" aria-label="Sign up for PCIT Tracker">
                   <Button
@@ -376,7 +425,7 @@ export default function MarketingPage() {
             </div>
           </div>
 
-          <p className="mt-12 text-center text-sm">
+          <p className="mt-12 text-center">
             Questions? Email{' '}
             <A href={`mailto:${SUPPORT_EMAIL}`} aria-label="Email support">
               {SUPPORT_EMAIL}
@@ -385,20 +434,20 @@ export default function MarketingPage() {
         </Section>
         <footer
           className={`
-            grid items-center gap-4 border-t p-4 py-8
+            grid items-center gap-4 border-t bg-primary-dark p-4 py-8 text-primary-foreground
             xl:grid-cols-3
           `}
         >
           <p
             className={`
-              text-center text-xs text-muted-foreground
+              text-center text-sm
               xl:text-start
             `}
           >
             © {new Date().getFullYear()} {APP_NAME}. All rights reserved.
           </p>
           <div className="flex flex-col items-center gap-2">
-            <p className="text-xs text-muted-foreground">Share us on</p>
+            <p className="text-sm">Share us on</p>
             <SocialShareButtons />
           </div>
           <nav
@@ -414,7 +463,10 @@ export default function MarketingPage() {
                 aria-label={link.label}
                 target="_blank"
                 rel="noreferrer"
-                className="text-xs"
+                className={`
+                  text-sm text-primary-foreground
+                  hover:text-secondary-light
+                `}
               >
                 {link.label}
               </A>

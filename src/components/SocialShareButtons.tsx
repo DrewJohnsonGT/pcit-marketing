@@ -12,11 +12,6 @@ export const SocialShareButtons = () => {
 
   const SOCIAL_SHARES = [
     {
-      href: `https://twitter.com/share?url=${encodedUrl}&text=${encodedTitle}&via=pcittracker&hashtags=PCIT,ParentChildInteractionTherapy`,
-      icon: FaXTwitter,
-      name: 'Twitter',
-    },
-    {
       href: `https://www.facebook.com/sharer.php?u=${encodedUrl}`,
       icon: LuFacebook,
       name: 'Facebook',
@@ -25,6 +20,11 @@ export const SocialShareButtons = () => {
       href: `https://www.linkedin.com/shareArticle?url=${encodedUrl}&title=${encodedTitle}`,
       icon: LuLinkedin,
       name: 'LinkedIn',
+    },
+    {
+      href: `https://twitter.com/share?url=${encodedUrl}&text=${encodedTitle}&via=pcittracker&hashtags=PCIT,ParentChildInteractionTherapy`,
+      icon: FaXTwitter,
+      name: 'Twitter',
     },
     {
       href: `https://reddit.com/submit?url=${encodedUrl}&title=${encodedTitle}`,

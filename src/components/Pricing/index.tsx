@@ -19,20 +19,22 @@ export const PricingPlans = () => {
 
   return (
     <div className="flex max-w-full flex-1 flex-col items-center gap-14">
-      <div className="flex items-center gap-2">
-        <span>Monthly</span>
-        <Switch
-          checked={billingCycle === 'annual'}
-          onCheckedChange={(checked) => setBillingCycle(checked ? 'annual' : 'monthly')}
-          aria-label="Billing Cycle"
-        />
-        <span className="flex items-center gap-2">
-          Annually
-          <Badge variant="success" size="sm">
-            Save {100 - YEARLY_RATE_MULTIPLIER * 100}%
-          </Badge>
-        </span>
-      </div>
+      <Card className="p-4">
+        <div className="flex items-center gap-2">
+          <span>Monthly</span>
+          <Switch
+            checked={billingCycle === 'annual'}
+            onCheckedChange={(checked) => setBillingCycle(checked ? 'annual' : 'monthly')}
+            aria-label="Billing Cycle"
+          />
+          <span className="flex items-center gap-2">
+            Annually
+            <Badge variant="success" size="sm">
+              Save {100 - YEARLY_RATE_MULTIPLIER * 100}%
+            </Badge>
+          </span>
+        </div>
+      </Card>
 
       <div
         className={`

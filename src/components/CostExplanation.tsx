@@ -69,7 +69,8 @@ const FeatureCard = ({ icon: Icon, iconBackground, iconText, title, body }: Feat
 
 export const CostExplanation = () => {
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex max-w-6xl flex-col gap-6">
+      <h3 className="text-center text-3xl">Why we charge for PCIT Tracker</h3>
       <div className="text-center">
         <p className="text-lg">
           We completely understand wanting all the great features of PCIT Tracker without paying—and we wish we could

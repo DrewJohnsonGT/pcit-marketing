@@ -366,6 +366,11 @@
     @apply flex h-full flex-1 flex-col;
   }
 
+  /* Global text selection styles */
+  ::selection {
+    @apply bg-secondary-light text-secondary-foreground;
+  }
+
   /* Scrollbar styles */
   ::-webkit-scrollbar {
     @apply w-2.5 h-2.5;
