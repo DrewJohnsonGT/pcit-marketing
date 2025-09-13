@@ -39,8 +39,7 @@ export const PricingPlans = () => {
       <div
         className={`
           flex w-full flex-col items-center justify-center gap-8
-          sm:gap-14
-          xl:flex-row xl:gap-2
+          xl:flex-row
         `}
       >
         {Object.entries(PRICING_PLANS).map(([plan, { color, description, features, icon: Icon, name, price }]) => {
@@ -55,10 +54,7 @@ export const PricingPlans = () => {
                   xl:min-w-sm
                 `,
                 isMostPopularPlan &&
-                  `
-                    relative z-10 shadow-[0_0_0_2px_hsl(var(--secondary)/70%)] ring-[6px] ring-secondary/50
-                    sm:scale-105
-                  `,
+                  `relative z-10 shadow-[0_0_0_2px_hsl(var(--secondary)/70%)] ring-[6px] ring-secondary/50`,
               )}
             >
               {isMostPopularPlan && (

@@ -24,7 +24,13 @@ export const PRICING_PLANS: Partial<Record<PricingPlan, PricingPlanInfo>> = {
   [PricingPlan.PRO]: {
     color: '#0088cc',
     description: 'Perfect for small PCIT practices or individual clinicians',
-    features: ['Unlimited Families', 'Unlimited Sessions', 'Family Export/Import', 'Report Generation'],
+    features: [
+      'Unlimited Families',
+      'Unlimited Sessions',
+      'Family Export/Import',
+      'Report Generation',
+      'Dedicated Support',
+    ],
     icon: PiTriangleDuotone,
     name: 'Pro',
     price: 24,
@@ -33,7 +39,7 @@ export const PRICING_PLANS: Partial<Record<PricingPlan, PricingPlanInfo>> = {
     color: '#6A1B9A',
     description: 'Tailored solutions for PCIT organizations',
     features: [
-      'Everything in Pro Plus',
+      'Everything in Pro',
       'Manage your organization',
       'Cheaper per user licenses',
       'Custom Integrations',
