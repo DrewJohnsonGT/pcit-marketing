@@ -1,6 +1,8 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  // Avoids conflicting paths with the main app
+  assetPrefix: `${process.env.NEXT_PUBLIC_MARKETING_URL}`,
   devIndicators: false,
   // Re-writes all non-root "/" routes to the main app
   async rewrites() {
