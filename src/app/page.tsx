@@ -298,6 +298,28 @@ export default function MarketingPage() {
             `}
           >
             <div className="z-10 flex flex-col items-center text-center">
+              <div className="mb-6 flex items-center gap-4">
+                <img
+                  src={IMAGES.pcitPractitioner.src}
+                  alt="PCIT Practitioner illustration"
+                  width={125}
+                  height={125}
+                  className={`
+                    block
+                    md:hidden
+                  `}
+                />
+                <img
+                  src={IMAGES.family.src}
+                  alt="Family illustration"
+                  width={100}
+                  height={100}
+                  className={`
+                    block
+                    md:hidden
+                  `}
+                />
+              </div>
               <div
                 className={`
                   text-3xl select-none

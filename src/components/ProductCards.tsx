@@ -12,7 +12,6 @@ const FEATURES = [
     icon: ICONS[Icons.Home],
     iconColor: '#279AF1',
     image: IMAGES.home,
-    preloadImage: true,
     title: 'Your PCIT Platform',
   },
   {
@@ -22,7 +21,6 @@ const FEATURES = [
     icon: ICONS[Icons.Family],
     iconColor: 'hsl(var(--family-foreground))',
     image: IMAGES.families,
-    preloadImage: false,
     title: 'All your families and sessions in one place',
   },
   {
@@ -32,7 +30,6 @@ const FEATURES = [
     icon: ICONS[Icons.Session],
     iconColor: 'hsl(var(--session-foreground))',
     image: IMAGES.session,
-    preloadImage: true,
     title: 'Intuitive Session Tracker',
   },
   {
@@ -43,7 +40,6 @@ const FEATURES = [
     icon: ICONS[Icons.Data],
     iconColor: 'hsl(var(--data-foreground))',
     image: IMAGES.data,
-    preloadImage: true,
     title: 'Data Visualization',
   },
   {
@@ -54,7 +50,6 @@ const FEATURES = [
     icon: ICONS[Icons.Caregiver],
     iconColor: '#61b0fa',
     image: IMAGES.pdi,
-    preloadImage: false,
     title: 'PDI Tracking',
   },
   {
@@ -64,7 +59,6 @@ const FEATURES = [
     icon: ICONS[Icons.Report],
     iconColor: 'hsl(var(--pdf-foreground))',
     image: IMAGES.report,
-    preloadImage: false,
     title: 'Automated Reports',
   },
 ];
@@ -128,8 +122,8 @@ export const ProductCards = () => {
                     height={feature.image.height}
                     sizes="(max-width: 1023px) 100vw, 50vw"
                     className={`right-0 ml-auto h-auto w-full object-contain`}
-                    loading={feature.preloadImage ? 'eager' : 'lazy'}
-                    priority={feature.preloadImage}
+                    priority={false}
+                    loading="lazy"
                   />
                 </div>
               </CardContent>
