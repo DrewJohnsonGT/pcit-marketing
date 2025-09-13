@@ -251,10 +251,11 @@ export default function MarketingPage() {
               text-lg underline decoration-border decoration-3 underline-offset-6
               hover:text-secondary hover:decoration-secondary
             `}
+            prefetch={false}
           >
             Log in
           </Link>
-          <Link href="/signup" aria-label="Sign Up">
+          <Link href="/signup" aria-label="Sign Up" prefetch={false}>
             <Button
               aria-label="Sign Up"
               className={`
@@ -328,7 +329,7 @@ export default function MarketingPage() {
                   <span>Get instant data insights</span>
                 </li>
               </ul>
-              <Link href="/signup" className="z-10 mt-4" aria-label={`Sign up for ${APP_NAME}`}>
+              <Link href="/signup" className="z-10 mt-4" aria-label={`Sign up for ${APP_NAME}`} prefetch={false}>
                 <Button
                   size="lg"
                   className={`
