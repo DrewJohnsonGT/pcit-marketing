@@ -10,7 +10,7 @@ const FEATURES: Feature[] = [
   {
     description:
       'No more juggling stacks of paper forms—keep all your PCIT data organized and accessible in one secure place.',
-    icon: '/svgs/absorbed.svg',
+    icon: '/svgs/paperwork.svg',
     title: 'No More Paperwork',
   },
   {
@@ -32,7 +32,7 @@ const FEATURES: Feature[] = [
   },
   {
     description: 'Ensure the safety and confidentiality of your data with robust security measures.',
-    icon: '/svgs/security-on.svg',
+    icon: '/svgs/security.svg',
     title: 'Secure Data Management',
   },
   {

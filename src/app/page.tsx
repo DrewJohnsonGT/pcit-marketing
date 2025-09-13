@@ -332,7 +332,7 @@ export default function MarketingPage() {
                 <Button
                   size="lg"
                   className={`
-                    w-[250px] bg-secondary/80 p-4 text-lg font-medium text-secondary-foreground
+                    w-[250px] border-2 bg-secondary/80 p-4 text-lg font-medium text-secondary-foreground
                     hover:text-secondary-foreground
                     sm:p-8 sm:text-2xl
                   `}
@@ -358,8 +358,8 @@ export default function MarketingPage() {
                   className="absolute right-4 bottom-0"
                 />
                 <img
-                  src="/svgs/remote-worker.svg"
-                  alt="Remote worker illustration"
+                  src="/svgs/pcit-practitioner.svg"
+                  alt="PCIT Practitioner illustration"
                   width={300}
                   height={300}
                   className="absolute bottom-0 left-4"
