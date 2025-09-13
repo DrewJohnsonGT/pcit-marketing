@@ -2,7 +2,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   // Avoids conflicting paths with the main app
-  assetPrefix: `${process.env.NEXT_PUBLIC_MARKETING_URL}`,
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/_marketing' : '',
   devIndicators: false,
   async headers() {
     // Allows the main app rewrites to access the marketing app resources
