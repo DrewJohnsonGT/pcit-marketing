@@ -1,4 +1,5 @@
 import { cn } from '~/utils/cn';
+import { IMAGES } from '~/utils/images';
 
 interface Feature {
   description: React.ReactNode;
@@ -10,34 +11,34 @@ const FEATURES: Feature[] = [
   {
     description:
       'No more juggling stacks of paper forms—keep all your PCIT data organized and accessible in one secure place.',
-    icon: '/svgs/paperwork.svg',
+    icon: IMAGES.paperwork.src,
     title: 'No More Paperwork',
   },
   {
     description: 'Experience a clean, intuitive design that simplifies tracking and enhances user experience.',
-    icon: '/svgs/web-app.svg',
+    icon: IMAGES.webApp.src,
     title: 'Modern Interface for Clinicians',
   },
   {
     description:
       'PCIT Tracker automatically creates interactive graphs as you enter session data, so you always have up-to-date insights at your fingertips.',
-    icon: '/svgs/data.svg',
+    icon: IMAGES.graphs.src,
     title: 'Automatic Graph Generation',
   },
   {
     description:
       'Administrators can seamlessly aggregate data across clinicians to monitor  progress within their practices.',
-    icon: '/svgs/organization.svg',
+    icon: IMAGES.organization.src,
     title: 'Organizational Support',
   },
   {
     description: 'Ensure the safety and confidentiality of your data with robust security measures.',
-    icon: '/svgs/security.svg',
+    icon: IMAGES.security.src,
     title: 'Secure Data Management',
   },
   {
     description: 'Try PCIT Tracker free with 3 families and up to 20 sessions as long as you want',
-    icon: '/svgs/gift.svg',
+    icon: IMAGES.gift.src,
     title: 'Try for Free',
   },
 ];

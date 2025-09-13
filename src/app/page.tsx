@@ -351,14 +351,14 @@ export default function MarketingPage() {
             >
               <div className="relative h-full w-full">
                 <img
-                  src="/svgs/family.svg"
+                  src={IMAGES.family.src}
                   alt="Family illustration"
                   width={300}
                   height={300}
                   className="absolute right-4 bottom-0"
                 />
                 <img
-                  src="/svgs/pcit-practitioner.svg"
+                  src={IMAGES.pcitPractitioner.src}
                   alt="PCIT Practitioner illustration"
                   width={300}
                   height={300}
