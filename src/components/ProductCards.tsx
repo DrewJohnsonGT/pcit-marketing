@@ -102,9 +102,23 @@ export const ProductCards = () => {
                       }}
                       aria-hidden="true"
                     />
-                    <span className="text-center text-3xl font-bold">{feature.title}</span>
+                    <span
+                      className={`
+                        text-center text-2xl font-bold
+                        sm:text-3xl
+                      `}
+                    >
+                      {feature.title}
+                    </span>
                   </CardTitle>
-                  <CardDescription className="text-xl text-foreground">{feature.description}</CardDescription>
+                  <CardDescription
+                    className={`
+                      text-foreground
+                      sm:text-xl
+                    `}
+                  >
+                    {feature.description}
+                  </CardDescription>
                 </CardHeader>
                 <div className="relative w-full flex-1">
                   <Image

@@ -1,38 +1,44 @@
-import { IconType } from 'react-icons';
-import { TbChartBar, TbClock, TbGift, TbLock, TbTerminal2, TbUsers } from 'react-icons/tb';
 import { cn } from '~/utils/cn';
 
-const FEATURES = [
+interface Feature {
+  description: React.ReactNode;
+  icon: string;
+  title: string;
+}
+
+const FEATURES: Feature[] = [
+  {
+    description:
+      'No more juggling stacks of paper forms—keep all your PCIT data organized and accessible in one secure place.',
+    icon: '/svgs/absorbed.svg',
+    title: 'No More Paperwork',
+  },
   {
     description: 'Experience a clean, intuitive design that simplifies tracking and enhances user experience.',
-    icon: TbTerminal2,
+    icon: '/svgs/web-app.svg',
     title: 'Modern Interface for Clinicians',
   },
   {
-    description: 'Generate comprehensive graphs and reports effortlessly after entering session data in real time.',
-    icon: TbChartBar,
-    title: 'Automated Reporting',
+    description:
+      'PCIT Tracker automatically creates interactive graphs as you enter session data, so you always have up-to-date insights at your fingertips.',
+    icon: '/svgs/data.svg',
+    title: 'Automatic Graph Generation',
   },
   {
     description:
-      'Free up your valuable time by eliminating the need for copying data forms, calculations, and transferring data.',
-    icon: TbClock,
-    title: 'Time-Saving Efficiency',
-  },
-  {
-    description: 'Administrators can seamlessly aggregate data across clinicians to monitor clients’ progress.',
-    icon: TbUsers,
+      'Administrators can seamlessly aggregate data across clinicians to monitor  progress within their practices.',
+    icon: '/svgs/organization.svg',
     title: 'Organizational Support',
   },
   {
-    description: 'Try PCIT Tracker free with 3 families and up to 20 sessions',
-    icon: TbGift,
-    title: 'Try for Free',
+    description: 'Ensure the safety and confidentiality of your data with robust security measures.',
+    icon: '/svgs/security-on.svg',
+    title: 'Secure Data Management',
   },
   {
-    description: 'Ensure the safety and confidentiality of your data with robust security measures.',
-    icon: TbLock,
-    title: 'Secure Data Management',
+    description: 'Try PCIT Tracker free with 3 families and up to 20 sessions as long as you want',
+    icon: '/svgs/gift.svg',
+    title: 'Try for Free',
   },
 ];
 
@@ -40,7 +46,7 @@ export const FeatureCards = () => {
   return (
     <div
       className={`
-        relative z-10 mx-auto mt-16 grid w-full max-w-7xl grid-cols-1 py-10
+        relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1
         md:grid-cols-2
         lg:grid-cols-3
       `}
@@ -52,20 +58,10 @@ export const FeatureCards = () => {
   );
 };
 
-const hoverColors = 'from-primary/20 to-transparent opacity-0 transition duration-200 group-hover/feature:opacity-100';
+const hoverColors =
+  'from-secondary/20 to-transparent opacity-0 transition duration-200 group-hover/feature:opacity-100';
 
-const Feature = ({
-  description,
-  icon,
-  index,
-  title,
-}: {
-  description: string;
-  icon: IconType;
-  index: number;
-  title: string;
-}) => {
-  const Icon = icon;
+const Feature = ({ icon, description, title, index }: Feature & { index: number }) => {
   return (
     <div
       className={cn(
@@ -89,10 +85,12 @@ const Feature = ({
           sm:px-10
         `}
       >
-        <Icon
+        <img
+          src={icon}
+          alt={title}
           className={`
-            size-10
-            group-hover/feature:text-primary
+            size-32 transition duration-200
+            group-hover/feature:scale-110
           `}
         />
       </div>
@@ -105,13 +103,13 @@ const Feature = ({
         <div
           className={`
             absolute inset-y-0 left-0 h-8 w-1 origin-center rounded-r-full bg-border transition-all duration-200
-            group-hover/feature:h-20 group-hover/feature:bg-primary
+            group-hover/feature:h-20 group-hover/feature:bg-secondary
           `}
         />
         <span
           className={`
             inline-block text-foreground transition duration-200
-            group-hover/feature:translate-x-2 group-hover/feature:text-primary
+            group-hover/feature:translate-x-2 group-hover/feature:text-secondary
           `}
         >
           {title}

@@ -87,7 +87,10 @@ const Heading = ({
   return (
     <h2
       className={cn(
-        `mb-8 text-center text-5xl font-medium tracking-normal select-none`,
+        `
+          mb-8 text-center text-4xl font-medium tracking-normal select-none
+          sm:text-5xl
+        `,
         getTextColor(variant),
         className,
       )}
@@ -106,7 +109,20 @@ const Subheading = ({
   className?: string;
   variant?: SectionVariant;
 }) => {
-  return <p className={cn('mb-8 text-center text-xl', getSectionStyle(variant), className)}>{children}</p>;
+  return (
+    <p
+      className={cn(
+        `
+          mb-8 text-center text-lg
+          sm:text-xl
+        `,
+        getSectionStyle(variant),
+        className,
+      )}
+    >
+      {children}
+    </p>
+  );
 };
 
 const Section = ({
@@ -283,7 +299,7 @@ export default function MarketingPage() {
             <div className="z-10 flex flex-col items-center text-center">
               <div
                 className={`
-                  text-5xl select-none
+                  text-3xl select-none
                   sm:text-4xl
                   md:text-5xl
                   lg:text-6xl/none
@@ -293,17 +309,22 @@ export default function MarketingPage() {
                 <br />
                 <span className="text-primary-light">Maximize</span> Productivity
               </div>
-              <ul className={`z-10 mt-2 flex max-w-lg flex-col gap-3 p-4 text-xl font-medium text-inherit`}>
+              <ul
+                className={`
+                  z-10 mt-2 flex max-w-lg flex-col gap-1 p-4 text-lg font-medium text-inherit
+                  sm:gap-3 sm:text-2xl
+                `}
+              >
                 <li className="flex items-center gap-2">
-                  <ICONS.Star className="size-6" aria-hidden="true" />
+                  <ICONS.Star className="size-6 text-primary-light" aria-hidden="true" />
                   <span>All in one PCIT Platform</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <ICONS.History className="size-6" aria-hidden="true" />
+                  <ICONS.History className="size-6 text-primary-light" aria-hidden="true" />
                   <span>Save hours every week</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <ICONS.Data className="size-6" aria-hidden="true" />
+                  <ICONS.Data className="size-6 text-primary-light" aria-hidden="true" />
                   <span>Get instant data insights</span>
                 </li>
               </ul>
@@ -311,8 +332,9 @@ export default function MarketingPage() {
                 <Button
                   size="lg"
                   className={`
-                    w-[250px] bg-secondary/80 p-8 text-2xl font-medium text-secondary-foreground
+                    w-[250px] bg-secondary/80 p-4 text-lg font-medium text-secondary-foreground
                     hover:text-secondary-foreground
+                    sm:p-8 sm:text-2xl
                   `}
                 >
                   Get Started
@@ -333,14 +355,14 @@ export default function MarketingPage() {
                   alt="Family illustration"
                   width={300}
                   height={300}
-                  className="absolute right-1/8 bottom-0"
+                  className="absolute right-4 bottom-0"
                 />
                 <img
                   src="/svgs/remote-worker.svg"
                   alt="Remote worker illustration"
                   width={300}
                   height={300}
-                  className="absolute bottom-0 left-1/8"
+                  className="absolute bottom-0 left-4"
                 />
               </div>
             </div>
@@ -375,15 +397,15 @@ export default function MarketingPage() {
           }
           variant="default"
         >
-          <ProductCards />
-          <H2 className="mt-8">Overview of Pages</H2>
+          <FeatureCards />
+          <H2>Overview of Pages</H2>
           <HeroVideoDialog
             videoSrc="https://www.youtube.com/embed/hS10efyP980?si=lV0uhT-EqBcn8_HM"
             thumbnailSrc="https://img.youtube.com/vi/hS10efyP980/maxresdefault.jpg"
             thumbnailAlt="PCIT Tracker Overview of Pages"
             className="mt-8 max-w-3xl"
           />
-          <FeatureCards />
+          <ProductCards />
         </Section>
         <Section
           id={SectionIds.Pricing}

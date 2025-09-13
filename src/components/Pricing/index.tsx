@@ -57,7 +57,7 @@ export const PricingPlans = () => {
                 isMostPopularPlan &&
                   `
                     relative z-10 shadow-[0_0_0_2px_hsl(var(--secondary)/70%)] ring-[6px] ring-secondary/50
-                    sm:scale-110
+                    sm:scale-105
                   `,
               )}
             >

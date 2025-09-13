@@ -16,5 +16,4 @@ const Input: React.FC<React.ComponentProps<'input'>> = ({ className, type, ...pr
 );
 Input.displayName = 'Input';
 
-
 export { Input };

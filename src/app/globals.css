@@ -222,7 +222,7 @@
 
     --primary: 200 100% 40%;
     --primary-light: 200 100% 80%;
-    --primary-dark: 200 100% 30%;
+    --primary-dark: 200 100% 25%;
     --primary-darker: 200 100% 20%;
     --primary-foreground: 195 53% 99%;
 
@@ -341,11 +341,11 @@
     @apply border-border;
   }
   html {
-    @apply bg-accent-background w-[100dvw] antialiased text-foreground scroll-smooth min-h-[100dvh];
+    @apply bg-accent-background w-full antialiased text-foreground scroll-smooth min-h-[100dvh];
   }
 
   body {
-    @apply bg-accent-background w-[100dvw] antialiased text-foreground overflow-x-hidden min-h-[100dvh];
+    @apply bg-accent-background w-full antialiased text-foreground overflow-x-hidden min-h-[100dvh];
   }
 
   #main {
