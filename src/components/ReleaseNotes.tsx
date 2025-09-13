@@ -86,7 +86,7 @@ const TimelineItem = ({ update }: { update: Update }) => {
       <div className="mb-2 flex items-center gap-2">
         <span className="text-muted-foreground">{formatDate(new Date(update.date), 'MMM d, yyyy')}</span>
         <span className="text-muted-foreground">•</span>
-        <span className="font-bold text-primary">v{update.version}</span>
+        <span className="font-bold">v{update.version}</span>
       </div>
 
       <div className={`flex flex-col gap-2 rounded-lg border border-border bg-card p-2`}>

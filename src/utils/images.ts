@@ -19,6 +19,7 @@ enum AppImageKey {
   Madeline = 'madeline',
   NotFound = 'notFound',
   Organization = 'organization',
+  OverviewThumbnail = 'overviewThumbnail',
   Paperwork = 'paperwork',
   PcitPractitioner = 'pcitPractitioner',
   Pdi = 'pdi',
@@ -26,6 +27,7 @@ enum AppImageKey {
   Security = 'security',
   Session = 'session',
   WebApp = 'webApp',
+  WelcomeThumbnail = 'welcomeThumbnail',
 }
 
 export const IMAGES: Record<AppImageKey, AppImage> = {
@@ -126,5 +128,15 @@ export const IMAGES: Record<AppImageKey, AppImage> = {
     height: 200,
     src: `${IMAGES_DIR}/pcit-practitioner.svg`,
     width: 200,
+  },
+  [AppImageKey.WelcomeThumbnail]: {
+    height: 720,
+    src: `${IMAGES_DIR}/welcome-thumbnail.jpg`,
+    width: 1280,
+  },
+  [AppImageKey.OverviewThumbnail]: {
+    height: 720,
+    src: `${IMAGES_DIR}/overview-thumbnail.jpg`,
+    width: 1280,
   },
 };

@@ -184,8 +184,8 @@ export default function MarketingPage() {
           <A
             href="/#contact"
             className={`
-              inline text-link underline
-              hover:text-secondary
+              inline text-secondary underline
+              hover:text-primary
             `}
           >
             Contact us!
@@ -372,9 +372,10 @@ export default function MarketingPage() {
         <Section>
           <HeroVideoDialog
             videoSrc="https://www.youtube.com/embed/Nk6xOFjQFf0?si=9mNsawdpcBIRkR9w"
-            thumbnailSrc="https://img.youtube.com/vi/Nk6xOFjQFf0/maxresdefault.jpg"
+            thumbnail={IMAGES.welcomeThumbnail}
             thumbnailAlt="PCIT Tracker Introduction"
             className="max-w-3xl"
+            priority
           />
         </Section>
         <Section
@@ -402,7 +403,7 @@ export default function MarketingPage() {
           <H2>Overview of Pages</H2>
           <HeroVideoDialog
             videoSrc="https://www.youtube.com/embed/hS10efyP980?si=lV0uhT-EqBcn8_HM"
-            thumbnailSrc="https://img.youtube.com/vi/hS10efyP980/maxresdefault.jpg"
+            thumbnail={IMAGES.overviewThumbnail}
             thumbnailAlt="PCIT Tracker Overview of Pages"
             className="mt-8 max-w-3xl"
           />
@@ -485,7 +486,7 @@ export default function MarketingPage() {
                   </Button>
                 </a>
               </div>
-              <p className="text-xs text-muted-foreground">
+              <p className="text-xs">
                 By signing up, you agree to our{' '}
                 <A href={TERMS_OF_SERVICE_URL} aria-label="Terms & Conditions">
                   Terms & Conditions

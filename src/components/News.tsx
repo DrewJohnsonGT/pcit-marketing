@@ -88,7 +88,7 @@ export const News = async ({ className }: { className?: string }) => {
                       rel="noopener noreferrer"
                       aria-label={`Read more about ${item.title}`}
                     >
-                      Read more
+                      View Article
                       <LuExternalLink className="ml-1 size-4" />
                     </A>
                   </div>

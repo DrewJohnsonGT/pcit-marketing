@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
+import Image from 'next/image';
 import { cn } from '~/utils/cn';
 import { ICONS } from '~/utils/icons';
+import { AppImage } from '~/utils/images';
 
 type AnimationStyle =
   | 'fade'
@@ -61,14 +63,16 @@ const animationVariants = {
 export const HeroVideoDialog = ({
   animationStyle = 'from-center',
   videoSrc,
-  thumbnailSrc,
+  thumbnail,
   thumbnailAlt = 'Video thumbnail',
   className,
+  priority = false,
 }: {
   animationStyle?: AnimationStyle;
   className?: string;
+  priority?: boolean;
+  thumbnail: AppImage;
   thumbnailAlt?: string;
-  thumbnailSrc: string;
   videoSrc: string;
 }) => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -80,15 +84,19 @@ export const HeroVideoDialog = ({
         className="group relative cursor-pointer overflow-hidden rounded-md border-4 shadow-lg"
         onClick={() => setIsVideoOpen(true)}
       >
-        <img
-          src={thumbnailSrc}
+        <Image
+          src={thumbnail.src}
           alt={thumbnailAlt}
+          width={thumbnail.width}
+          height={thumbnail.height}
           className={`
             h-full w-full
             [transform:scale(1.02)]
             object-cover
             group-hover:brightness-[0.8]
           `}
+          priority={priority}
+          loading={priority ? 'eager' : 'lazy'}
         />
         <div
           className={`
