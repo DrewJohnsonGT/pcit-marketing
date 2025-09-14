@@ -68,7 +68,7 @@ export const ProductCards = () => {
     <div
       className={`
         mt-8 grid w-full max-w-full grid-cols-1 gap-6
-        lg:grid-cols-2
+        xl:grid-cols-2
       `}
     >
       {FEATURES.map((feature) => {
@@ -84,8 +84,8 @@ export const ProductCards = () => {
             <CardContent className="p-0">
               <CardHeader
                 className={`
-                  flex flex-col gap-2 p-4
-                  lg:h-46
+                  flex flex-col gap-1 p-4
+                  xl:h-42
                 `}
               >
                 <CardTitle
@@ -112,8 +112,8 @@ export const ProductCards = () => {
                 </CardTitle>
                 <CardDescription
                   className={`
-                    flex flex-1 flex-col items-center justify-center text-foreground
-                    sm:text-xl
+                    flex flex-1 flex-col items-center justify-center text-base text-foreground
+                    lg:text-lg
                   `}
                 >
                   {feature.description}
