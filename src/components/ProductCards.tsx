@@ -85,7 +85,7 @@ export const ProductCards = () => {
               <CardHeader
                 className={`
                   flex flex-col gap-2 p-4
-                  lg:h-40
+                  lg:h-46
                 `}
               >
                 <CardTitle
