@@ -15,7 +15,8 @@ const FEATURES: Feature[] = [
     title: 'Minimize Paperwork',
   },
   {
-    description: 'Experience a clean, intuitive design that simplifies tracking and enhances user experience.',
+    description:
+      'Experience a clean, intuitive design that simplifies PCIT implementation and helps improve your efficiency and productivity.',
     icon: IMAGES.webApp.src,
     title: 'Modern Interface for Clinicians',
   },
@@ -37,7 +38,7 @@ const FEATURES: Feature[] = [
     title: 'Secure Data Management',
   },
   {
-    description: 'Try PCIT Tracker free with 3 families and up to 20 sessions as long as you want',
+    description: 'Try PCIT Tracker free with 3 families and up to 20 sessions as long as you want.',
     icon: IMAGES.gift.src,
     title: 'Try for Free',
   },
