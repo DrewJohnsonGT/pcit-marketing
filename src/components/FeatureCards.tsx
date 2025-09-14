@@ -12,7 +12,7 @@ const FEATURES: Feature[] = [
     description:
       'No more juggling stacks of paper forms—keep all your PCIT data organized and accessible in one secure place.',
     icon: IMAGES.paperwork.src,
-    title: 'No More Paperwork',
+    title: 'Minimize Paperwork',
   },
   {
     description: 'Experience a clean, intuitive design that simplifies tracking and enhances user experience.',

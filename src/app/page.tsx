@@ -413,10 +413,8 @@ export default function MarketingPage() {
           header="Features"
           subheading={
             <>
-              For nearly 40 years, PCIT data tracking has been manual. <br />
-              <Underline>PCIT Tracker brings it into the digital age</Underline>
-              <br />
-              One platform for families, sessions, and progress, with automatic charts and reports.
+              PCIT Tracker serves as a comprehensive platform for therapists to track progress more seamlessly than ever
+              before!
             </>
           }
           variant="default"
