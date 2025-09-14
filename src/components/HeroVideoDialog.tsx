@@ -90,9 +90,7 @@ export const HeroVideoDialog = ({
           width={thumbnail.width}
           height={thumbnail.height}
           className={`
-            h-full w-full
             [transform:scale(1.02)]
-            object-cover
             group-hover:brightness-[0.8]
           `}
           priority={priority}
