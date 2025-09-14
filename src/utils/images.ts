@@ -130,13 +130,13 @@ export const IMAGES: Record<AppImageKey, AppImage> = {
     width: 200,
   },
   [AppImageKey.WelcomeThumbnail]: {
-    height: 720,
+    height: 360,
     src: `${IMAGES_DIR}/welcome-thumbnail.jpg`,
-    width: 1280,
+    width: 640,
   },
   [AppImageKey.OverviewThumbnail]: {
-    height: 720,
+    height: 360,
     src: `${IMAGES_DIR}/overview-thumbnail.jpg`,
-    width: 1280,
+    width: 640,
   },
 };

@@ -385,7 +385,7 @@ export default function MarketingPage() {
                   alt="PCIT Practitioner illustration"
                   width={300}
                   height={300}
-                  className="absolute bottom-0 left-4"
+                  className="absolute bottom-4 left-4"
                 />
               </div>
             </div>
