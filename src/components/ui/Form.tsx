@@ -1,7 +1,6 @@
 'use client';
 
 import * as React from 'react';
-import { Button } from './Button';
 import { Label } from './Label';
 import * as LabelPrimitive from '@radix-ui/react-label';
 import { Slot } from '@radix-ui/react-slot';
@@ -15,7 +14,6 @@ import {
   type FieldValues,
 } from 'react-hook-form';
 import { cn } from '~/utils/cn';
-import { ICONS } from '~/utils/icons';
 
 const Form = FormProvider;
 
@@ -80,11 +78,7 @@ function FormItem({ className, ...props }: React.ComponentProps<'div'>) {
   );
 }
 
-const FormLabel: React.FC<
-  React.ComponentProps<typeof LabelPrimitive.Root> & {
-    help?: React.ReactNode;
-  }
-> = ({ className, help, ...props }) => {
+const FormLabel: React.FC<React.ComponentProps<typeof LabelPrimitive.Root>> = ({ className, ...props }) => {
   const { error, formItemId } = useFormField();
 
   return (
@@ -94,11 +88,6 @@ const FormLabel: React.FC<
         htmlFor={formItemId}
         {...props}
       />
-      {help && (
-        <Button variant="ghost" size="smIcon" tooltip={help}>
-          <ICONS.Info />
-        </Button>
-      )}
     </div>
   );
 };
