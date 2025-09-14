@@ -14,7 +14,7 @@ import { SocialShareButtons } from '~/components/SocialShareButtons';
 import { Testimonials } from '~/components/Testimonials';
 import { Button } from '~/components/ui/Button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '~/components/ui/DropdownMenu';
-import { A, H2, Underline } from '~/components/ui/Typography';
+import { A, H1, H2, H3, P, Underline } from '~/components/ui/Typography';
 import { cn } from '~/utils/cn';
 import {
   APP_NAME,
@@ -85,7 +85,7 @@ const Heading = ({
   variant?: SectionVariant;
 }) => {
   return (
-    <h2
+    <H2
       className={cn(
         `
           mb-8 text-center text-4xl font-medium tracking-normal select-none
@@ -96,7 +96,7 @@ const Heading = ({
       )}
     >
       {children}
-    </h2>
+    </H2>
   );
 };
 
@@ -110,7 +110,7 @@ const Subheading = ({
   variant?: SectionVariant;
 }) => {
   return (
-    <p
+    <P
       className={cn(
         `
           mb-8 text-center text-lg
@@ -121,7 +121,7 @@ const Subheading = ({
       )}
     >
       {children}
-    </p>
+    </P>
   );
 };
 
@@ -145,7 +145,7 @@ const Section = ({
       id={id}
       className={cn(
         `
-          relative flex w-full max-w-full scroll-m-20 flex-col items-center px-4 py-6 transition-colors duration-500
+          flex w-full max-w-full scroll-m-20 flex-col items-center px-4 py-6
           md:px-6 md:py-12
           lg:py-20
         `,
@@ -320,18 +320,11 @@ export default function MarketingPage() {
                   `}
                 />
               </div>
-              <div
-                className={`
-                  text-3xl select-none
-                  sm:text-4xl
-                  md:text-5xl
-                  lg:text-6xl/none
-                `}
-              >
+              <H1>
                 <span className="text-primary-light">Minimize</span> Paperwork
                 <br />
                 <span className="text-primary-light">Maximize</span> Productivity
-              </div>
+              </H1>
               <ul
                 className={`
                   z-10 mt-2 flex max-w-lg flex-col gap-1 p-4 text-lg font-medium text-inherit
@@ -420,7 +413,7 @@ export default function MarketingPage() {
           variant="default"
         >
           <FeatureCards />
-          <H2>Overview of Pages</H2>
+          <H3>Overview of Pages</H3>
           <HeroVideoDialog
             videoSrc="https://www.youtube.com/embed/hS10efyP980?si=lV0uhT-EqBcn8_HM"
             thumbnail={IMAGES.overviewThumbnail}

@@ -24,8 +24,10 @@ const createComponent = <T extends HTMLElement>(
 export const H1 = createComponent<HTMLHeadingElement>(
   'h1',
   cn(`
-    scroll-m-20 text-xl font-bold tracking-tight text-primary select-none
-    sm:text-3xl
+    text-3xl tracking-tight select-none
+    sm:text-4xl
+    md:text-5xl
+    lg:text-6xl
   `),
   'H1',
 );
@@ -33,9 +35,9 @@ export const H1 = createComponent<HTMLHeadingElement>(
 export const H2 = createComponent<HTMLHeadingElement>(
   'h2',
   cn(`
-    scroll-m-20 border-b py-2 text-2xl font-semibold tracking-tight text-secondary select-none
+    py-2 text-3xl font-semibold tracking-tight text-secondary select-none
     first:mt-0
-    sm:text-3xl
+    sm:text-4xl
   `),
   'H2',
 );
@@ -43,8 +45,8 @@ export const H2 = createComponent<HTMLHeadingElement>(
 export const H3 = createComponent<HTMLHeadingElement>(
   'h3',
   cn(`
-    scroll-m-20 text-xl font-semibold tracking-tight text-secondary select-none
-    sm:text-2xl
+    text-2xl font-semibold tracking-tight text-secondary select-none
+    sm:text-3xl
   `),
   'H3',
 );
@@ -52,8 +54,8 @@ export const H3 = createComponent<HTMLHeadingElement>(
 export const H4 = createComponent<HTMLHeadingElement>(
   'h4',
   cn(`
-    scroll-m-20 text-lg font-semibold tracking-tight text-primary select-none
-    sm:text-xl
+    text-xl font-semibold tracking-tight text-primary select-none
+    sm:text-2xl
   `),
   'H4',
 );
