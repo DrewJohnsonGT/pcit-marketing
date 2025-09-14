@@ -2,7 +2,6 @@ import { Analytics } from '@vercel/analytics/next';
 import { type Metadata } from 'next';
 import { DM_Sans } from 'next/font/google';
 import Head from 'next/head';
-import { TooltipProvider } from '~/components/ui/Tooltip';
 import { APP_DESCRIPTION, APP_KEYWORDS, APP_NAME } from '~/utils/constants';
 import { IMAGES } from '~/utils/images';
 
@@ -69,7 +68,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <meta name="apple-mobile-web-app-title" content="PCIT Tracker" />
       </Head>
       <body className={dmSansFont.className}>
-        <TooltipProvider>{children}</TooltipProvider>
+        {children}
         <Analytics />
       </body>
     </html>

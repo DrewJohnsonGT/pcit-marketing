@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { LoadingSpinner } from './LoadingSpinner';
-import { Tooltip, TooltipContent, TooltipTrigger } from './Tooltip';
 import { Slot } from '@radix-ui/react-slot';
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
@@ -130,9 +129,6 @@ interface ButtonProps extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>
   asChild?: boolean;
   loading?: boolean;
   loadingText?: string;
-  tooltip?: string | React.ReactNode;
-  tooltipDelay?: number;
-  tooltipSide?: React.ComponentProps<typeof TooltipContent>['side'];
 }
 
 const ButtonLoadingContent = ({
@@ -165,15 +161,12 @@ const Button: React.FC<React.ComponentProps<'button'> & ButtonProps> = ({
   loading,
   loadingText = 'Loading...',
   size,
-  tooltip,
-  tooltipDelay = 0,
-  tooltipSide = 'top',
   variant = 'primary',
   type = 'button',
   ...props
 }) => {
   const Comp = asChild ? Slot : 'button';
-  const buttonContent = (
+  return (
     <Comp
       className={cn(buttonVariants({ color, size, variant }), className)}
       disabled={props.disabled || loading}
@@ -182,17 +175,6 @@ const Button: React.FC<React.ComponentProps<'button'> & ButtonProps> = ({
     >
       {loading ? <ButtonLoadingContent size={size} loadingText={loadingText} variant={variant} /> : props.children}
     </Comp>
-  );
-
-  return tooltip ? (
-    <Tooltip delayDuration={tooltipDelay}>
-      <TooltipTrigger className={cn(props.disabled && 'cursor-default')} asChild>
-        <span>{buttonContent}</span>
-      </TooltipTrigger>
-      <TooltipContent side={tooltipSide}>{tooltip}</TooltipContent>
-    </Tooltip>
-  ) : (
-    buttonContent
   );
 };
 
