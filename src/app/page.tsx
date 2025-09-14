@@ -455,8 +455,9 @@ export default function MarketingPage() {
           header="FAQs"
           subheading={
             <>
-              Got questions? We&apos;ve got answers. <br /> If you don&apos;t find what you&apos;re looking for, please
-              reach out to us.
+              Click below to read our answers to some of our users’ frequently asked questions.
+              <br />
+              Don&apos;t see your question? <A href="/#contact">Contact us</A> and we&apos;ll be happy to help.
             </>
           }
           variant="default"

@@ -1,6 +1,6 @@
 import { ICONS } from '../utils/icons';
 import { Card, CardContent } from './ui/Card';
-import { H4, Underline } from './ui/Typography';
+import { A, H4, Underline } from './ui/Typography';
 
 interface FeatureCardProps {
   body: string;
@@ -19,7 +19,7 @@ const featureCards: FeatureCardProps[] = [
     title: 'Ad-Free, Data-Secure Experience',
   },
   {
-    body: 'Subscription revenue goes right back into the platform: building upcoming features (such as custom session reports or supervision model views), working toward achieving and maintaining HIPAA compliance, and providing timely customer support.',
+    body: 'Subscription revenue goes right back into the platform: building upcoming features (such as custom session reports or supervision model views), working toward achieving and maintaining HIPAA compliance certification, and providing timely customer support.',
     icon: ICONS.Code,
     iconBackground: 'bg-secondary/10',
     iconText: 'text-secondary',
@@ -96,8 +96,8 @@ export const CostExplanation = () => {
 
       <div className="rounded-lg bg-muted/50 p-4 text-center">
         <p className="text-sm">
-          Try PCIT Tracker free as long as you want! <br /> If you&apos;d like to try the premium features, let us know
-          and we&apos;ll get you set up with a free trial. <br />
+          Try PCIT Tracker free as long as you want! <br /> If you&apos;d like to try the premium features,{' '}
+          <A href="/#contact">let us know</A> and we&apos;ll get you set up with a free trial. <br />
           <br /> We&apos;re confident that once you experience the streamlined, ad-free workflow of PCIT Tracker,
           you&apos;ll see why investing in the premium version pays off in saved time, reduced paperwork, and better
           client outcomes.

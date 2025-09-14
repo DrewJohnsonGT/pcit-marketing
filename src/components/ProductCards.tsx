@@ -74,61 +74,65 @@ export const ProductCards = () => {
       {FEATURES.map((feature) => {
         const Icon = feature.icon;
         return (
-          <div key={feature.title} className="w-full">
-            <Card
-              className="relative w-full overflow-hidden border border-border shadow-lg"
-              style={{
-                background: `linear-gradient(to bottom right, ${feature.gradientTop}, ${feature.gradientBottom})`,
-              }}
-            >
-              <CardContent className="p-0">
-                <CardHeader className="flex flex-col gap-4 p-4">
-                  <CardTitle
-                    className={`
-                      flex w-full flex-col items-center gap-2
-                      sm:flex-row sm:items-start
-                    `}
-                  >
-                    <Icon
-                      className="size-10! shrink-0 text-primary"
-                      style={{
-                        color: feature.iconColor,
-                      }}
-                      aria-hidden="true"
-                    />
-                    <span
-                      className={`
-                        text-center text-2xl font-bold
-                        sm:text-3xl
-                      `}
-                    >
-                      {feature.title}
-                    </span>
-                  </CardTitle>
-                  <CardDescription
-                    className={`
-                      text-foreground
-                      sm:text-xl
-                    `}
-                  >
-                    {feature.description}
-                  </CardDescription>
-                </CardHeader>
-                <div className="relative w-full flex-1">
-                  <Image
-                    src={feature.image}
-                    alt={feature.title}
-                    width={feature.image.width}
-                    height={feature.image.height}
-                    sizes="(max-width: 1023px) 100vw, 50vw"
-                    className={`right-0 ml-auto h-auto w-full object-contain`}
-                    priority={false}
-                    loading="lazy"
+          <Card
+            key={feature.title}
+            className="relative w-full overflow-hidden border border-border shadow-lg"
+            style={{
+              background: `linear-gradient(to bottom right, ${feature.gradientTop}, ${feature.gradientBottom})`,
+            }}
+          >
+            <CardContent className="p-0">
+              <CardHeader
+                className={`
+                  flex flex-col gap-2 p-4
+                  lg:h-40
+                `}
+              >
+                <CardTitle
+                  className={`
+                    flex w-full flex-row items-center
+                    sm:items-start
+                  `}
+                >
+                  <Icon
+                    className="size-10! shrink-0 text-primary"
+                    style={{
+                      color: feature.iconColor,
+                    }}
+                    aria-hidden="true"
                   />
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+                  <span
+                    className={`
+                      text-center text-2xl font-bold
+                      sm:text-3xl
+                    `}
+                  >
+                    {feature.title}
+                  </span>
+                </CardTitle>
+                <CardDescription
+                  className={`
+                    flex flex-1 flex-col items-center justify-center text-foreground
+                    sm:text-xl
+                  `}
+                >
+                  {feature.description}
+                </CardDescription>
+              </CardHeader>
+              <div className="relative w-full flex-1">
+                <Image
+                  src={feature.image}
+                  alt={feature.title}
+                  width={feature.image.width}
+                  height={feature.image.height}
+                  sizes="(max-width: 1023px) 100vw, 50vw"
+                  className={`right-0 ml-auto h-auto w-full object-contain`}
+                  priority={false}
+                  loading="lazy"
+                />
+              </div>
+            </CardContent>
+          </Card>
         );
       })}
     </div>

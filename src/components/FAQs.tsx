@@ -1,4 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/Accordion';
+import { H3, H4 } from './ui/Typography';
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -88,12 +89,16 @@ export const FAQs = async ({
       <Accordion type="multiple" defaultValue={defaultHeadersOpen ?? sectionKeys} className="w-full">
         {sectionKeys.map((section) => (
           <AccordionItem key={section} value={section}>
-            <AccordionTrigger className="text-3xl font-bold text-secondary">{section}</AccordionTrigger>
+            <AccordionTrigger>
+              <H3>{section}</H3>
+            </AccordionTrigger>
             <AccordionContent>
               <Accordion type="single" className="w-full" defaultValue={defaultOpenQuestion} collapsible>
                 {faqs[section].map((q) => (
                   <AccordionItem key={q.value} id={q.value} value={q.value} className="border-b">
-                    <AccordionTrigger className="text-xl font-semibold">{q.question}</AccordionTrigger>
+                    <AccordionTrigger>
+                      <H4>{q.question}</H4>
+                    </AccordionTrigger>
                     <AccordionContent className="pb-4 pl-6 text-lg">
                       <MarkdownAnswer content={q.answer} />
                     </AccordionContent>

@@ -52,8 +52,8 @@ export const H3 = createComponent<HTMLHeadingElement>(
 export const H4 = createComponent<HTMLHeadingElement>(
   'h4',
   cn(`
-    scroll-m-20 text-xl font-semibold tracking-tight text-primary select-none
-    sm:text-2xl
+    scroll-m-20 text-lg font-semibold tracking-tight text-primary select-none
+    sm:text-xl
   `),
   'H4',
 );
