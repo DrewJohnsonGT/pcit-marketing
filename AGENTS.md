@@ -22,6 +22,12 @@
 - The project uses a comprehensive design system with semantic color tokens
 - Custom CSS should be minimal and prefer Tailwind utilities
 
+### Comments
+
+- Only add comments if absolutely necessary
+- Do not add comments to code that is self-explanatory
+- Do not add comments to code that is already well-documented
+
 ### Component Architecture
 
 - **Shadcn/ui components** from `~/components/ui` should be used as fundamental building blocks

@@ -71,16 +71,6 @@
 
   --color-border: hsl(var(--border));
 
-  /* CHART COLORS */
-  --color-chart-blue: hsl(var(--chart-blue));
-  --color-chart-light-blue: hsl(var(--chart-light-blue));
-  --color-chart-purple: hsl(var(--chart-purple));
-  --color-chart-green: hsl(var(--chart-green));
-  --color-chart-orange: hsl(var(--chart-orange));
-  --color-chart-pink: hsl(var(--chart-pink));
-  --color-chart-red: hsl(var(--chart-red));
-  --color-chart-yellow: hsl(var(--chart-yellow));
-
   /* SEMANTIC COLORS */
   --color-family-background: hsl(var(--family-background));
   --color-family-border: hsl(var(--family-border));
@@ -105,16 +95,6 @@
   --color-pdf-foreground: hsl(var(--pdf-foreground));
   --color-csv-foreground: hsl(var(--csv-foreground));
   --color-json-foreground: hsl(var(--json-foreground));
-
-  /* SIDEBAR COLORS */
-  --color-sidebar-accent: hsl(var(--sidebar-accent));
-  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
-  --color-sidebar-border: hsl(var(--sidebar-border));
-  --color-sidebar: hsl(var(--sidebar-background));
-  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
-  --color-sidebar-primary: hsl(var(--sidebar-primary));
-  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
-  --color-sidebar-ring: hsl(var(--sidebar-ring));
 
   /* SHADOWS */
   --shadow-button:
@@ -151,19 +131,6 @@
       height: 0;
     }
   }
-  @keyframes dash {
-    0% {
-      stroke-dasharray: 1, 200;
-      stroke-dashoffset: 0;
-    }
-    50% {
-      stroke-dasharray: 90, 200;
-      stroke-dashoffset: -35px;
-    }
-    100% {
-      stroke-dashoffset: -125px;
-    }
-  }
   @keyframes expand {
     0%,
     100% {
@@ -172,38 +139,6 @@
     50% {
       transform: scaleX(1.5);
     }
-  }
-  @keyframes shake {
-    0% {
-      transform: rotate(0deg);
-    }
-    25% {
-      transform: rotate(5deg);
-    }
-    50% {
-      transform: rotate(0deg);
-    }
-    75% {
-      transform: rotate(-5deg);
-    }
-    100% {
-      transform: rotate(0deg);
-    }
-  }
-}
-
-@layer utilities {
-  :root {
-    --sidebar-background: var(--accent-background);
-    --sidebar-foreground: var(--foreground);
-    --sidebar-primary: var(--accent);
-    --sidebar-primary-foreground: var(--accent-foreground);
-    --sidebar-accent: var(--accent);
-    --sidebar-accent-foreground: var(--accent-foreground);
-    --sidebar-border: var(--border);
-    --sidebar-ring: var(--ring);
-    --sidebar-width: 10rem;
-    --sidebar-width-icon: 2.5rem;
   }
 }
 
@@ -255,16 +190,6 @@
 
     --link: var(--primary);
     --ring: var(--secondary-dark);
-
-    /* Chart palette */
-    --chart-blue: 210 100% 38%;
-    --chart-light-blue: 210 100% 60%;
-    --chart-purple: 275 70% 60%;
-    --chart-green: 130 60% 45%;
-    --chart-orange: 30 80% 55%;
-    --chart-pink: 340 100% 70%;
-    --chart-red: 0 100% 50%;
-    --chart-yellow: 48 100% 50%;
 
     /* Semantic color groups */
     --family-background: 245 76% 85%;
