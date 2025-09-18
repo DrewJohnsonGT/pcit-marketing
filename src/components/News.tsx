@@ -30,10 +30,13 @@ interface NewsItem {
 }
 
 async function getNews(): Promise<NewsItem[]> {
-  const newsResponse = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/public/news`, {
-    // This ensures the data is fetched at build time and cached
-    cache: 'force-cache',
-  });
+  const newsResponse = await fetch(
+    `${process.env.NEXT_PUBLIC_APP_URL}/api/public/news?v=${process.env.NEXT_PUBLIC_APP_VERSION}`,
+    {
+      // This ensures the data is fetched at build time and cached
+      cache: 'force-cache',
+    },
+  );
 
   if (!newsResponse.ok) {
     throw new Error('Failed to fetch news data');
