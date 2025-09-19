@@ -43,13 +43,10 @@ interface Update {
 }
 
 async function getReleaseNotes(): Promise<Update[]> {
-  const releaseNotesResponse = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/public/release-notes?v=${process.env.NEXT_PUBLIC_APP_VERSION}`,
-    {
-      // This ensures the data is fetched at build time and cached
-      cache: 'force-cache',
-    },
-  );
+  const releaseNotesResponse = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/public/release-notes`, {
+    cache: 'force-cache',
+    next: { tags: ['release-notes'] },
+  });
 
   if (!releaseNotesResponse.ok) {
     throw new Error('Failed to fetch release notes data');

@@ -20,10 +20,10 @@ interface FaqItem {
 type FaqContent = Record<FaqSection, FaqItem[]>;
 
 const getFaqs = async (): Promise<FaqContent> => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_APP_URL}/api/public/faqs?v=${process.env.NEXT_PUBLIC_APP_VERSION}`,
-    { cache: 'force-cache' },
-  );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/public/faqs`, {
+    cache: 'force-cache',
+    next: { tags: ['faqs'] },
+  });
   if (!res.ok) {
     throw new Error('Failed to fetch FAQs');
   }
