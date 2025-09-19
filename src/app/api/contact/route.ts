@@ -102,7 +102,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     if (!parsed.success) {
       // Return all validation errors in a structured way
-      return NextResponse.json({ errors: parsed.error.format() }, { status: 400 });
+      return NextResponse.json({ errors: z.treeifyError(parsed.error) }, { status: 400 });
     }
 
     const sanitizedData: ContactFormData = {

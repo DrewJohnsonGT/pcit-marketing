@@ -13,7 +13,8 @@
     "format": "prettier --write .",
     "unused": "knip --fix --no-exit-code",
     "check": "pnpm unused && pnpm format && pnpm lint && pnpm typecheck",
-    "clean": "rm -rf .next && rm -rf node_modules"
+    "clean": "rm -rf .next && rm -rf node_modules",
+    "invalidate-cache": "curl -X POST https://pcit-marketing.vercel.app/api/invalidate-cache"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
