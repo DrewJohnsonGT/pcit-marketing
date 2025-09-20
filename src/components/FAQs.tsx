@@ -88,7 +88,7 @@ export const FAQs = async ({
   );
 
   return (
-    <div className="mx-auto flex w-full max-w-3xl flex-col gap-4 p-2">
+    <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 p-2">
       <Accordion type="multiple" defaultValue={defaultHeadersOpen ?? sectionKeys} className="w-full">
         {sectionKeys.map((section) => (
           <AccordionItem key={section} value={section}>
