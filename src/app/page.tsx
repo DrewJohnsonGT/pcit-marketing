@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { ContactForm } from '~/components/ContactForm';
 import { CostExplanation } from '~/components/CostExplanation';
@@ -228,7 +227,7 @@ export default function MarketingPage() {
             md:justify-center
           `}
         >
-          <Image src={IMAGES.logo.src} alt={APP_NAME} width={64} height={64} />
+          <img src={IMAGES.logo.src} alt={APP_NAME} width={64} height={64} />
           <span
             className={`
               hidden text-3xl font-semibold tracking-wider text-primary-dark uppercase
@@ -482,7 +481,7 @@ export default function MarketingPage() {
         <Section>
           <div className="flex flex-col items-center gap-4 text-center">
             <div className="flex flex-col items-center gap-2">
-              <Image src={IMAGES.logo.src} alt="PCIT Tracker" className="mx-auto shrink-0" width={150} height={150} />
+              <img src={IMAGES.logo.src} alt="PCIT Tracker" className="mx-auto shrink-0" width={150} height={150} />
               <Heading>Ready to Get Started?</Heading>
               <Subheading>Take your PCIT therapy to the next level.</Subheading>
             </div>

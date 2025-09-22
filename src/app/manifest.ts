@@ -27,6 +27,11 @@ export default function manifest(): MetadataRoute.Manifest {
       },
       {
         sizes: '100x100',
+        src: `${IMAGES_DIR}/logo.svg`,
+        type: 'image/svg+xml',
+      },
+      {
+        sizes: '100x100',
         src: `${IMAGES_DIR}/logo-no-text.png`,
         type: 'image/png',
       },

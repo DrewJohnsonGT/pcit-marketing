@@ -80,7 +80,7 @@ export const IMAGES: Record<AppImageKey, AppImage> = {
   },
   [AppImageKey.Logo]: {
     height: 200,
-    src: `${IMAGES_DIR}/logo.png`,
+    src: `${IMAGES_DIR}/logo.svg`,
     width: 200,
   },
   [AppImageKey.Madeline]: {
