@@ -29,7 +29,7 @@ export const PRICING_PLANS: Partial<Record<PricingPlan, PricingPlanInfo>> = {
       'Unlimited Sessions',
       'Family Export/Import',
       'Report Generation',
-      'Dedicated Support',
+      'Organization Management',
     ],
     icon: PiTriangleDuotone,
     name: 'Pro',
@@ -38,13 +38,7 @@ export const PRICING_PLANS: Partial<Record<PricingPlan, PricingPlanInfo>> = {
   [PricingPlan.ENTERPRISE]: {
     color: '#6A1B9A',
     description: 'Tailored solutions for PCIT organizations',
-    features: [
-      'Everything in Pro',
-      'Manage your organization',
-      'Cheaper per user licenses',
-      'Custom Integrations',
-      'API Access',
-    ],
+    features: ['Everything in Pro', 'Manage user licenses', 'Custom Integrations', 'Dedicated Support', 'API Access'],
     icon: PiHexagonDuotone,
     name: 'Enterprise',
     price: 'Custom',
