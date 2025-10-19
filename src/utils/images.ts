@@ -75,7 +75,7 @@ export const IMAGES: Record<AppImageKey, AppImage> = {
   // other
   [AppImageKey.Drew]: {
     height: 500,
-    src: `${IMAGES_DIR}/drew.webp`,
+    src: `${IMAGES_DIR}/drew.png`,
     width: 500,
   },
   [AppImageKey.Logo]: {
