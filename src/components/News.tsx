@@ -29,7 +29,7 @@ interface NewsItem {
   title: string;
 }
 
-async function getNews(): Promise<NewsItem[]> {
+async function getNewsData(): Promise<NewsItem[]> {
   const newsResponse = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/public/news`, {
     cache: 'force-cache',
     next: { tags: ['news'] },
@@ -43,7 +43,7 @@ async function getNews(): Promise<NewsItem[]> {
 }
 
 export const News = async ({ className }: { className?: string }) => {
-  const newsData = await getNews();
+  const newsData = await getNewsData();
 
   return (
     <Card className={cn('max-w-xl', className)}>
@@ -57,11 +57,18 @@ export const News = async ({ className }: { className?: string }) => {
       </CardHeader>
       <ScrollArea className="h-[550px]" type="always">
         <CardContent>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-2">
             {newsData.map((item, index) => (
               <Card key={index} className="flex flex-col">
                 <CardHeader className="flex flex-col gap-2">
-                  <CardTitle className="text-lg font-semibold">{item.title}</CardTitle>
+                  <CardTitle
+                    className={`
+                      text-lg font-semibold
+                      sm:text-xl
+                    `}
+                  >
+                    {item.title}
+                  </CardTitle>
                   <div className="flex w-full items-center justify-between text-sm">
                     <span>{formatDate(new Date(item.date), 'MMMM d, yyyy')}</span>
                   </div>
@@ -88,7 +95,7 @@ export const News = async ({ className }: { className?: string }) => {
                       rel="noopener noreferrer"
                       aria-label={`Read more about ${item.title}`}
                     >
-                      View Article
+                      Read more
                       <LuExternalLink className="ml-1 size-4" />
                     </A>
                   </div>
