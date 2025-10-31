@@ -49,6 +49,10 @@ const getCurrentEasternTime = (): string => {
 
 const sendDiscordNotification = async (embed: Embed): Promise<void> => {
   try {
+    if (process.env.NODE_ENV === 'development') {
+      console.info('Discord notification:', embed);
+      return;
+    }
     if (!process.env.DISCORD_WEBHOOK_URL) {
       console.warn('DISCORD_WEBHOOK_URL environment variable is not set');
       return;
@@ -101,7 +105,6 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const parsed = contactFormSchema.safeParse(body);
 
     if (!parsed.success) {
-      // Return all validation errors in a structured way
       return NextResponse.json({ errors: z.treeifyError(parsed.error) }, { status: 400 });
     }
 

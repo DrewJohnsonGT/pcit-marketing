@@ -5,9 +5,13 @@ import { cn } from '~/utils/cn';
 
 const spinnerVariants = cva('size-12 shrink-0 origin-center stroke-[6px]', {
   defaultVariants: {
+    color: 'primary',
     size: 'md',
   },
   variants: {
+    color: {
+      primary: 'stroke-primary',
+    },
     size: {
       lg: 'size-14',
       md: 'size-10',
@@ -19,16 +23,13 @@ const spinnerVariants = cva('size-12 shrink-0 origin-center stroke-[6px]', {
 
 const LoadingSpinner: React.FC<React.ComponentProps<'svg'> & VariantProps<typeof spinnerVariants>> = ({
   className,
+  color,
   size,
   ...props
 }) => (
-  <svg
-    viewBox="0 0 50 50"
-    className={cn(spinnerVariants({ size }), 'animate-spin stroke-primary', className)}
-    {...props}
-  >
+  <svg viewBox="0 0 50 50" className={cn(spinnerVariants({ color, size }), `animate-spin`, className)} {...props}>
     <circle
-      className="animate-[dash_1.5s_ease-in-out_infinite] fill-none"
+      className={cn('animate-loading-spinner fill-none')}
       cx="25"
       cy="25"
       r="20"

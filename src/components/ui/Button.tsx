@@ -146,8 +146,8 @@ const ButtonLoadingContent = ({
         'size-4',
         size !== 'icon' && size !== 'smIcon' && 'mr-2',
         variant === 'primary' && 'stroke-primary-foreground',
+        variant === 'secondary' && 'stroke-secondary-foreground',
       )}
-      color="static"
       size="sm"
     />
     {size !== 'icon' && size !== 'smIcon' && <span>{loadingText}</span>}
